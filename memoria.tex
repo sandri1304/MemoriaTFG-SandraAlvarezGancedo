@@ -246,90 +246,28 @@ A pesar de todo ello, las personas seguían siendo muy reticentes a comprar por i
 
 El comercio electrónico, además de suponer un canal adicional de ventas tiene la ventaja de permitir nuevos mercados y ampliar posibilidades de negocio, lo que hace que aquellas tiendas pequeñas en las que todavía no se ha implatado este tipo de comercio quieran hacerlo. De esta necesidad, surgió la idea de realizar este proyecto. Pues, me permitía ampliar mis conocimientos tecnológicos y ser una salida profesional importante. 
 
-
-\section{Sección}
-\label{sec:seccion}
-
-Esto es una sección, que es una estructura menor que un capítulo. 
-
-Por cierto, a veces me comentáis que no os compila por las tildes.
-Eso es un problema de codificación.
-Cambiad de ``UTF-8'' a ``ISO-Latin-1'' (o vicecersa) y funcionará.
-
-\subsection{Estilo}
-\label{subsec:estilo}
-
-Recomiendo leer los consejos prácticos sobre escribir documentos científicos en \LaTeX \ de Diomidis Spinellis\footnote{\url{https://github.com/dspinellis/latex-advice}}.
-
-Lee sobre el uso de las comas\footnote{\url{http://narrativabreve.com/2015/02/opiniones-de-un-corrector-de-estilo-11-recetas-para-escribir-correctamente-la-coma.html}}. 
-Las comas en español no se ponen al tuntún.
-Y nunca, nunca entre el objeto y el predicado (p.ej. en ``Yo, hago el TFG'' sobre la coma).
-
-A continuación, viene una figura, la Figura~\ref{figura:foro_hilos}. 
-Observarás que el texto dentro de la referencia es el identificador de la figura (que se corresponden con el ``label'' dentro de la misma). 
-También habrás tomado nota de cómo se ponen las ``comillas dobles'' para que se muestren correctamente. 
-Nota que hay unas comillas de inicio (``) y otras de cierre (''), y que son diferentes.
-Volviendo a las referencias, nota que al compilar, la primera vez se crea un diccionario con las referencias, y en la segunda compilación se ``rellenan'' estas referencias. 
-Por eso hay que compilar dos veces tu memoria.
-Si no, no se crearán las referencias.
-
- \begin{figure}
-    \centering
-    \includegraphics[bb=0 0 800 600, width=12cm, keepaspectratio]{img/foro1}
-    \caption{Página con enlaces a hilos}
-    \label{figura:foro_hilos}
- \end{figure}
-
-A continuación un bloque ``verbatim'', que se utiliza para mostrar texto tal cual.
-Se puede utilizar para ofrecer el contenido de correos electrónicos, código, entre otras cosas.
-
-{\footnotesize
-\begin{verbatim}
-    From gaurav at gold-solutions.co.uk  Fri Jan 14 14:51:11 2005
-    From: gaurav at gold-solutions.co.uk (gaurav_gold)
-    Date: Fri Jan 14 19:25:51 2005
-    Subject: [Mailman-Users] mailman issues
-    Message-ID: <003c01c4fa40$1d99b4c0$94592252@gaurav7klgnyif>
-
-    Dear Sir/Madam,
-    How can people reply to the mailing list?  How do i turn off
-    this feature? How can i also enable a feature where if someone
-    replies the newsletter the email gets deleted?
-    Thanks
-
-    From msapiro at value.net  Fri Jan 14 19:48:51 2005
-    From: msapiro at value.net (Mark Sapiro)
-    Date: Fri Jan 14 19:49:04 2005
-    Subject: [Mailman-Users] mailman issues
-    In-Reply-To: <003c01c4fa40$1d99b4c0$94592252@gaurav7klgnyif>
-    Message-ID: <PC173020050114104851057801b04d55@msapiro>
-
-    gaurav_gold wrote:
-    >How can people reply to the mailing list?  How do i turn off
-    this feature? How can i also enable a feature where if someone
-    replies the newsletter the email gets deleted?
-
-    See the FAQ
-    >Mailman FAQ: http://www.python.org/cgi-bin/faqw-mm.py
-    article 3.11
-\end{verbatim}
-}
-
 \section{Estructura de la memoria}
 \label{sec:estructura}
 
-En esta sección se debería introducir la esctura de la memoria. 
-
-Así:
+La memoria comienza con un resumen, el cual explica de manera breve en que consiste el proyecto así como las tecnologías que se han usado para desarrollarlo. A continuación, se sitúan los agradecimientos y los dos índices, el índice general y el índice de figuras. Después, van los 6 capítulos en los que se divide la memoria y los apéndices.   
 
 \begin{itemize}
-  \item En el primer capítulo se hace una intro al proyecto.
+  \item \textbf{Capítulo 1: Introducción.} Se describe de manera general en que consiste el proyecto. Además, se especifica cual es la estructura de la memoria. Al utilizar datos sensibles de personas, en esta sección se detalla brevemente la ley en la que se debe enmarcar el proyecto, siendo esta la Ley de Protección de datos. 
   
-  \item En el capítulo~\ref{chap:objetivos} (ojo, otra referencia automática) se muestran los objetivos del proyecto.
+  \item \textbf{Capítulo 2: Objetivos y motivaciones.} Se describen los objetivos que se pretenden alcanzar con el desarrollo y finalización del proyecto. Se detallan las motivaciones por las cuales se ha decidido realizar una aplicación web de comercio electrónico. Y, además, se explica el planing temporal seguido para terminar con éxito el trabajo. 
   
-  \item A continuación se presenta el estado del arte en el capítulo~\ref{chap:estado}.
+  \item \textbf{Capítulo 3: Estado del arte.} Se explican las teconologías usadas en el desarrollo de la aplicación. 
+
+  \item \textbf{Capítulo 4: Diseño e implementación.} Se describe de manera detallada la arquitectura, el diseño e implementación del sevidor (en el que se explicará el API con todas las llamadas que se realizan en la aplicación), el diseño de la base de datos y el diseño e implementación del cliente. Además, se describerán los Test Cases que se han realizado para el testing de la aplicación. 
+
+  \item \textbf{Capítulo 5: Resultados.} Se analiza si se ha conseguido alcanzar el resultado que se esperaba, así como, los problemas que se han encontrado en el transcurso del proyecto y como se han conseguido solucionar. 
+
+  \item \textbf{Capítulo 6: Conclusiones.} Se detallan las conclusiones que se han obtenido con el desarrollo de la aplicación, los conocimientos que se han afianzado y los que se han adquirido. Y, por último, las posibles líneas futuras que se podrían desarrollar para mejorar la aplicación. 
+
+  \item \textbf{Apéndice A: Manual de instalación.} Se explica todo lo que se debe instalar para que la aplicación funcione correctamente en cualquier ordenador, siempre en un entorno  local. 
+
+  \item \textbf{Apéndice B: Manual de usuario.} Se describen los pasos que el cliente debe llevar a cabo para la finalización de la compra online. 
   
-  \item \ldots
 \end{itemize}
 
 

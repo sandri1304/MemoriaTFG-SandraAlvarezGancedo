@@ -338,70 +338,33 @@ Lo importante es que quede claro cuánto tiempo llevas (tiempo natural, p.ej., 6 
 \chapter{Estado del arte}
 \label{chap:estado}
 
-Descripción de las tecnologías que utilizas en tu trabajo. 
-Con dos o tres párrafos por cada tecnología, vale. 
-Se supone que aquí viene todo lo que no has hecho tú.
 
-Puedes citar libros, como el de Bonabeau et al., sobre procesos estigmérgicos~\cite{bonabeau:_swarm}. 
-Me encantan los procesos estigmérgicos.
-Deberías leer más sobre ellos.
-Pero quizás no ahora, que tenemos que terminar la memoria para sacarnos por fin el título.
-Nota que el \~ \ añade un espacio en blanco, pero no deja que exista un salto de línea. 
-Imprescindible ponerlo para las citas.
-
-Citar es importantísimo en textos científico-técnicos. 
-Porque no partimos de cero.
-Es más, partir de cero es de tontos; lo suyo es aprovecharse de lo ya existente para construir encima y hacer cosas más sofisticadas.
-¿Dónde puedo encontrar textos científicos que referenciar?
-Un buen sitio es Google Scholar\footnote{\url{http://scholar.google.com}}.
-Por ejemplo, si buscas por ``stigmergy libre software'' para encontrar trabajo sobre software libre y el concepto de estigmergia (¿te he comentado que me gusta el concepto de estigmergia ya?), encontrarás un artículo que escribí hace tiempo cuyo título es ``Self-organized development in libre software: a model based on the stigmergy concept''.
-Si pulsas sobre las comillas dobles (entre la estrella y el ``citado por ...'', justo debajo del extracto del resumen del artículo, te saldrá una ventana emergente con cómo citar.
-Abajo a la derecha, aparece un enlace BibTeX.
-Púlsalo y encontrarás la referencia en formato BibTeX, tal que así:
-
-{\footnotesize
-\begin{verbatim}
-@inproceedings{robles2005self,
-  title={Self-organized development in libre software:
-         a model based on the stigmergy concept},
-  author={Robles, Gregorio and Merelo, Juan Juli\'an 
-          and Gonz\'alez-Barahona, Jes\'us M.},
-  booktitle={ProSim'05},
-  year={2005}
-}
-\end{verbatim}
-}
-
-Copia el texto en BibTeX y pégalo en el fichero \texttt{memoria.bib}, que es donde están las referencias bibliográficas.
-Para incluir la referencia en el texto de la memoria, deberás citarlo, como hemos hecho antes con~\cite{bonabeau:_swarm}, lo que pasa es que en vez de el identificador de la cita anterior (bonabeau:\_swarm), tendrás que poner el nuevo (robles2005self).
-Compila el fichero \texttt{memoria.tex} (\texttt{pdflatex memoria.tex}), añade la bibliografía (\texttt{bibtex memoria.aux}) y vuelve a compilar \texttt{memoria.tex} (\texttt{pdflatex memoria.tex})\ldots y \emph{voilà} ¡tenemos una nueva cita!
-
-También existe la posibilidad de poner notas al pie de página, por ejemplo, una para indicarte que visite la página de LibreSoft\footnote{\url{http://www.libresoft.es}}.
+Para el desarrollo de este trabajo fin de grado se han utilizado diferentes tecnologías, las cuales se explicarán a continuación. 
 
 
 
-\section{Sección 1} 
-\label{sec:seccion1}
+\section{HTML5} 
+\label{sec:HTML5}
 
-Hemos hablado de cómo incluir figuras.
-Pero no hemos dicho nada de tablas.
-A mí me gustan las tablas.
-Mucho.
-Aquí un ejemplo de tabla, la Tabla~\ref{tabla:ejemplo} (siento ser pesado, pero nota cómo he puesto la referencia).
+HTML5 (Hyper Text Markup), es la quinta y última versión de HTML, lenguaje estándar utilizado para la definición y estructuración de los contenidos de las páginas web.
 
-\begin{table}
- \begin{center}
-  \begin{tabular}{ | l | c | r |} % tenemos tres colummnas, la primera alineada a la izquierda (l), la segunda al centro (c) y la tercera a la derecha (r). El | indica que entre las columnas habrá una línea separadora.
-    \hline
-    Uno & 2 & 3 \\ \hline % el hline nos da una línea vertical
-    Cuatro & 5 & 6 \\ \hline
-    Siete & 8 & 9 \\
-    \hline
-  \end{tabular}
-  \label{tabla:ejemplo}
-  \caption{Ejemplo de tabla. Aquí viene una pequeña descripción (el \emph{caption}) del contenido de la tabla. Si la tabla no es autoexplicativa, siempre viene bien aclararla aquí.}
- \end{center}
-\end{table}
+Se trata de una versión muy diferente a versiones anteriores, ya que su desarrollo vino dado por discrepancias entre diferentes miembros del consorcio W3C. En el año 2004, WATWG (Web HyperText Application Technology Working Group) sacó una primera versión, para el asombro de todos. Pero, fue en el año 2009 y, en colaboración con WATWG, cuando W3C comenzó con el desarrollo de la especificación de HTML5. 
+
+Fue creado con la intención de sustituir a la versión anterior de HTML (HTML4). Pero, también se pretendía que la aparición de esta nueva versión relevará otros lenguajes como XHTML1 y DOM Nivel 2. 
+
+Esta versión, además de incluir nuevas etiquetas y atributos, proporciona una plataforma de desarrollo para la creación de aplicaciones web complejas. Entre las nuevas funcionalidades se encuentran los siguientes puntos:   
+
+\begin{itemize}
+\item Incorporación de elementos multimedia para reproducir sonidos y videos desde el propio navegador. Estos elementos multimedia, son las etiquetas $<audio>$ y $<video>$.
+\item Integración de gráficos vectoriales escalables (SVG).
+\item Incorporación del elemento $<canvas>$, el cual permite dibujar y recrear animaciones en el navegador.
+\item Almacenamiento local en el lado del cliente, con $localStorage$ y $SeassionStorage$.
+\item Incorporación de etiquetas que permiten la estructuración de los documentos HTML, sin recurrir al uso de $<div>$. Entre estas etiquetas, se encuentran $<header>$ y $<footer>$, muy útiles para la creación de la cabecera y el pie de la página HTML.
+\item Incorporación de $MathML$ para el manejo de fórmulas matemáticas en los documentos web.  
+
+
+\end{itemize}
+
 
 
 

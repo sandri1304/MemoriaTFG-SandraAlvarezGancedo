@@ -423,6 +423,67 @@ Su publicación fue en el año 2012 y actualmente, se encuentra en la versión 2.0,
 Por último, destacar que su compilador también fue desarrollado en TypeScript, compilado a JavaScripy y con licencia Apache 2. 
 
 
+\section{Bootstrap 4} 
+\label{sec:Bootstrap 4}
+
+BootStrap 4,  es la versión más actual y estable de Bootstrap. Bootstrap es el framework más popular de CSS. Es un conjunto de herramientas que permite a los desarrolleres mejorar el aspecto visual de los documentos HTML y de las aplicaciones web  de manera rápida y sencilla. 
+
+Su nombre original fue Blueprint, debido a que fue creado y diseñado por Matt Otto para la compañia Twitter como herramienta de trabajo de uso interno. En el año 2011, Twitter lo libera con licencia MIT y pasa a ser de código abierto. 
+
+El uso de este framework en las aplicaciones web permite generar diseños que, se adaptan dinámicamente a las diferentes resoluciones de pantalla y a los distintos dispositivos, favorenciendo, de este modo, el diseño conocido como responsive. Para ello, Bootstrap dispone de un sistema de cuadrilla o rejilla estándar de 940 píxeles pero, dispone de cuatro variaciones de tamaño para adaptarse a los distintos dispositivos. Estas cuatro variaciones son $sm$, $md$, $lg$ y $xl$.
+
+Es modular y consiste en un conjunto de hojas de estilo LESS que combinado con plantillas HTML y con extensiones JavaScript implementan los diferentes componentes de Bootstrap. 
+
+Incluye los elementos más usados en los documentos HTML, como son los formularios, las barras de progreso y de navegación, los cuadros, los mensajes de alertas o los botones con características especiales entre otros. Todos ellos tienen un estilo predefinido, pero que se puede modificar de manera sencilla. 
+
+Para usar bootstrap en las aplicaciones web es necesario incluir en el documento HTML la hoja de estilo de Bootstrap CSS. De la misma forma, si se quiere utilizar algunos de los componentes JavaScript predefinidos de BootStrap se debe incluir la librería JQuery de JavaScript. 
+
+La versión 4 significa una mejora en diversos componentes permitiendo un diseño más responsive. Por eso, se han modificado componentes como la navegación, que incluye la nueva clase $flexbox$. Se ha creado un nuevo componente Card que sustituye a los componente Wells, Panlles y Thumbnails. Se han modificado los elementos de paginación y las modales. Y, se incorpora el componente Grid. Además, de estas significativas mejoras, se han incluido numerosas clases de uso común. 
+
+Por último, destacar que es compatible con todos los navegadores modernos, Firefox, Chrome, Safari, Opera, EDGE, Internet Explore 10 pero, no es compatible con las versiones anteriores a internet explorer 10.
+
+
+
+\section{Angular} 
+\label{sec:Angular}
+
+Es un framework de código abierto diseñado por Google. Permite crear aplicaciones web de una sóla página, lo que se denomina SPA (Single Page Application). Utiliza TypeScript y HTML para el desarrollo de las aplicaciones web. 
+
+Angular permite separar el frontend del backend y sigue un modelo MVC (Modelo-Vista-Controlador), arquitectura de software que separa los datos de la aplicación, la interfaz de usuario y la lógica de control en tres componentes distintos. Además, Angular dota a las aplicaciones de escalabilidad pues, mantiene el código ordenado. De esta forma, las modificaciones y las actualizaciones de las aplicaciones son rápidas y sencillas. 
+
+Una de las principales ventajas de este framework y de las páginas SPA es la velocidad de carga entre las diferentes vistas de la aplicación. Cuando se cambia de vista, es decir la url se modifica, no se recarga la página sino que éstas se cargan de manera dinámica, rápida y reactiva. 
+
+La arquitectura de una aplicación Angular se basa en clases de 4 tipos distintos (módulos, componentes, servicios y directivas). Estas clases se identifican a través de decoradores, los cuales permiten cargar los metadatos necesarios que determinan a Angular como debe usar dichas clases. 
+
+\textbf{Módulos}.
+
+Los módulos suministran el contexto de compilación de los componentes, es decir, es aquí donde se definen los diferente componentes que va a formar la aplicación, las dependencias, las clases que actúan como servicios en la aplicación y las rutas de navegación que establecen las vistas de la aplicación. 
+
+Toda aplicación angular tiene un módulo principal, que es el raíz. Este módulo suele recibir el nombre de AppModule y, es el que inicia el sistema de arranque de la aplicación. 
+
+Al igual que en Javascript, los módulos de Angular permiten importar y exportar funcionalidades proporcionadas por otros módulos, por lo que, una aplicación puede tener más de un módulo y, cada uno de ellos ser independiente. La manera en que se organizan estos módulos ayuda a la realización de aplicaciones más complejas y a la realización de código. Además, pemite que la carga inicial sea mínima, ya que cada módulo se carga a petición, es decir, cuando se va a utilizar. 
+
+\textbf{Componentes}. 
+
+Las aplicaciones Angular tienen un componente que es nexo de unión entre los diferentes componentes, que forman la aplicación, y el módelo de objeto del documento de la página (DOM). Los componentes son los que tienen la lógica y los datos de la aplicación. Son los que controlan las diferentes plantillas HTML que se cargan cuando se modifican las URLs dentro de la aplicación. Estas plantillas HTML son las vistas que forman la interfaz de usuario.
+
+De la misma forma que las aplicaciones diseñas con Angular pueden tener más de un módulo, estas aplicaciones pueden tener subcomponentes, los cuales se pueden relacionar entre sí mediante dos tipos de vinculación de datos. Mediante eventos y mediante propiedades. A través de los eventos la aplicación responde a las entradas del usuario actualizando los datos y, a través de las propiedades se envían valores calculados de los datos de la aplicación a los HTMLs que forman las vistas. Esta vinculación de datos se puede producir en ambas direcciones por lo que, igual que los datos de la aplicación pueden modificar los HTMLs, los cambios en el DOM pueden modificar los datos de la aplicación. 
+
+Por último, decir que los componentes llevan el decorador @Component, que es el que determina a Angular que una clase actúa como un componente. 
+
+\textbf{Servicios}
+
+Los servicios no son más que clases en las que se definen datos o funcionalidades generales que no están asociadas a una determinada vista. Son usadas para compartir datos y operaciones entre componentes. También es donde se suele realizar toda la operativa de las peticiones a la API de las aplicaciones. Deben llevar el decorador @Injectable, pues es el que permite obtener los metados necesarios para que otras clases puedan inyectar sus dependencias. 
+
+\textbf{Directivas}
+
+Las directivas son clases en las que se definen los términos claves que se usan en las plantillas. Cuando se carga una vista, Angular procesa estos términos clave que modifican el HTML y el DOM de la aplicación. Por lo que, una plantilla además de utilizar HTML para definir la vista usa marcas propias de angular que son estas directivas. 
+
+Existen dos clases de directivas, las de atributo que modifican el comportamiento del componente y, las estructurales que únicamente modifican la apariencia. 
+
+Por último destacar la manera que tiene Angular de realizar la navegación entre las distintas vistas de la aplicación. Para ello, Angular dispone de un enrutador que no es más que un módulo que a través de un servicio define las rutas de navegación de la aplicación. Este módulo se ajusta a las convenciones de los navegadores. Esto quiere decir que, tanto si se pone la URL en la barra de direcciones como si se pincha un enlace en la aplicación como si se hace clic en el botón de retroceso o avance se navegá a la página correspondiente. El enrutador es el que muestra u oculta una vista. Cada vez que se modifica la URL el enrutador se encarga de añadir la ruta en el historial del navegador, de ahí que los botones de retroceso y avance funcionen. Cada ruta de navegación está asociado a un componente. 
+
+Como todos los framework Angular dispone de varias versiones aportando todas ellas mejoras en dicho framework. La primera versión de Angular se conoce como AngularJS y es la más distinta a las demás pues el resto son actualizaciones de Angular 2. Cuando se definió la segunda versión se decidió modificar el nombre del framework y dejarlo como Angular. La última versión estable es la versión 8.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DISEÑO E IMPLEMENTACIÓN %

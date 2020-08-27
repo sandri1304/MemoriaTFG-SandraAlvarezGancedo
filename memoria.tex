@@ -489,15 +489,51 @@ Por último destacar la manera que tiene Angular de realizar la navegación entre 
 
 Como todos los framework Angular dispone de varias versiones aportando todas ellas mejoras en dicho framework. La primera versión de Angular se conoce como AngularJS y es la más distinta a las demás pues el resto son actualizaciones de Angular 2. Cuando se definió la segunda versión se decidió modificar el nombre del framework y dejarlo como Angular. La última versión estable es la versión 8.
 
-\section{Angular CLI} 
+\subsection{Angular CLI} 
 \label{sec:Angular CLI}
 
 Angular CLI (Command Line Interface) es una herramienta de línea de comandos creada por el equipo de Angular. Es muy útil a la hora de iniciar una aplicación web diseñada con Angular, ya que con un sólo comando genera el esqueleto de carpetas y archivos necesarios de la aplicación. Además, contiene herramientas predefinidas que ayudan al desarrollo y mantenimiento de este tipo de aplicaciones. Al crear una aplicación web con Angular Cli, dentro de la estructura de archivos, se crea un archivo de configuración, en el cúal se añaden las dependencias necesarias para que la aplicación web compile y ejecute. Este archivo de configuración se va modificando conforme se van creando los componentes, servicios o directivas. Para ello, Angular Cli tiene comandos que permiten crear estas clases de manera sencilla, pues se crean los distintos archivos que conforman un componente, un servicio o una directiva. Entre las herramientas predefinidas destaca el compilador, el sistema de testing y el servidor web. 
 
-\section{Angular Material} 
+\subsection{Angular Material} 
 \label{sec:Angular Material}
 
 Angular Material es una librería creada por Google para las aplicaciones web desarrolladas con Angular. Al igual que Boostrap ayuda a diseñar aplicaciones web atractivas, con estilos y formas únicas, ya que contiene multitud de componentes con estilos prefijados. Estos componentes permiten a las aplicaciones web ser rápidas, consistentes y versátiles. Además, con el uso de esta librería las aplicaciones web se adaptan mejor a la mayoría de resoluciones de pantalla y de dispositvos, facilitando el diseño responsive de las aplicaciones. También, con su uso se crean aplicaciones web accesibles, ya que los componentes cumplen con los estándares de accesibilidad. Mencionar que al utilizar esta librería se facilita la internacionalización de la aplicación puesto que, permite la utilización de diferentes idiomas. Por último, destacar que es compatible con todos los navegadores modernos. 
+
+\subsection{Angular Editor} 
+\label{sec:Angular Editor}
+
+Es un componente de angular que permite escribir texto con formato y estilo propio dentro de un documento HTML. El estilo y el formato lo determina el usuario, por lo tanto el estilo como el formato puede variar de un usuario a otra y de un texto a otro. El componente transforma lo escrito con el formato y el estilo definido al lenguaje HTML para que en pantalla se visualice conforme el usuario determina. Es compatible únicamente con las últimas versiones de angular, siendo estas Angular 6, Angular 7 y Angular 8. 
+
+\section{Npm} 
+\label{sec:Npm}
+Es el sistema de administración de paquetes del entorno de ejucición JavaScript NodeJs. Dicho sistema contiene un cliente, a través del cual ejecutando una línea de comando se instalan los paquetes necesarios para que un proyecto NodeJs funcione correctamente y, una biblioteca o base de datos con más de 477000 paquetes disponibles para poder usarse. Todos estos paquetes están guardados con formato CommonsJs y contienen un archivo para almacenar metadatos con formato Json. Fue desarrollado por Isaac Z. Schlueter y se desarrollo por completo en JavaScript.
+
+Al instalar un paquete a través de Npm, se instala baja el directorio del proyecto \slash .node\_modules. Permite instalar con un único comando todas las dependencias del proyecto NodeJs, siempre y cuando se ejecute el comando en la raíz del proyecto. Esto es debido a que Npm utiliza el archivo con formato Json, denominado Package.json para guardar todos los metadatos relevantes a los modulos, paquetes y dependencias del proyecto. Por ejemplo, en el archivo package.json se pueden guardar las versiones válidas para los diferentes módulos, así como hacer un versionado del modulo instalado para que a la hora de auto actualizarse no se estropee el proyecto. Gracias a esto, Npm hace que la instalación de proyectos NodeJs, descargados de Git sea sencilla.
+\section{Git} 
+\label{sec:Git}
+
+Git es un software de control de versiones. Fue diseñado por Linus Torvalds. Es un software libre que se distribuye a través de la versión 2.0 de GNU. 
+
+Git permite el trabajo en equipo, ya que fomenta el desarrollo no lineal de los proyectos. Esto es debido al sistema de ramas que tiene. En cada rama se puede trabajar sobre una funcionalidad distinta, agilizando de esta forma el desarrollo del proyecto y, haciendo que el trabajo en equipo sea más sencillo y óptimo. Además, permite gestionar de manera eficiente aplicaciones y proyectos de grandes envergaduras. 
+
+Los cambios en los proyectos se realizan de manera inmediata, ya que cada desarrollador tiene una copia en local (en su equipo) del proyecto. Esto permite navegar por el historial de cambios sin necesidad de conectarse a un servidor. Es decir, se puede trabajar en local hasta finalizar una tarea y, posteriormente subirlo a la nube. Así, todo el equipo obtiene el cambio en su proyecto local. 
+
+Permite tener una copia del proyecto en la nube, por lo que a la hora de desarrollar grandes proyectos te proporciona tranquilidad, ya que puedes obtener una copia o versión anterior aúnhabiéndose roto el equipo.
+
+Cuando se usa Git en un equipo de trabajo se definen flujos que determinan como se va a realizar el desarrollo del proyecto. Lo normal, es que exista una rama master, la cual será la que siempre se depliegue en producción. De esta rama master se obtiene una nueva rama, denominada develop. Esta rama develop es la que va a tener todos los cambios y todas las funcionalidades del proyecto y, es la que se va a mezclar con la rama master. Para funcionalidades específicas se crean ramas que se obtienen de la develop y que se suelen llamar features. De esta forma, se permite el desarrollo en paralelo de los distintos integrantes del grupo. Una vez que la funcionalidad esté finalizada y probada se junta con la rama develop. Al actualizar, los demás miembros del equipo, su rama developse obtienen los cambios de las nuevas funcionalidades sin que se vea afectado el trabajo que cada uno está realizando. Cuando en producción hay un error y debe ser solucionado inmediatamente, se crea una rama a partir de la master y, es sobre esta rama donde se desarrollan las soluciones al error. Esta rama se mezcla con la rama master de nuevo y se denomina hotfix. Cuando los errores son menores y, no son urgentes no hace falta crear ramas hotfix, si no que se crean ramas, llamadas issues, en las que que se solucionan todos los posibles errores de una versión. Una vez solucionados los errores, la rama se mezcla con la rama master y con la develop.
+
+\section{Visual Studio Code} 
+\label{sec:Visual Studio Code}
+
+Visual Studio Code es un editor de código fuente, lanzado en noviembre de 2015 por Microsoft. Desde entonces, ha sufrido numerosas actualizaciones hasta llegar a la última versión 1.47. 
+
+Puede ser instalado en los sistemas operativos más conocidos: Linux, Windows y Macos. 
+
+Soporta una gran cantidad de lenguajes de programación. El resaltado de sintaxis, la capacidad de finalización del código que se escribe, la refactorización del código, el modo depuración así como la integración con Git facilita el desarrollo de aplicaciones. 
+
+Para hacer más atractiva su interfaz y para facilitar su uso, permite personalizar los temas del editor y los atajos del teclado. 
+
+Es un editor de código abierto, lo que quiere decir que se puede descargar de GitHub y realizar cualquier modificación en su código. Se basa en Electron, framework utilizado para el desarrollo de aplicaciones de escritorio usando tecnologías web, utiliza Chromium para el motor gráfico y NodeJs para ejecutar JavaScript.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DISEÑO E IMPLEMENTACIÓN %

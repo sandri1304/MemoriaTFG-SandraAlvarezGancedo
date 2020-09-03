@@ -369,8 +369,6 @@ Esta versión, además de incluir nuevas etiquetas y atributos, proporciona una pl
 \item Almacenamiento local en el lado del cliente, con $localStorage$ y $SeassionStorage$.
 \item Incorporación de etiquetas que permiten la estructuración de los documentos HTML, sin recurrir al uso de $<div>$. Entre estas etiquetas, se encuentran $<header>$ y $<footer>$, muy útiles para la creación de la cabecera y el pie de la página HTML.
 \item Incorporación de $MathML$ para el manejo de fórmulas matemáticas en los documentos web.  
-
-
 \end{itemize}
 
 \section{CSS3} 
@@ -405,8 +403,6 @@ Es un lenguaje imperativo y estructurado. Aunque su nombre puede indicar que tie
 Es un lenguaje débilmente tipado y dinámico, es decir, una misma variable puede adoptar dos tipos de datos diferentes en distintos momentos sin tener que redefinir la variable. Está formado en su totalidad por objetos, puediéndose modificar las propiedades de dichos objetos en tiempo de ejecución, dontándolo así del dinamismo que lo define.  
 
 Es un lenguaje rápido y ligero, por lo que se convierte en uno de los lenguajes más usuados en el mundo del desarrollo de aplicaciones web. Su uso, principalmente, está en el lado del cliente pero, con la aparición de tecnologías como NodeJS, el uso de JavaScript en el lado del servidor está sufriendo un repunte significativo. El hecho de ser un lenguaje multiplaforma, que permite utilizarse tanto en Windows, como en Linux como en Mac, así como en cualquier navegador hace que aumente su popularidad y su uso. 
-
-
 
 Surgío de la necesidad de los desarrolladores de crear páginas web complejas y dinámicas, ya que HTML únicamente permite crear documentos web estáticos. Fue desarrollado por Brendan Eich de la compañia NetScape y, su primer nombre fue Mocha. Poco tiempo después cambiaría su nombre original y pasaría a llamarse LiveScript. En el año 1995, NetScape y Sun MicroSystems (creadores del lenguaje Java) reintroducirían el lenguaje en el mundo de la programación, como Javascript. En el año 1997 se adopta como un estándar ECMA, denominándose ECMAScript. Desde entonces ha ido evolucionando  y mejorando, creándose librerías y frameworks que facilitan la programación. En el año 2015 se publicó ECMAScript 2015 ó JavaScript 6, introduciendo características propias de las clases utilizadas en la programación orientada a objetos. La última versión hasta el momento, es la versión 8, segunda versión que tiene un proceso de desarrollo abierto. 
 
@@ -445,8 +441,6 @@ Para usar bootstrap en las aplicaciones web es necesario incluir en el documento
 La versión 4 significa una mejora en diversos componentes permitiendo un diseño más responsive. Por eso, se han modificado componentes como la navegación, que incluye la nueva clase $flexbox$. Se ha creado un nuevo componente Card que sustituye a los componente Wells, Panlles y Thumbnails. Se han modificado los elementos de paginación y las modales. Y, se incorpora el componente Grid. Además, de estas significativas mejoras, se han incluido numerosas clases de uso común. 
 
 Por último, destacar que es compatible con todos los navegadores modernos, Firefox, Chrome, Safari, Opera, EDGE, Internet Explore 10 pero, no es compatible con las versiones anteriores a internet explorer 10.
-
-
 
 \section{Angular} 
 \label{sec:Angular}
@@ -544,6 +538,12 @@ Express permite:
 
 \end{itemize}
 
+\section{Nodemon} 
+\label{sec:Nodemon}
+Nodemon es una herramienta que permite a los desarrolladores de Node implementar sus aplicaciones de manera más sencilla, ya que amplía y mejora funcionalidades propias de Node. 
+
+Cuando se programa en Node, los cambios realizados en el código fuente no se ven reflejados en la aplicación inmediatamente, sino que hasta que no se reinicia el servidor de Node no se ven en la aplicación, por lo que cada vez que es necesario probar un cambio habría que parar y arrancar el servidor, relentizando el desarrollo de los proyectos. Nodemon se usa para solucionar el incoveniente anterior, ya que lo que hace es reiniciar de manera automática el servidor cada vez que detecta un cambio en el código fuente. Por lo tanto, estos cambios se ven reflejados en la aplicación inmediatamente permitiendo, de este modo, programar y probar nuevas funcionalidades sin demoras y de manera sencilla y rápida. 
+
 \section{Bcryptjs} 
 \label{sec:Bcryptjs}
 Bcrypt es una librería que se usa para la encriptación de contraseñas y datos importantes. Fue creada por Niels Provos y David Maxieres y está desarrollada con Javascript. 
@@ -552,6 +552,15 @@ Utiliza un valor aleatorio, denominado salt, para la generación del hash del dat
 
 Bcrypt permite realizar comparaciones entre diferentes valores, pero para realizar la comparación no lo hace como otros sistemas de cifrado donde se descifra el dato a comparar, sino que lo que hace en cifrar con el salt el valor que se quiere comparar. 
 
+\section{Passport.js} 
+\label{sec:Passport.js}
+Passport es un middleware que permite la autenticación en aplicaciones Node. Es de código abierto. Se puede incorporar en cualquier aplicación basada en Express, ya que trabaja en conjunto con Express y Connect. Permite gestionar y administrar las sesiones de los usuarios. Las características que definen Passport son: 
+\begin{itemize}
+	\item Tiene numerosas estrategias de autenticación. Por ejemplo, permite autenticarse utilizando bases de datos en las que se almacenan las sesiones o puede autenticarse el inicio de sesión único de OpenID y OAuth, usados por ejemplo en Facebook. 
+	\item Permite desarrollar nuevas estrategias de autenticación. 
+	\item Permite usar sesiones persistentes. 
+	\item Gestiona el proceso de autenticación indicando si la autenticación ha sido satisfactoria. 
+\end{itemize}
 
 
 \section{Git} 
@@ -579,6 +588,20 @@ Soporta una gran cantidad de lenguajes de programación. El resaltado de sintaxis
 Para hacer más atractiva su interfaz y para facilitar su uso, permite personalizar los temas del editor y los atajos del teclado. 
 
 Es un editor de código abierto, lo que quiere decir que se puede descargar de GitHub y realizar cualquier modificación en su código. Se basa en Electron, framework utilizado para el desarrollo de aplicaciones de escritorio usando tecnologías web, utiliza Chromium para el motor gráfico y NodeJs para ejecutar JavaScript.
+
+\section{Mongo Compass} 
+\label{sec:Mongo Compass}
+Mongo Compass es una herramienta gráfica disponible para Linux, Mac y Windows que permite, a los desarrolladores que usan MongoDB como base de datos de sus aplicaciones, interactuar con los datos que hay en dicha base de datos. Las principales ventajas que tiene su uso son: 
+\begin{itemize}
+	\item Permite analizar los esquemas, visualizando la estructura de sus documentos, el tipo y los rangos de los campos de dichos documentos.
+	\item Permite gestionar de manera sencilla los índices. 
+	\item Se pueden realizar todas las operaciones CRUD de manera visual. De la misma forma, se pueden realizar búsquedas o aplicar filtros para encontrar datos dentros de los documentos del esquema. 
+	\item Ayuda a resolver problemas de rendimientos, ya que se pueden obtener análisis y gráficos de lo que tarda una query en ejecutarse. 
+	\item Se pueden crear agregaciones de manera intuitiva y sencilla, gracias a los esqueletos de código y al autocompletado. Estas agregaciones se exportan a código fuente para que se incorporen dentro del código de la aplicación que usa MongoDB.
+
+\end{itemize}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DISEÑO E IMPLEMENTACIÓN %

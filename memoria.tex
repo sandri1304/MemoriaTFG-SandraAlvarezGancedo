@@ -306,8 +306,6 @@ Para cumplir con el objetivo principal es necesario alcanzar los siguientes obje
 
 \item La competitividad con otras aplicaciones web de comercio electrónico de electrodomésticos vendrá determinada por una interfaz atractiva y por funcionalidades como la calificación y valoración de los productos por parte de los clientes.
 
-\item La aplicación web será multilenguaje, inglés y español. De este modo, se ampliará el mercado con clientes de  otras nacionalidades. 
-
 \item La aplicación debe ser lo más modulable posible. Esto permitirá que ante un cambio en los requerimientos y necesidades de la tienda, la aplicación se adapte de manera fácil y rápida. 
 
 \item Diseñar un sistema de administración que permita al dueño del comercio llevar un control de los clientes, los productos, los pedidos y las facturas. Así como, de los proveedores de productos y del transporte de los mismos. 
@@ -544,19 +542,55 @@ Nodemon es una herramienta que permite a los desarrolladores de Node implementar
 
 Cuando se programa en Node, los cambios realizados en el código fuente no se ven reflejados en la aplicación inmediatamente, sino que hasta que no se reinicia el servidor de Node no se ven en la aplicación, por lo que cada vez que es necesario probar un cambio habría que parar y arrancar el servidor, relentizando el desarrollo de los proyectos. Nodemon se usa para solucionar el incoveniente anterior, ya que lo que hace es reiniciar de manera automática el servidor cada vez que detecta un cambio en el código fuente. Por lo tanto, estos cambios se ven reflejados en la aplicación inmediatamente permitiendo, de este modo, programar y probar nuevas funcionalidades sin demoras y de manera sencilla y rápida. 
 
+\section{MongoDB} 
+\label{sec:MongoDB}
+MongoDB es una base de datos no relacional, es decir, es una base de datos NOSQL, que se basa en documentos para guardar la información. 
+
+Es una base de datos gratuita y multiplataforma, ya que se puede instalar en los sistemas operativos Linux, Windows, Os X y Solaris. Las distintas versiones se lanzaban bajo la licencia AGPL pero, a partir de octubre de 2018, se publican bajo la licencia pública SSPL, aunque tiene una línea comercial que contiene caractarísticas más avanzadas.
+
+A diferencia de las bases de datos relacionales, MongoDB almacena sus datos en documentos y no en tablas. Estos documentos son de esquemas libres, lo que quiere decir que cada entrada puede tener una estructura de datos distinta, con campos que no se tienen porque repetir en otro registro. Por eso, MongoDB tiene mayor flexibilidad y escalabilidad que las bases de datos relacionales. Los documentos se guardan en formato BSON (Binary JSON), lo que permite guardar índices de array, longitudes de campos y, datos relevantes que hacen las búsquedas más rápidas y eficientes. A pesar de que se almacenan en BSON, los desarrolladores siempre trabajaran con documentos JSON. 
+
+Los documentos se agrupan en colecciones y, estas colecciones son lo que serían las tablas en las bases de datos relacionales. 
+
+Del mismo mode que en las bases de datos relaciones se pueden crear índices, MongoDB permite indexar cualquier atributo. Por defecto, el índice tiene un formato similar a un valor UUID hexadecimal y, está formado por una semilla basada en la MAC de la interfaz de la red de la máquina y por una marca de tiempo, que ocupa las primeras posiciones del índice. Gracias a esta marca de tiempo, los datos se ordenan por orden de creación. Todos los documentos tienen un índice, pues es el único campo obligatorio dentro de un documento MongoDB. 
+
+MongoDB permite realizar: 
+\begin{itemize}
+	\item Consultas Ad Hoc, es decir, se puede realizar búsqueda de datos a través de campos, de rangos o a través de expresiones regulares. Estas consultas nos pueden devolver un dato concreto o pueden devolver el documento entero. 
+	\item Balanceo de carga, para ello realiza una partición horizontal de los datos. Es el desarrollador quien decide como van a ser distribuidos los diferentes datos. Para llevar a cabo este balanceo de carga, MongoDB puede ejecutarse en diferentes servidores.  
+	\item Almacenamiento de archivos. 
+	\item Operaciones similares al $Group By$ de SQL, a través de agregaciones. Estas agregaciones se implementan como pipeline en el que se van transformando los datos a través de etapas hasta conseguir el dato deseado. Contiene una operación MapReduce que se suele utilizar en estas agregaciones.  
+	\item Consultas a través del lenguaje Javascript.
+\end{itemize}
+
+Como desventajas MongoDB únicamente puede realizar operaciones concurrentes de escritura entre documentos distintos, ya que cada vez que se realiza una operación de escritura se bloquea el documento. Y, además, puede tener problemas de rendimiento si los datos superan los 100GB.  
+
+\section{Mongoose} 
+\label{sec:Mongoose}
+Mongoose es un ODM (Object Document Mapping) de MongoDB, es decir, sirve para mapear objetos de javascript a documentos propios de MongoDB. 
+
+Es una librería de javascript que se instala a través de un único comando npm en los proyectos que utilizan Node y MongoDB. 
+
+Para mapear los objetos a documentos, lo que hace es crear esquemas con datos fuertemente tipados. Estos esquemas se traducen en un modelo Mongoose y, es este modelo Mongoose el que se traduce en el documento MongoDB. 
+
+Contiene una infinidad de funciones para realizar búsqueda de datos, validación de datos, guardado y eliminado de datos, etc. Todas estas funciones se basan en las funciones más comunes que Mongo tiene para realizar todas estas operaciones. 
+
+Permite crear esquemas muy flexibles, de tal forma que se puede organizar la información de diferente manera, según convenga al desarrollador. Tanto es así, que permite crear esquemas con referencias a otros esquemas, asemejándose de esta forma, a lo que sería una relación entre tablas de una base de datos relacional, como por ejemplo, MySQL.
+
+
 \section{Bcryptjs} 
 \label{sec:Bcryptjs}
 Bcrypt es una librería que se usa para la encriptación de contraseñas y datos importantes. Fue creada por Niels Provos y David Maxieres y está desarrollada con Javascript. 
 
 Utiliza un valor aleatorio, denominado salt, para la generación del hash del dato que se desea encriptar. Este valor se guarda con el hash en la base de datos. Por eso, el mismo valor tiene diferente hash. Gracias a esto, se evitan los ataques de fuerza bruta o los ataques denominados Rainbow table (tablas de textos y sus hash asociados). Bcrypt permite elegir el valor del SaltRound, ya que a mayor valor numérico del salt mayor seguridad, pero a mayor seguridad mayor coste de tiempo a la hora de encriptar los datos. Por lo tanto, lo idóneo es elegir un salt lo suficientemente grande para que no se pueda obtener el dato cifrado por fuerza bruta pero no lo suficientemente alto como para que el procesamiento se demore mucho tiempo. Por defecto, Bcrypt pone un salt de 10, un valor intermedio para que no se produzcan los dos problemas principales. 
 
-Bcrypt permite realizar comparaciones entre diferentes valores, pero para realizar la comparación no lo hace como otros sistemas de cifrado donde se descifra el dato a comparar, sino que lo que hace en cifrar con el salt el valor que se quiere comparar. 
+Bcrypt permite realizar comparaciones entre diferentes valores, pero para realizar la comparación no lo hace como otros sistemas de cifrado donde se descifra el dato a comparar, sino que lo que hace es cifrar con el salt el valor que se quiere comparar. 
 
 \section{Passport.js} 
 \label{sec:Passport.js}
 Passport es un middleware que permite la autenticación en aplicaciones Node. Es de código abierto. Se puede incorporar en cualquier aplicación basada en Express, ya que trabaja en conjunto con Express y Connect. Permite gestionar y administrar las sesiones de los usuarios. Las características que definen Passport son: 
 \begin{itemize}
-	\item Tiene numerosas estrategias de autenticación. Por ejemplo, permite autenticarse utilizando bases de datos en las que se almacenan las sesiones o puede autenticarse el inicio de sesión único de OpenID y OAuth, usados por ejemplo en Facebook. 
+	\item Tiene numerosas estrategias de autenticación. Por ejemplo, permite autenticarse utilizando bases de datos en las que se almacenan las sesiones o puede autenticarse con el inicio de sesión único de OpenID y OAuth, usados por ejemplo, en Facebook. 
 	\item Permite desarrollar nuevas estrategias de autenticación. 
 	\item Permite usar sesiones persistentes. 
 	\item Gestiona el proceso de autenticación indicando si la autenticación ha sido satisfactoria. 
@@ -667,17 +701,23 @@ Si es una herramienta de análisis lo que has realizado, aquí puedes poner ejempl
 \section{Consecución de objetivos}
 \label{sec:consecucion-objetivos}
 
-Esta sección es la sección espejo de las dos primeras del capítulo de objetivos, donde se planteaba el objetivo general y se elaboraban los específicos.
+El principal objetivo de este trabajo era desarrollar una aplicación de comercio electrónico, a través de la cual los usuarios pudiesen mirar las características, los precios de los productos, el stock, etc., así como realizar sus compras sin tener que ir a la tienda física. Objetivo que se ha logrado cumplir, como se ha podido ver en capítulos anteriores.
 
-Es aquí donde hay que debatir qué se ha conseguido y qué no. 
-Cuando algo no se ha conseguido, se ha de justificar, en términos de qué problemas se han encontrado y qué medidas se han tomado para mitigar esos problemas.
+Con la implementación de la aplicación, también se ha logrado cumplir con los objetivos específicos que se marcaban en el capítulo 2, pues: 
 
-Y si has llegado hasta aquí, siempre es bueno pasarle el corrector ortográfico, que las erratas quedan fatal en la memoria final.
-Para eso, en Linux tenemos aspell, que se ejecuta de la siguiente manera desde la línea de \emph{shell}:
+\begin{itemize}
+	\item La aplicación es responsive. Si se observan las imágenes X, se ve como la aplicación se adapta a diferentes tamaños de pantalla. Para cumplir con este objetivo se ha recurrido al uso de Bootstrap, CSS3 y Angular Material como se ha explicado en el capítulo 4. 
+	\item La interfaz de usuario, es una interfaz sencilla, en la que los componentes que se utilizan son muy intuitivos. La mayoría de estos componentes, se encuentran en casi todas las web de comercio electrónico, como por ejemplo, los botones denominados dropdown. Además, se ha usado gran número de iconos, que identifican las funcionalidades que realiza cada botón. 
+	\item La aplicación cumple con la normativa de protección de datos, para llevar a cabo este objetivo, se ha creado una política de privacidad, donde se informa al usuario como van a ser sus tratados sus datos. Para ser usuario de la aplicación, debe aceptar la política. Si no la acepta no podrá realizar compras. 
+	En cuanto a la seguridad de los datos susceptibles como son las contraseñas, se ha usado una librería robusta para su encriptación. En la base de datos, se guarda esta información encriptada mediante un hash. El hash esta formado por un salt que dificulta conseguir la información mediante ataques de fuerza bruta. 
+	En cuanto a los pagos, se realizan a través de Apis externas a la aplicación, para no tener que almacenar los datos bancarios. 
+	\item La aplicación es atractiva y competitiva. Se ha implementado las funcionalidades básicas que deben tener las tiendas online y, además, se ha implementado un sistema de valoración y votación de productos, que no todas las aplicaciones de comercio electrónico lo tienen. Esto permite a los usuarios conocer las valoraciones de anteriores compradores. Se ha recurrido al uso de colores, iconos, letras y componentes llamativos para captar la atención de los clientes. De esta manera, se amplía el mercado y, la aplicación puede situarse entre las más visitadas del mercado de los electrodomésticos. 
+	\item Se ha logrado crear una parte de administración sencilla. Permite al administrador de la tienda a gestionar pedidos, crear productos y visualizar clientes de manera rápida, evitando que los pedidos se demoren y, los productos estén en casa en un período de tiempo mayor. Para agilizar la carga masiva de los productos, las marcas y las categorías, se ha implementado un servicio de importación y exportación de ficheros excel. 
+	\item Con el uso de Angular, Express y Node se ha conseguido crear una aplicación web modulable y escalable, en la que el mantenimiento y la actualización de componentes sea sencilla. Cada vista de la aplicación tiene su propio componente, por lo que modificar una vista significaría simplemente modificar el componente asociado a ella. 
+	\item Es lo más accesible posible, para ello se ha usado colores en el que el contraste sea bueno, así como etiquetas en los HTMLs para que personas con dificultad visual puedan comprar. 
+\end{itemize}
 
-\begin{verbatim}
-  aspell --lang=es_ES -c memoria.tex
-\end{verbatim}
+
 
 \section{Aplicación de lo aprendido}
 \label{sec:aplicacion}
@@ -697,20 +737,36 @@ Por último, indicar que aunque muchas de las asignaturas que he cursado en esta 
 \section{Lecciones aprendidas}
 \label{sec:lecciones_aprendidas}
 
-Aquí viene lo que has aprendido en el Trabajo Fin de Grado/Máster.
+El desarrollo de este trabajo ha supuesto un gran reto, ya que ha sido el primer proyecto que realizaba de esta envergadura. Durante el transcurso del grado han sido muchas las prácticas que he realizado, pero en todas ellas tenía las directrices a seguir. En este trabajo, a lo primero que me he tenido que enfrentar ha sido a la recapitulación de los requisitos que se necesitaban para implementar la aplicación. Este análisis me ha servido para conocer los puntos más importantes del comercio electrónico. Muchas han sido las veces que he realizado compras por internet, pero nunca me he parado a pensar en todo lo que había por detrás y, lo que suponía poner en marcha una tienda online. 
 
-\begin{enumerate}
-  \item Aquí viene uno.
-  \item Aquí viene oto.
-\end{enumerate}
+Al realizar el análisis de los requerimientos, tuvé que realizar un análasis de las distintas arquitecturas que podría tener mi aplicación. Lo que me ha servido para tener más conocimiento de los distintos tipos de arquitecturas que tienen las aplicaciones de este negocio. Como he mencionado en el Capítulo 4, me decanté por la arquitectura MEAN porque es la que más se ajustaba a mis necesidades. El haber implementado esta arquitectura me ha permitido conocer nuevas tecnologías Mongo, Express, Angular y NodeJs. La mayoría de estas tecnologías se basan en Javascript, pero tienen un concepto diferente a la hora de programar, sobre todo con NodeJS, puesto que se programa de manera asíncrona. Con Angular, me he tenido que adentrar en el mundo de Typescript y, en el mundo de las aplicaciones modulares y escalables. Me ha parecido interesante aprenderlo, ya que considero que es una opción muy buena a la hora de realizar aplicaciones web, que necesitan modificarse y actualizarse de manera constante. 
 
+Durante el grado, pocas han sido las veces que he usado base de datos y, cuando las he usado siempre ha sido de manera muy básica, con operaciones sencillas y usando siempre SQL. El utilizar MongoDB, me ha permitido aprender otra manera de guardar los datos a través de documentos, en vez de en tablas como hasta ahora. Además, esta aplicación me ha permitido realizar operaciones mucho más complejas, en las que en una misma operación tenía que tocar varias colecciones (tablas en base de datos relacionales). Para ello, he tenido que aprender a hacer agregaciones, que son como funciones en las que se van transformando los datos a través de etapas hasta que se obtiene el resultado esperado.  
+
+Para realizar un diseño atractivo y, que se adapte a los tamaños de pantalla más estandares, he aprendido a usar media queries de CSS3 y he profundizado en Bootstrap. Además, he conocido la librería Angular Material de Angular, de la que no había escuchado hablar. 
+
+La importación y exportación de ficheros, así como, la subida de archivos al servidor de node me ha proporcionado conocimientos en las librerías  adm-zip, para la decompresión de zip, excel4node para el manipulado de excels y, multer, para la subida de imágenes al servidor. 
+
+Por último, este trabajo me ha servido para aprender que los grandes logros se consiguen con constancia, dedicación y sacrificio y, que a pesar de todos los problemas que pueden surgir en el camino, hay que levantarse y luchar por conseguirlos. Que la desesperación y los nervios nos buenos aliados para lograrlo. Que hay que confiar en uno mismo y no ponerse límites. 
 
 \section{Trabajos futuros}
 \label{sec:trabajos_futuros}
 
-Ningún proyecto ni software se termina, así que aquí vienen ideas y funcionalidades que estaría bien tener implementadas en el futuro.
+Todas las aplicaciones web necesitan mantenimiento y, la implementada en este trabajo no iba a ser menos. Algunas de las líneas a seguir para mejorar la aplicación son: 
 
-Es un apartado que sirve para dar ideas de cara a futuros TFGs/TFMs.
+\begin{itemize}
+	\item Adaptar la aplicación para que soporte como segundo lenguaje, el inglés. De esta forma, se abriría el mercado al mundo internacional. Para realizar esta mejora, se debería utilizar la librería de angular Ngx-translate. Ngx-translate utiliza ficheros JSON donde se encuentran todos los textos fijos de la aplicación traducidos a los idiomas que se desee utilizar. Tiene que existir un fichero por cada idioma y, el formato de los ficheros debe ser igual, para que a la hora de usar el servicio TransalteService de Ngx-translate sepa el archivo y texto que se debe usar. Para los textos que varían en la aplicación, como por ejemplo, la descripción de los productos, se debería crear un campo nuevo dentro de la base de datos en el que se encuentre la traducción y, a la hora de hacer la petición, mandar el idioma para saber que descripción obtener.  
+	\item Ampliar el filtrado de productos. A pesar del número de filtros que tiene la aplicación para la búsqueda de productos, se pueden añadir filtros que se adapten a las distintas categorías. Por ejemplo, si se accede a la  categoría de televisores, que aparezca un filtro más, para buscar por pulgadas. 
+	\item Añadir una lista de favoritos, donde el cliente pueda guardar los productos que le gustan. Así, si vuelve a entrar en la aplicación no tiene que volver a buscar los productos que desea.   
+	\item Inicio de sesión a través de Facebook y Google. De este modo, los clientes no tendrían que darse de alta en la aplicación bastaría que iniciasen sesión con sus credenciales de Facebook y Google. 
+\end{itemize}
+
+En cuanto a la parte de administración se podrían introducir las siguientes mejoras: 
+\begin{itemize}
+	\item Añadir estadísticas y gráficos que ofrezcan información sobre los productos más vendidos, los menos demandados, así como la zona donde más pedidos se realizan. Tener esta información de manera resumida en forma de gráficas sería muy útil para el administrador y dueño, ya que sabría loq ue debe reforzar para mejorar el servicio. 
+	\item Añadir una opción de impresión de cartelería. En la tienda física, se necesitan carteles que promocionen los productos, que contengan la información y precio de los mismos. Toda esta información está almacenada en la base de datos por lo que con la impresión de estos carteles, a través de la aplicación, se agilizaría el trabajo en tienda física. 
+	\item Mejorar el diseño responsive de la parte de administración. La aplicación en la parte de administración es responsive, pero en ciertas pantallas, los campos de las tablas salen más amontonados, por lo que se podría reducir el número de campos a mostrar en la tabla para que dicha información se vea mejor. 
+\end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

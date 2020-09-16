@@ -674,7 +674,39 @@ En la figura ~\ref{fig:arquitecturaThreeTier} se puede observar como es la comun
 \end{figure}
 
 
+\section{Diseño e implementación del servidor} 
+\label{sec:Disenioservidor}
 
+El servidor es el encargado de recibir las peticiones del cliente y, de su posterior respuesta. Para ello, se ha implementado un API REST. Esta API REST es la encargada de devolver los datos requeridos en cada petición del cliente. El API REST se explica en la sección ~\ref{sec:apirest}. Por otro lado, el servidor es el que realiza las peticiones a base de datos para la obtención, el guardado, borrado y actualización de los datos almacenados en ella. 
+
+La implementación del servidor se ha realizado usando NodeJS y Express, usado este último, para la estructuración de los archivos del servidor y, para el enrutamiento de las llamadas a la API REST. NodeJs está orientado a eventos asíncronos que se ejecutan en un único hilo, como se explicó en la sección ~\ref{sec:nodejs}. Para el manejo de los eventos asícronos es necesario recurrir a la programación asíncrona y, en este tipo de programación, es común recurrir al uso de los denominados callbacks, funciones que ejecutan otra función una vez terminada la operación. Para evitar estos callbacks y hacer el código más legible, se ha recurrido al uso de los operadores $async$ y $await$. Estos operadores tienen como finalidad simplificar la manera de programación cuando se programa de manera asícrona, ya que permiten ejecutar promesas y esperar el resultado sin utilizar $then$ y $catch$, muy usados en Javascript para este tipo de programación y, que lo único que les diferencia de los callbacks es la simplifidad en el código.  
+
+\subsection{Estructura del servidor} 
+\label{sec:estructuraServidor}
+
+En la figura ~\ref{fig:estructuraArchivosServidor} se puede observar como está organizado el servidor. 
+
+\begin{itemize}
+	\item  \textbf{Server.js}, archivo donde se establece el puerto de la conexión de la aplicación y, desde el cual se inicia el servidor. Además, carga el archivo \textbf{App.js}, archivo principal del servidor.
+
+
+	\item \textbf{App.js}, archivo principal del servidor. Es donde se establece la conexión con la base de datos  y, donde se configura el midleware para servir el API REST y los datos estáticos. 
+
+	\item \textbf{Package.json}, archivo donde se especifican las dependencias de las librerías utilizadas en el servidor y la versión de cada una de ellas. Además, se define el nombre y la descripción de la aplicación. 
+
+	\item \textbf{\slash .node\_modules}, directorio donde están instaladas las librerías usadas en el servidor. A recurrir a Express para la organización del servidor, muchas de las librerías ya vienen definidas. Pero, muchas otras se han instalado por necesidades de la aplicación. Para su instalación se ha usado el comando \emph{npm install}. 
+
+	\item \textbf{\slash config}, directorio que contiene la configuración del servidor. El archivo \textbf{nevadoServer.properties} contiene los contextos de los distintos endpoints usados en el API REST. De este modo, en el caso de cambiar de contexto, únicamente se modificaría en este archivo y no en cada uno de los endpoints afectados por la modificación. El archivo \textbf{passport.js}, permite la autenticación de los usuarios. Además, permite que únicamente el usuario con rol de administrador pueda acceder a la parte administración de la tienda online. 
+
+	\item \textbf{\slash modelos}, directorio que contiene la estructura de los documentos de las colecciones usadas en la base de datos de la aplicación.
+
+	\item \textbf{\slash routes}, directorio en el que se encuentran todos los endpoints de la API. Consta de dos subdirectorios, uno para la parte que solo puede ver el administrador de la tienda online (\textbf{\slash admin}) y, otro para la parte de la tienda online que ven los usuarios \textbf{\slash front}. Además, contiene los archivos \textbf{APIREST.JS}, \textbf{APIRESTADMIN.JS}, \textbf{APIRESTORDERS.JS} y \textbf{APIRESTUSER.JS}. Estos archivos son los que determinan a que archivo se ha de dirigir cada contexto del API.  
+
+	\item \textbf{\slash services}, contiene la lógica del negocio de la aplicación, es decir, se especifica que se debe hacer en cada llamada a la API. En este archivo se produce el acceso a la base de datos para el guardado, borrado, búsqueda y actualización de los datos almacenados. Está organizado de la misma forma que el directorio \textbf{\slash routes}, un subdirectorio para la administración y otro, para la tienda online que ven los usuarios.
+
+	 \item \textbf{\slash utils}, directorio que contiene las funciones genéricas usuadas en los diferentes servicios del servidor. Entre algunas funcionalidades, destacan el formateo de fechas, la creacción de PDFs y la configuración del correo para poder enviar emails a los usuarios de la tienda online. 
+
+\end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

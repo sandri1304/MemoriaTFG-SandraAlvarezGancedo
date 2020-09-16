@@ -644,35 +644,37 @@ Mongo Compass es una herramienta gráfica disponible para Linux, Mac y Windows qu
 \cleardoublepage
 \chapter{Diseño e implementación}
 
-Aquí viene todo lo que has hecho tú (tecnológicamente). 
-Puedes entrar hasta el detalle. 
-Es la parte más importante de la memoria, porque describe lo que has hecho tú.
-Eso sí, normalmente aconsejo no poner código, sino diagramas.
-
 \section{Arquitectura general} 
 \label{sec:arquitectura}
 
-Si tu proyecto es un software, siempre es bueno poner la arquitectura (que es cómo se estructura tu programa a ``vista de pájaro'').
+La aplicación implementada en este trabajo tiene una arquitectura $Three-Tier$, lo que es lo mismo una arquitectura de tres niveles. El primer nivel de esta arquitectura es la capa de presentación o cliente. Este nivel está compuesto por las diferentes vistas de la aplicación que forman la interfaz de usuario. Es el encargado de recoger la información que produce el usuario al interacturar en la aplicación y, el que envía, a través de peticiones, la información al segundo nivel. Este segundo nivel es el nivel de la lógica de negocio o el servidor. Se encarga de recibir todas las peticiones de usuario enviadas por el cliente y, de su posterior respuesta. Es el único nivel que se comunica con el resto, puesto que, también puede comunicarse con el tercer nivel, capa de acceso a base de datos o servidor de base de datos. Este tercer nivel es el que maneja la información. En la figura ~\ref{fig:arquitecturaThreeTier} se representa un ejemplo de este tipo de arquitectura. 
 
-Por ejemplo, puedes verlo en la figura~\ref{fig:arquitectura}.
-\LaTeX \ pone las figuras donde mejor cuadran. 
-Y eso quiere decir que quizás no lo haga donde lo hemos puesto...
-Eso no es malo.
-A veces queda un poco raro, pero es la filosofía de \LaTeX: tú al contenido, que yo me encargo de la maquetación.
-
-\begin{figure}
+\begin{figure}[H]
   \centering
-  \includegraphics[width=9cm, keepaspectratio]{img/arquitectura}
-  \caption{Estructura del parser básico.}
-  \label{fig:arquitectura}
+  \includegraphics[width=9cm, keepaspectratio]{img/arquitectura-ThreeTier.png}
+  \caption{Ejemplo arquitectura Three-Tier.}
+  \label{fig:arquitecturaThreeTier}
 \end{figure}
 
-Recuerda que toda figura que añadas a tu memoria debe ser explicada.
-Sí, aunque te parezca evidente lo que se ve en la figura~\ref{fig:arquitectura}, la figura en sí solamente es un apoyo a tu texto.
-Así que explica lo que se ve en la figura, haciendo referencia a la misma tal y como ves aquí.
-Por ejemplo: En la figura~\ref{fig:arquitectura} se puede ver que la estructura del \emph{parser} básico, que consta de seis componentes diferentes: los datos se obtienen de la red, y según el tipo de dato, se pasará a un \emph{parser} específico y bla, bla, bla\ldots
+Existen distintos tipos de arquitectura $Three-Tier$, pero la escogida para esta aplicación es la denominada $MEAN$. Este tipo de arquitectura se denomina así porque utiliza MongoDB, Express, Angular y NodeJS para el desarrollo de las aplicaciones. Para la implementación del cliente se ha usado Angular, ya que permitía crear una aplicación Single-Page, haciendo uso del modelo-vista-controlador(MVC). Este tipo de aplicaciones se caracterizan por la rapidez y la fluidez de navegación pues, no es necesario recargar la página cada vez que se cambia de vista. Angular utiliza TypeScript como lenguaje de programación, por lo que el cliente está programado con esta tecnología, además, de usar HTML5, CSS3 y Bootstrap. El cliente utiliza el servidor que proporciona Angular-Cli para servir los recuersos.
 
-Si utilizas una base de datos, no te olvides de incluir también un diagrama de entidad-relación.
+El servidor se ha implementado usando NodeJS y Express, consiguiendo así, crear una aplicación rápida y escalable. Se ha programando utilizando Javascript. Por su parte, el servidor se encuentra alojado en el servidor proporcionado por NodeJS.
+
+Para establecer la comunicación entre el cliente (servido por Angular-Cli, como se ha mencionado anteriormente) y el servidor (servido por NodeJs) se ha recurrido a la utilización de un proxy. En Javascript, cuando el cliente y el servidor tienen orígenes distintos, como es el caso, surge el problema de Cross Domain, el cual impide que se establezca la conexión entre ambos. En el caso de la aplicación, el proxy actúa de intermediario reenviando todo el tráfico que va desde $\slash nevado$ al servidor e intercepta las respuestas que el servidor envía al cliente. Con Angular-Cli se configura de manera sencilla, ya que para configurarlo solo se necesita un fichero de configuración y ejecutar su servidor a través del comando: \emph{shell}:ng-serve --proxy-config proxy.conf.json. 
+
+La aplicación necesita una base de datos para almacenar tanto los datos de los clientes, como los datos de los productos, facturas y pedidos. Se ha utilizado una base de datos no relacional, concretamente MongoDB. Se optó por este tipo de base de datos por la flexibilidad que proporcionaba a la hora de trabajar con documentos. Como se ha comentado en el capítulo 3 de esta memoria, estos documentos no tienen que tener las mismas propiedades, por ejemplo, los productos son muy dispares y, cada uno de ellos puede tener una propiedad distinta. Además, están indicadas cuando el volumen de datos crece constantemente, en una tienda online los usuarios, los productos y los pedidos crecen a buen ritmo. 
+
+En la figura ~\ref{fig:arquitecturaThreeTier} se puede observar como es la comunicación entre el cliente y el servidor en una arquitectura de tipo MEAN. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=9cm, keepaspectratio]{img/Arquitectura_mean.png}
+  \caption{Ejemplo arquitectura de tipo MEAN.}
+  \label{fig:arquitecturaMean}
+\end{figure}
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -579,7 +579,7 @@ Permite crear esquemas muy flexibles, de tal forma que se puede organizar la inf
 
 
 \section{Bcryptjs} 
-\label{sec:Bcryptjs}
+\label{sec:bcryptjs}
 Bcrypt es una librería que se usa para la encriptación de contraseñas y datos importantes. Fue creada por Niels Provos y David Maxieres y está desarrollada con Javascript. 
 
 Utiliza un valor aleatorio, denominado salt, para la generación del hash del dato que se desea encriptar. Este valor se guarda con el hash en la base de datos. Por eso, el mismo valor tiene diferente hash. Gracias a esto, se evitan los ataques de fuerza bruta o los ataques denominados Rainbow table (tablas de textos y sus hash asociados). Bcrypt permite elegir el valor del SaltRound, ya que a mayor valor numérico del salt mayor seguridad, pero a mayor seguridad mayor coste de tiempo a la hora de encriptar los datos. Por lo tanto, lo idóneo es elegir un salt lo suficientemente grande para que no se pueda obtener el dato cifrado por fuerza bruta pero no lo suficientemente alto como para que el procesamiento se demore mucho tiempo. Por defecto, Bcrypt pone un salt de 10, un valor intermedio para que no se produzcan los dos problemas principales. 
@@ -647,7 +647,7 @@ Mongo Compass es una herramienta gráfica disponible para Linux, Mac y Windows qu
 \section{Arquitectura general} 
 \label{sec:arquitectura}
 
-La aplicación implementada en este trabajo tiene una arquitectura $Three-Tier$, lo que es lo mismo una arquitectura de tres niveles. El primer nivel de esta arquitectura es la capa de presentación o cliente. Este nivel está compuesto por las diferentes vistas de la aplicación que forman la interfaz de usuario. Es el encargado de recoger la información que produce el usuario al interacturar en la aplicación y, el que envía, a través de peticiones, la información al segundo nivel. Este segundo nivel es el nivel de la lógica de negocio o el servidor. Se encarga de recibir todas las peticiones de usuario enviadas por el cliente y, de su posterior respuesta. Es el único nivel que se comunica con el resto, puesto que, también puede comunicarse con el tercer nivel, capa de acceso a base de datos o servidor de base de datos. Este tercer nivel es el que maneja la información. En la figura ~\ref{fig:arquitecturaThreeTier} se representa un ejemplo de este tipo de arquitectura. 
+La aplicación implementada en este trabajo tiene una arquitectura $Three-Tier$, es decir, una arquitectura de tres niveles. El primer nivel de esta arquitectura es la capa de presentación o cliente. Este nivel está compuesto por las diferentes vistas de la aplicación que forman la interfaz de usuario. Es el encargado de recoger la información que produce el usuario al interacturar en la aplicación y, el que envía, a través de peticiones, la información al segundo nivel. Este segundo nivel es el nivel de la lógica de negocio o el servidor. Se encarga de recibir todas las peticiones de usuario enviadas por el cliente y, de su posterior respuesta. Es el único nivel que se comunica con el resto, puesto que, también puede comunicarse con el tercer nivel, capa de acceso a base de datos o servidor de base de datos. Este tercer nivel es el que maneja la información. En la figura ~\ref{fig:arquitecturaThreeTier} se representa un ejemplo de este tipo de arquitectura. 
 
 \begin{figure}[H]
   \centering
@@ -707,6 +707,234 @@ En la figura ~\ref{fig:estructuraArchivosServidor} se puede observar como está o
 	 \item \textbf{\slash utils}, directorio que contiene las funciones genéricas usuadas en los diferentes servicios del servidor. Entre algunas funcionalidades, destacan el formateo de fechas, la creacción de PDFs y la configuración del correo para poder enviar emails a los usuarios de la tienda online. 
 
 \end{itemize}
+
+
+\subsection{API REST de la aplicación} 
+\label{sec:apirest}
+
+La API es cada uno de los endpoints que tiene la aplicación para que el cliente y el servidor se comuniquen. Se utiliza el protocolo HTTP para establecer estas conexiones, por lo que, las operaciones soportadas son GET, POST, PUT y DELETE. La respuesta por parte del servidor a estas llamadas tienen un formato JSON. 
+
+Los endpoints de la aplicación implementada en este trabajo son: 
+
+\begin{itemize}
+	\item  \textbf{POST \slash nevado\slash auth\slash register}: registra nuevos usuarios en el sistema. Antes de registrarlos, comprueba si existe el email en el sistema, en caso de existir manda un error indicando que el usuario está dado de alta. Al mismo tiempo que crea un registro nuevo en la colección de usuarios, crea un nuevo registro en la colección de clientes. 
+
+	\item \textbf{POST \slash nevado\slash auth\slash register\slash idUsuario}: Actualiza la información de confirmación del usuario.  
+
+	\item \textbf{POST \slash nevado\slash auth\slash login}: Permite el inicio de sesión. Para hacer este inicio de sesión, se comprueba el email y la contraseña. Si son erróneas devuelve un error que se muestra en pantalla. 
+
+	\item \textbf{GET \slash nevado\slash auth\slash logout}: Cierra la sesión del usuario. 
+
+	\item \textbf{GET \slash nevado\slash auth\slash forgetPassword\slash email}: Envía un correo al usuario, que ha olvidado la contraseña, con el enlace para restituirla. Antes de envíar el correo se comprueba que el usuario esté registrado en la aplicación. Si no lo está devuelve error y no envía el correo.  
+
+	\item \textbf{POST \slash nevado\slash auth\slash forgetPassword\slash idUsuario}: Permite reestablecer la contraseña del usuario. 
+
+	\item \textbf{GET \slash nevado\slash user\slash idUsuario}: Obtiene la información personal de un usuario para mostrarla en pantalla. El usuario tiene que estar autenticado para ver esta información.
+
+	\item \textbf{POST \slash nevado\slash user\slash idUsuario}: Permite actualizar los datos personales de un usuario. Sólo el usuario y el administrador de la aplicación pueden modificar estos datos. 
+
+	\item \textbf{GET \slash nevado\slash orders\slash idUsuario}: Devuelve la lista de pedidos que el usuario ha realizado. El usuario debe haber iniciado sesión en la tienda online para ver esta información. 
+
+\end{itemize}
+
+\textbf{API parte de administración de la aplicación}
+ La administración es lo que comunmente se denomina trastienda. Permite gestionar la tienda online, ya que se pueden añadir productos, proveedores, ver la lista de clientes y, administrar los pedidos que hay. Es por eso, que únicamente puede acceder a esta parte aquellos usuarios que tienen rol de administrador. Para controlar esto, se ha usado $Passport.js$. Passport permite añadir en cada endpoint la autenticación del usuario. Esta autenticación será explicada en la sección ~\ref{sec:autenticacion}.
+
+\begin{itemize}
+
+	\item \textbf{GET \slash nevado\slash admin}: Muestra la página principal de la parte de administración. 
+
+	\item  \textbf{GET \slash nevado\slash admin\slash orders}: Devuelve la lista de pedidos realizados por los clientes de la tienda online. Estos pedidos están ordenados por la fecha de entrada. Se puede aplicar filtros, para que únicamente devuelva los pedidos que se necesitan.  
+
+	\item \textbf{GET \slash nevado\slash admin\slash orders\slash export}: Exporta la lista de pedidos realizados por parte de los clientes en formato excel.  
+
+	\item \textbf{POST \slash nevado\slash admin\slash orders\slash idPedido}: Actualiza el estado del pedido. Cuando un cliente finaliza un pedido siempre se crea con estado pendiente. El administrador modifica el estado cuando se empieza a preparar. La información del estado es muy útil para el cliente, pues gracias a ella sabe como se encuentra su pedido. 
+
+	\item \textbf{POST \slash nevado\slash admin\slash orders\slash cobrado\slash idPedido}: Actualiza el campo cobrado de un pedido. Está opción se implemento pensando en los pagos contra-reembolso, ya que estos pagos se realizan en el momento que el cliente ha recibido su producto en casa. 
+
+	\item \textbf{GET \slash nevado\slash admin\slash orders\slash pending}: Actualiza el número de pedidos que están con estado pendiente. Este número se muestra en el header de la parte de administración y, es una información muy útil para agilizar la preparación de los envíos.  
+
+	\item \textbf{GET \slash nevado\slash admin\slash orders\slash products}: Recupera la información de los productos que contiene un pedido. 
+
+	\item \textbf{GET \slash nevado\slash admin\slash invoices}: Devuelve la lista de facturas del sistema. Está ordenada por número de factura y, además, permite aplicar filtros para la búsqueda de facturas concretas. 
+
+	\item \textbf{GET \slash nevado\slash admin\slash invoices\slash export}: Exporta la lista de facturas almacenadas en el sistema en formato excel.  
+
+	\item \textbf{POST \slash nevado\slash admin\slash invoices\slash pedido}: Genera la factura correspondiente a un pedido. La factura siempre se genera al finalizar el pedido, exceptuando cuando el método de pago es contra-reembolso, que se generará a mano. 
+
+	\item \textbf{POST \slash nevado\slash admin\slash invoices\slash products}: Devuelve la información relativa a los productos que contiene la factura de un pedido. 
+
+	\item \textbf{POST \slash nevado\slash admin\slash invoices\slash client}: Devuelve la información que se necesita de un cliente para generar la factura. 
+
+	\item \textbf{POST \slash nevado\slash admin\slash invoices\slash pdf}: Genera el PDF de la factura. 
+
+	\item \textbf{GET \slash nevado\slash admin\slash invoices\slash idFactura}: Comprueba si la factura está generada. Sólo se puede generar una factura por pedido. 
+
+	\item \textbf{GET \slash nevado\slash admin\slash products}: Retorna la lista de productos que tiene la tienda online. Permite filtrar los productos por código del producto, por marca, categoria, modelo y precio. 
+
+	\item \textbf{GET \slash nevado\slash admin\slash products\slash export}: Exporta la lista de productos de la tienda online en formato excel. 
+
+	\item \textbf{GET \slash nevado\slash admin\slash products\slash idProducto}: Retorna la información de un producto.
+
+	\item \textbf{POST \slash nevado\slash admin\slash products}: Añade un nuevo producto en el sistema.
+
+	\item \textbf{POST \slash nevado\slash admin\slash products\slash idProducto}: Actualiza la información de un producto.
+
+	\item \textbf{DELETE \slash nevado\slash admin\slash products\slash idProducto}: Elimina un producto del catálogo de la tienda online.
+
+	\item \textbf{GET \slash nevado\slash admin\slash brands}: Devuelve la lista de marcas registradas en la tienda online.
+
+	\item \textbf{GET \slash nevado\slash admin\slash brands\slash export}: Exporta la lista de marcas registradas en la tienda online en formato excel.
+
+	\item \textbf{DELETE \slash nevado\slash admin\slash brands\slash idMarca}: Elimina una marca de la tienda online.
+
+	\item \textbf{GET \slash nevado\slash admin\slash brands\slash products}: Devuelve los productos que tienen una misma marca.
+
+	\item \textbf{POST \slash nevado\slash admin\slash brands}: Añade una nueva marca al registro de la tienda online.
+
+	\item \textbf{GET \slash nevado\slash admin\slash categories}: Devuelve la lista de categorías registradas en la tienda online.
+
+	\item \textbf{GET \slash nevado\slash admin\slash categories\slash export}: Exporta la lista de categorías registradas en la tienda online en formato excel.
+
+	\item \textbf{DELETE \slash nevado\slash admin\slash categories\slash idCategoría}: Elimina una categoría de la tienda online.
+
+	\item \textbf{GET \slash nevado\slash admin\slash categories\slash products}: Devuelve los productos que tienen una misma categoría.
+
+	\item \textbf{POST \slash nevado\slash admin\slash categories}: Añade una nueva categoría al registro de la tienda online.
+
+	\item \textbf{GET \slash nevado\slash admin\slash clients}: Devuelve el listado de usuarios registrados en la tienda online. Además, permite filtrar el listado por nombre, apellidos, email, dni y teléfono. 
+
+	\item \textbf{GET \slash nevado\slash admin\slash clients\slash export}: Exporta el listado de usuarios registrados en la tienda online en formato excel. 
+
+	\item \textbf{DELETE \slash nevado\slash admin\slash clients\slash idUsuario}: Elimina un usuario de la aplicación. Está pensado para que los usuarios que lo deseen puedan acceder a que su información sea eliminada de los registros de la tienda online, como establece la política de privacidad. 
+
+	\item \textbf{GET \slash nevado\slash admin\slash payments}: Devuelve la lista de métodos de pagos disponibles en la tienda online. Se puede filtrar por el nombre del método de pago.
+
+	\item \textbf{POST \slash nevado\slash admin\slash payments}: Añade un nuevo método de pago a la tienda online.
+
+	\item \textbf{GET \slash nevado\slash admin\slash payments\slash export}: Exporta la lista de métodos de pagos disponibles en la tienda online en formato excel.
+
+	\item \textbf{DELETE \slash nevado\slash admin\slash payments\slash idPago}: Elimina un método de pado del sistema.
+
+	\item \textbf{GET \slash nevado\slash admin\slash transports}: Devuelve la lista de empresas de transporte que se utilizan para realizar los envíos. Se puede filtrar la lista por el nombre de la empresa.
+
+	\item \textbf{GET \slash nevado\slash admin\slash transports\slash export}: Exporta la lista de empresas de transporte que se utilizan para realizar los envíos en formato excel.
+
+	\item \textbf{POST \slash nevado\slash admin\slash transports}: Añade una nueva empresa de transporte.
+
+	\item \textbf{DELETE \slash nevado\slash admin\slash transports\slash idEmpresaTransporte}: Elimina una empresa de transporte del sistema. 
+
+	\item \textbf{GET \slash nevado\slash admin\slash offers}: Devuelve la lista de ofertas que están disponibles en la tienda online. 
+
+	\item \textbf{POST \slash nevado\slash admin\slash offers}: Añade una nueva oferta. 
+
+	\item \textbf{GET \slash nevado\slash admin\slash offers\slash export}: Exporta la lista de ofertas disponibles en formato excel. 
+
+	\item \textbf{POST \slash nevado\slash admin\slash offers\slash idOferta}: Permite modificar las fechas en la que la oferta está disponible así como la descripción de la misma. 
+
+	\item \textbf{GET \slash nevado\slash admin\slash offers\slash idOferta}: Elimina una oferta del sistema.
+
+	\item \textbf{GET \slash nevado\slash admin\slash offers\slash Products}: Devuelve los productos que tienen ofertas. 
+
+	\item \textbf{GET \slash nevado\slash admin\slash messages}: Retorna la lista de mensajes envíados por los usuarios.
+
+	\item \textbf{GET \slash nevado\slash admin\slash messages\slash export}: Exporta la lista de mensajes envíados por los usuarios en formato excel. 
+
+	\item \textbf{DELETE \slash nevado\slash admin\slash messages\slash idMensaje}: Elimina un mensaje.
+
+	\item \textbf{POST \slash nevado\slash admin\slash messages\slash idMensaje}: Permite poner el mensaje como leído o no leído. 
+
+	\item \textbf{POST \slash nevado\slash admin\slash messages\slash send}: Envía la respuesta a un mensaje de un usuario a través de un correo electrónico. 
+
+	\item \textbf{GET \slash nevado\slash admin\slash import\slash template}: Descarga la plantilla excel que hay que usar para poder importas datos de manera masiva en la tienda online. 
+
+	\item \textbf{POST \slash nevado\slash admin\slash import\slash upload}: Importa los datos del archivo excel seleccionado. 
+
+	\item \textbf{GET \slash nevado\slash admin\slash import\slash getImportData}: Muestra el log de la importación.
+
+\end{itemize}
+
+\textbf{API parte pública de la aplicación}
+
+La parte pública de la aplicación la forman las vistas que no necesitan un rol especifíco para interactuar en ellas. Los endpoints de esta parte son los siguientes: 
+
+\begin{itemize}
+	\item \textbf{GET \slash home}: Muestra la página principal de la aplicación. 
+
+	\item \textbf{GET \slash home\slash topVentas}: Devuelve los productos más vendidos para mostrarlos en el apartado Top Ventas de la página principal. 
+
+	\item \textbf{GET \slash home\slash ofertas}: Devuelve los productos que tienen ofertas para mostrarlos en el apartado ofertas de la vista principal. 
+
+	\item \textbf{GET \slash home\slash largeAppliances}: Muestra las subcategorías que tiene la categoría Gran electrodoméstico.
+
+	\item \textbf{GET \slash home\slash smallKitchenAppliances}: Muestra las subcategorías que tiene la categoría Pequeño electrodoméstico de cocina.
+
+	\item \textbf{GET \slash home\slash image}: Muestra las subcategorías que tiene la categoría Imagen.
+
+	\item \textbf{GET \slash home\slash sound}: Muestra las subcategorías que tiene la categoría Sonido.
+
+	\item \textbf{GET \slash home\slash telephony}: Muestra las subcategorías que tiene la categoría Telefonía y electrónica.
+
+	\item \textbf{GET \slash home\slash personalCare}: Muestra las subcategorías que tiene la categoría Cuidado personal.
+
+	\item \textbf{GET \slash home\slash computing}: Muestra las subcategorías que tiene la categoría Informática.
+
+	\item \textbf{GET \slash home\slash product\slash idProducto}: Devuelve la información relativa a un producto para mostrar esta información en la vista de detalle del producto.
+
+	\item \textbf{GET \slash home\slash brand}: Devuelve el logo de la marca del producto pasado como parámetro para mostrarlo en la vista detalle del producto. 
+
+	\item \textbf{GET \slash home\slash similarProducts}: Permite ver productos similares en la página de detalle de productos. Ofreciendo diferentes alternativas al producto seleccionado. 
+
+	\item \textbf{GET \slash home\slash category\slash nombreCategoria}: Devuelve todos los productos de una subcategoría. Estos productos se mostrarán en la vista de la subcategoría seleccionada.
+
+	\item \textbf{GET \slash home\slash brands}: Devuelve los productos de una subcategoria filtrados por marca. 
+
+	\item \textbf{GET \slash home\slash paymentMethods}: Retorna los métodos de pago con los que el cliente puede pagar su pedido. 
+
+	\item \textbf{GET \slash home\slash cart}: Permite ver los productos que hay en el carrito de compra. 
+
+	\item \textbf{GET \slash home\slash termUse}: Muesta la página de condiciones de uso. 
+
+	\item \textbf{GET \slash home\slash faq}: Muesta la página de preguntas frecuentes.
+
+	\item \textbf{GET \slash home\slash contact}: Muesta la página de ¿quiénes somos?.
+
+	\item \textbf{GET \slash home\slash privacyPolicy}: Muesta la página de política de privacidad.
+
+	\item \textbf{POST \slash home\slash review}: Añade una reseña en un producto. 
+
+	\item \textbf{POST \slash home\slash saveOrder}: Permite finalizar el pedido. 
+
+	\item \textbf{POST \slash home\slash message}: Envía un mensaje al administrador de la aplicación. 
+
+
+\end{itemize}
+
+
+\subsection{Registro y autenticación de usuarios} 
+\label{sec:autenticacion}
+
+La aplicación consta de dos perfiles de usuario, un perfil cliente y un perfil administrador. El perfil cliente, se asigna a un usuario cuando se registra en la apliacación. Mientras que, el perfil administrador únicamente lo tiene el dueño o administrador de la tienda online. Este perfil administrador, permite acceder a la trastienda, a la parte que permite gestionar clientes, pedidos, proveedores y productos.
+
+\textbf{Proceso de registro de un usuario}
+
+Cuando un usuario decide registrarse en la tienda online debe acceder a $\slash nevado\slash login$, seleccionar la pestaña Registrarse y rellenar los campos obligatorios para el resgistro. Cuando el usuario pulsa sobre el botón registrarse se realiza la petición al servidor. En esta petición viajan los datos introducidos por el usuario. El servidor, al recibir la petición, lo primero que hace es comprobar si el email introducido ya se encuentra en el sistema. Para ello, realiza una búsqueda en la base de datos. Si el email ya está registrado se devuelve un error, indicando que el usuario ya está registrado. Si, por el contrario, el email no se encuentra en nuestro sistema entonces guarda los datos del usuario en la base de datos, creando un nuevo registro en la colección de usuarios. Antes de crear el registro, debe proteger los datos más susceptibles del usuario, como es la contraseña. La contraseña, es la que permite realizar compras y acceder a la información personal del usuario, por lo que no se puede guardar en la base de datos en texto plano. Según la Ley de protección de datos, en su artículo noveno, el encargado del tratamiento de los datos susceptibles debe garantizar la seguridad de los mismos adoptando las medidas técnicas y organizativas necesarias. Para cumplir con este artículo, se encripta la contraseña utilizando la librería Bcryptjs. Esta librería permite realizar una encriptación robusta frente ataques de fuerza bruta, como se ha mencionado en la sección ~\ref{sec:bcryptjs}. Para llevar a cabo la encriptación de la contraseña se realizan los siguientes pasos: 
+
+\begin{enumerate}
+	\item Se genera el salt, valor aleatorio que es usado para dar mayor robustez a la encriptación. Para generar este valor se utiliza la función \emph{genSalt}, función propia de la librería de Bcrypt. El salt generado tiene una longitud de 10 caracteres, valor por defecto de Bcrypts. Se ha optado por este valor porque es lo suficientemente grande para evitar que ataques de fuerza bruta consigan descifrar la contraseña. Además, con este valor el proceso de encriptación no se demora mucho tiempo. 
+	\item Se encripta la contraseña utilizando la función \emph{hash}, también de Bcrypt. Para llevar a cabo la encriptación, está función utiliza el salt generado en el paso anterior. 
+\end{enumerate}
+
+Una vez encriptada la contraseña, se crea el nuevo registro en la colección usuarios, además de crear una nueva entrada en la colección clientes, pues es en esta colección donde se guardará la información personal del cliente. Para dar por finalizado el proceso de registro, se envía un correo al usuario. El correo contiene un enlace de confirmación de la cuenta, de este modo se garantiza que el correo introducido por el usuario es válido y, está dado de alta en un sistema de mensajería. Si el usuario no confirma el correo no podrá realizar compras en la tienda online. 
+
+\textbf{Proceso de autenticación de un usuario}
+
+Un usuario debe autenticarse para poder realizar determinadas operaciones dentro de la tienda online, por ejemplo, realizar sus compras, acceder a sus datos personales o acceder a la información de sus pedidos. Para realizar esta autenticación se ha utilizado la librería $Passportjs$. Esta librería permite realizar este proceso de manera sencilla y rápida. Passport almacena los datos necesarios para la autenticación en una cookie de sesión. Para configurar dicha cookie de sesión se ha usado $express-session$, que es un módulo de Express. La configuración se realiza cuando se arranca el servidor de node, por lo que se encuentra situada en el fichero app.js. Los parámetros que se han configurado son el tiempo de expiración de la cookie, donde se guardan las sesiones y el valor de la clave secret. Este secret, es una cadena de texto que se utiliza como identificador y, que permite validar la sesión. Passport tiene muchas estrategias para autenticar a un usuario, en la aplicación se ha optado por utilizar $Passport\-local$, la cual utiliza el email y la contraseña para realizar la autenticación. 
+
+Para acceder a una cuenta de usuario, se deber navegar a \slash nevado\slash login, acceder a la pestaña entrar, rellenar el email y la contraseña y pulsar sobre el botón entrar. Al pulsar sobre el botón, se realiza una petición al servidor. En esta petición viajan la contraseña y el email introducido por el usuario. El servidor al recibir la petición, lo primero que ejecuta es la estrategia de Passport que se ha implementado. Esta estrategia consiste en buscar el email en el sistema. Si no lo encuentra envía un error, indicando que el usuario no está registrado. Si lo encuentra, procede a comparar la contraseña enviada con la almacenada. Para realizar esta comparación se ha utilizado la función de bcrypt \emph{compare}, que lo que hace es encriptar la contraseña introducida y la compara con la almacenada. Si las contraseñas no coinciden se envía un error y, si coinciden Passport crea una sesión de usuario que, serializa y guarda en la base de datos. Además, estos datos de la sesión se añaden a la cookie, la cual se envía en cada una de las peticiones realizadas al servidor. De esta forma, no hay que enviar el email y la contraseña en cada llamada. El servidor únicamente se encargará de validar la cookie enviada.
+
+Para acceder a determinadas vistas de la aplicación, como, por ejemplo, las vistas de administración, el usuario además de estar logueado deberá tener el perfil de administrador. Para hacer esta comprobación, en cada llamada realizada bajo el contexto $\slash admin$ se ejecutará una función creada con passport que valida que el usuario tenga este perfil. Si el perfil no coincide no se permitirá el acceso a esta parte y, se redireccionará a la página principal. 
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

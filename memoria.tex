@@ -935,6 +935,41 @@ Para acceder a una cuenta de usuario, se deber navegar a \slash nevado\slash log
 
 Para acceder a determinadas vistas de la aplicación, como, por ejemplo, las vistas de administración, el usuario además de estar logueado deberá tener el perfil de administrador. Para hacer esta comprobación, en cada llamada realizada bajo el contexto $\slash admin$ se ejecutará una función creada con passport que valida que el usuario tenga este perfil. Si el perfil no coincide no se permitirá el acceso a esta parte y, se redireccionará a la página principal. 
 
+\subsection{Sistema de subida de archivos en el servidor} 
+\label{sec:subidaArchivos}
+
+La aplicación permite realizar subidas de archivos al servidor. Los archivos que se permiten subir son imágenes, documentos excel y archivos .zip. La subida de imágenes se produce al registrar un nuevo producto o a actualizarse, es necesario que los clientes vean como es el producto. Además, se suben imágenes al añadir a la tienda online nuevos proveedores, nuevas categorías y nuevas formas de pago. Las imágenes tienen que tener un tipo de formato determinado para poder subirse, los cuales son $.jpeg$, $.jpg$, $.png$. Si su formato es diferente se produce un error, que se muestra por pantalla. En cuanto a los documentos excel y los archivos .zip, se suben al servidor cuando se realiza la importación de productos, categorías o marcas, el sistema de importación se explica en la sección ~\ref{sec:importacion}. Los archivos .zip están formados por un documento excel, que contiene la información de todos los datos que se quiere subir y, una o más imágenes. El nombre de la imagen tiene que ser igual al que se haya escrito en el documento excel. 
+
+Para realizar esta subida de archivos en el servidor, se ha utilizado la librería $Multer$ de Express. $Multer$ facilita el manejo de datos codificados a multipart/form-data. Para realizar la subida basta con llamar a la función \emph{multer} de la librería, pasándole el destino del servidor donde se van a almacenar los archivos y en la recepción de la petición del cliente ejecutar la función \emph{single}, que acepta el nombre del campo file y lo añade al request de la petición. 
+
+\begin{center}
+	
+	{\small \emph{var multer = require('multer');}}
+
+	{\small\emph{var upload = multer({ dest: properties.get('nevado.server.import.folder') });}}
+
+	{\small\emph{routesImport.post('/upload', passportConfig.isAuthenticated, upload.single('file'), ... {});}}
+\end{center}
+
+\subsection{Generación de PDFs} 
+\label{sec:pdfs}
+
+Cuando se realiza un pedido es necesario enviar la factura, pues es esta la que actúa como ticket de compra. Por ello, se ha implementado una funcionalidad que permite generar el PDF de una factura. Para la generación de los PDFs se ha utilizado la librería $HTML-PDF$ de NodeJS. A través de un HTML, generado con la información recogida en la base de datos, se crea el PDF. Para ello, se utiliza la función \emph{create} de la librería, a la cual se le pasa el contenido del HTML y, se llama a la función \emph{toFile}, a la que se le indica donde se crea el archivo .pdf y que nombre va a tener dicho archivo. 
+\begin{center}
+	
+	{\small \emph{const pdf = require('html-pdf');}}
+
+	{\small\emph{pdf.create(content).toFile(properties.get('nevado.server.invoices')+"/" +  fileName+".pdf", ...);}}
+
+\end{center}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=15cm, keepaspectratio]{img/factura2.png}
+  \caption{Ejemplo PDF factura.}
+  \label{fig:factura}
+\end{figure}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

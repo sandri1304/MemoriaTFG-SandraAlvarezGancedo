@@ -970,6 +970,17 @@ Cuando se realiza un pedido es necesario enviar la factura, pues es esta la que 
   \label{fig:factura}
 \end{figure}
 
+\subsection{Sistema de importación y exportación} 
+\label{sec:importacion}
+
+Una tienda online requiere tener, en su catálogo, numerosos productos. Añadir cada uno de ellos al sistema puede llegar a ser pesado y tedioso. Por eso, se ha implementado un sistema de importación, que permite cargar masivamente datos en la base de datos. En este sistema se pueden cargar productos, marcas y categorías. 
+
+Para realizar la importación el administrador de la tienda debe ir a $\slash admin\slash import$, seleccionar el tipo de datos que se van a importar, es decir, debe indicar si son productos, categorías o marcas y, pulsar sobre el botón importar. Cuando se pulsa sobre el botón importar se realiza una petición al servidor. En esta petición viaja el archivo a importar. El tipo de archivo que se permite importar es un archivo .zip, que contiene un excel con los registros que se quieren añadir a la base de datos e imágenes, una por cada registro. Cuando se recibe la petición se sube el archivo .zip al servidor, como se ha mencionado en la sección ~\ref{sec:subidaArchivos} y, posteriormente, se realiza la importación. Para ello, se descomprime el archivo .zip, utilizando la librería $Adm-zip$, se extrae el documento excel y se parsea dicho documento para convertirlo en un array de objetos Json. Para realizar el parseo del documento excel se usa la librería $SheetJS-XLSX$. El array va a tener tantos objetos Json como registros tenga el documento excel. A cada objeto Json se le añade la ubicación de la imagen asociada a cada registro. Antes de guardarlo en la base de datos, se realizan una serie de comprobaciones, como, por ejemplo, que todos los campos del registro estén rellenos o, en el caso, de los productos que el precio sea numérico o la marca y categoría exista en  la base de datos. Una vez terminada esta comprobación, se insertan en la base de datos todos los registros, utilizando el comando \emph{insertMany} de Mongoose, realizando así una única query. Cuando el proceso termina se muestra en pantalla, a través de un sistema de log, el número de registros importados y, cuales de ellos han fallado, indicando el número de línea y el error producido. 
+
+Para facilitar la creación de los documentos excel y, evitar errores a la hora de importalos, se ha implemantado una opción de descarga de plantilla. Para descargar esta plantilla, basta con seleccionar el tipo de dato que se quiere importar y pulsar sobre el botón plantilla, descargando un documento excel con las cabeceras de los campos que se han de rellenar. Este sistema de descarga de plantilla es similar al sistema de descarga de los documentos excel que se encuentran en las distintas vistas de la parte de administración.  
+
+Para la creacción tanto de la plantilla como de los documentos excel, se utiliza la librería de NodeJS $excel4node$. El documento excel se va rellenando con los metadatos de la cabecera y los datos devueltos por la base de datos. En el caso de la plantilla sólo con los metadatos de la cabecera. Este documento se envía en la respuesta al cliente y el cliente lo descarga utilizando \emph{saveAs} de la librería de Angular $File-saver$. 
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

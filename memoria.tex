@@ -260,9 +260,9 @@ La memoria comienza con un resumen, el cual explica de manera breve en que consi
   
   \item \textbf{Capítulo 2: Objetivos y motivaciones.} Se describen los objetivos que se pretenden alcanzar con el desarrollo y finalización del proyecto. Se detallan las motivaciones por las cuales se ha decidido realizar una aplicación web de comercio electrónico. Y, además, se explica el planing temporal seguido para terminar con éxito el trabajo. 
   
-  \item \textbf{Capítulo 3: Estado del arte.} Se explican las teconologías usadas en el desarrollo de la aplicación. Al utilizar datos sensibles de personas, en esta sección se detalla brevemente la ley en la que se debe enmarcar el proyecto, siendo esta la Ley de Protección de datos.
+  \item \textbf{Capítulo 3: Estado del arte.} Se explican las teconologías usadas en el desarrollo de la aplicación. 
 
-  \item \textbf{Capítulo 4: Diseño e implementación.} Se describe de manera detallada la arquitectura, el diseño e implementación del sevidor (en el que se explicará el API con todas las llamadas que se realizan en la aplicación), el diseño de la base de datos y el diseño e implementación del cliente. Además, se describerán los Test Cases que se han realizado para el testing de la aplicación. 
+  \item \textbf{Capítulo 4: Diseño e implementación.} Se describe de manera detallada la arquitectura, el diseño e implementación del sevidor (en el que se explicará el API con todas las llamadas que se realizan en la aplicación), el diseño de la base de datos y el diseño e implementación del cliente.
 
   \item \textbf{Capítulo 5: Resultados.} Se analiza si se ha conseguido alcanzar el resultado que se esperaba, así como, los problemas que se han encontrado en el transcurso del proyecto y como se han conseguido solucionar. 
 
@@ -312,7 +312,9 @@ Para cumplir con el objetivo principal es necesario alcanzar los siguientes obje
 
 \item Implementar un sistema de importación y exportación de ficheros excel que permita el manejo de grandes volúmenes de datos. 
 
-\item La aplicación debe ser accesible para que clientes con determinadas discapacidades puedan realizar sus compras. 
+\item Implementar un sistema de mensajería que permita la comunicación entre los clientes y el administrador.
+
+\item Generación de las facturas en PDF para que se puedan enviar junto a los productos.  
 
 \end{itemize}
 
@@ -323,16 +325,16 @@ En la actualidad, las tiendas online están en pleno auge y son un pilar fundamen
 
 Este desarrollo me permitía poner en práctica la mayoría de los conocimientos adquiridos en el transcurso del grado en Tecnologías de la telecomunicación pero, también me permitía adquirir nuevos conocimientos que me servirán para adentrarme en el mundo laboral del comercio electrónico. Suponía una motivación más enfrentarme a nuevos retos aprendiendo tecnologías nuevas como NodeJs, Angular, TypeScript o MongoDB y me servía para demostrarme que soy capaz de resolver cualquier conflicto que se plantee durante el transcurso del desarrollo con esfuerzo y dedicación, aumentando así mi confianza en afrontar nuevos proyectos de cara a mi carrera profesional. 
 
-\section{Planificación temporal}
-\label{sec:planificacion-temporal}
+%\section{Planificación temporal}
+%\label{sec:planificacion-temporal}
 
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=9cm, keepaspectratio]{img/planificacion_temporal}
-  \caption{Planificación temporal:Diagrama de GANTT.}
-  \label{fig:GANTT}
-\end{figure}
+%\begin{figure}[H]
+%  \centering
+%  \includegraphics[width=9cm, keepaspectratio]{img/planificacion_temporal}
+%  \caption{Planificación temporal:Diagrama de GANTT.}
+%  \label{fig:GANTT}
+%\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -651,7 +653,7 @@ La aplicación implementada en este trabajo tiene una arquitectura $Three-Tier$, 
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=9cm, keepaspectratio]{img/arquitectura-ThreeTier.png}
+  \includegraphics[width=15cm, keepaspectratio]{img/arquitectura-ThreeTier.png}
   \caption{Ejemplo arquitectura Three-Tier.}
   \label{fig:arquitecturaThreeTier}
 \end{figure}
@@ -668,7 +670,7 @@ En la figura ~\ref{fig:arquitecturaThreeTier} se puede observar como es la comun
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=9cm, keepaspectratio]{img/Arquitectura_mean.png}
+  \includegraphics[width=9cm]{img/Arquitectura_mean.png}
   \caption{Ejemplo arquitectura de tipo MEAN.}
   \label{fig:arquitecturaMean}
 \end{figure}
@@ -685,6 +687,15 @@ La implementación del servidor se ha realizado usando NodeJS y Express, usado es
 \label{sec:estructuraServidor}
 
 En la figura ~\ref{fig:estructuraArchivosServidor} se puede observar como está organizado el servidor. 
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/estructuraServidor.png}
+  \caption{Estructura de los Directorios del servidor.}
+  \label{fig:estructuraArchivosServidor}
+\end{figure}
+
 
 \begin{itemize}
 	\item  \textbf{Server.js}, archivo donde se establece el puerto de la conexión de la aplicación y, desde el cual se inicia el servidor. Además, carga el archivo \textbf{App.js}, archivo principal del servidor.
@@ -991,9 +1002,7 @@ Para la creacción tanto de la plantilla como de los documentos excel, se utiliza
 \cleardoublepage
 \chapter{Resultados}
 
-En este capítulo se incluyen los resultados de tu trabajo fin de grado.
-
-Si es una herramienta de análisis lo que has realizado, aquí puedes poner ejemplos de haberla utilizado para que se vea su utilidad.
+El resultado del trabajo es satisfactorio, ya que se ha logrado cumplir con el objetivo principal del mismo, crear una tienda online de electrodomésticos. Si se hace una comparativa con otras tiendas online, se puede decir que la desarrollada en el trabajo puede estar a la altura de las que se ven en el mercado online de electrodomésticos. En la sección ~\ref{sec:consecucion-objetivos} se detallarán los objetivos specificos que se han logrado cumplir, siendo estos la mayoría. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1020,7 +1029,7 @@ Con la implementación de la aplicación, también se ha logrado cumplir con los ob
 	En cuanto a la seguridad de los datos susceptibles como son las contraseñas, se ha usado una librería robusta para su encriptación. En la base de datos, se guarda esta información encriptada mediante un hash. El hash esta formado por un salt que dificulta conseguir la información mediante ataques de fuerza bruta. 
 	En cuanto a los pagos, se realizan a través de Apis externas a la aplicación, para no tener que almacenar los datos bancarios. 
 	\item La aplicación es atractiva y competitiva. Se ha implementado las funcionalidades básicas que deben tener las tiendas online y, además, se ha implementado un sistema de valoración y votación de productos, que no todas las aplicaciones de comercio electrónico lo tienen. Esto permite a los usuarios conocer las valoraciones de anteriores compradores. Se ha recurrido al uso de colores, iconos, letras y componentes llamativos para captar la atención de los clientes. De esta manera, se amplía el mercado y, la aplicación puede situarse entre las más visitadas del mercado de los electrodomésticos. 
-	\item Se ha logrado crear una parte de administración sencilla. Permite al administrador de la tienda a gestionar pedidos, crear productos y visualizar clientes de manera rápida, evitando que los pedidos se demoren y, los productos estén en casa en un período de tiempo mayor. Para agilizar la carga masiva de los productos, las marcas y las categorías, se ha implementado un servicio de importación y exportación de ficheros excel. 
+	\item Se ha logrado crear una parte de administración sencilla. Permite al administrador de la tienda a gestionar pedidos, crear productos y visualizar clientes de manera rápida, evitando que los pedidos se demoren y, los productos estén en casa en un período de tiempo mayor. Para agilizar la carga masiva de los productos, las marcas y las categorías, se ha implementado un servicio de importación y exportación de ficheros excel. Además se ha implementado un sistema de mensajería que permite interactuar entre los usuarios y el administrador de la tienda, pudiendo resolver cualquier duda de los usuarios.
 	\item Con el uso de Angular, Express y Node se ha conseguido crear una aplicación web modulable y escalable, en la que el mantenimiento y la actualización de componentes sea sencilla. Cada vista de la aplicación tiene su propio componente, por lo que modificar una vista significaría simplemente modificar el componente asociado a ella. 
 	\item Es lo más accesible posible, para ello se ha usado colores en el que el contraste sea bueno, así como etiquetas en los HTMLs para que personas con dificultad visual puedan comprar. 
 \end{itemize}

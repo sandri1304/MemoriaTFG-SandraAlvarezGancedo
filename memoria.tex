@@ -675,6 +675,127 @@ En la figura ~\ref{fig:arquitecturaThreeTier} se puede observar como es la comun
   \label{fig:arquitecturaMean}
 \end{figure}
 
+\section{Modelo de la base de datos} 
+\label{sec:baseDatos}
+
+El gestor de base de datos utilizado es MongoDB, base de datos no relacional. Se ha utilizado este tipo de base de datos por la flexibilidad que proporciona a la hora de trabajar con documentos. Además, como se ha comentado en la sección ~\ref{sec:MongoDB}, los documentos almacenados no tienen porque tener las mismas propiedades, muy útil para el almacenaje de los productos, ya que cada producto tiene propiedades diferentes. Están indicadas en aplicaciones en las que el volumen de datos crece constantemente. En una tienda online, tanto el número de usuarios como el número de pedidos está en constante crecimiento. El formato de los documentos de las distintas colecciones de la base de datos, están definidos en el subdirectorio modelos del directorio Servidor de la aplicación. Las colecciones de la aplicación se describen a continuación: 
+
+\begin{itemize}
+	\item \textbf{Usuarios}: Colección donde se almacenan los usuarios registrados de la tienda online. Los campos que tienen sus documentos son:
+		\begin{itemize}
+				\item \textbf{correo}: Email con el que se registra el usuario, debe ser único y siempre debe de estar presente en los documentos guardados. (String).
+
+				\item \textbf{rol}: Perfil del usuario registrado, puede ser cliente o admin. Dependiendo de este perfil se pueden visualizar unas vistas u otras. (String)
+
+				\item \textbf{bloqueado}: Indica si un usuario se ha bloqueado. El administrador de la tienda online puede bloquear usuarios en caso de detectar anomalias en su compartamiento. (Boolean)
+
+				\item \textbf{confirmacion}: Indica si un usuario está confirmado. Si el usuario no está confirmado no podrá realizar compras. (Boolean)
+
+				\item \textbf{contraseña}: Contraseña encriptada introducida por el usuario para entrar en su cuenta. Es un campo que siempre debe ir relleno. (String)
+
+				\item \textbf{clientes}: Identificador del usuario en la tabla clientes. Cuando un usuario se registra se crea un documento nuevo en la colección clientes. (ObjectId)
+
+		\end{itemize}
+
+	\item \textbf{Clientes}: Colección donde se almacena la información personal de un usuario registrado. Los campos que tienen sus documentos son:
+
+		\begin{itemize}
+				\item \textbf{nombre}: Nombre del usuario registrado. (String)
+
+				\item \textbf{apellidos}: Apellidos del usuario registrado. (String)
+
+				\item \textbf{teléfono}: Teléfono personal donde dirigirse en caso de tener problemas con su pedido. (String)
+
+				\item \textbf{fechaNacimiento}: Cumpleaños del usuario registrado. (String)
+
+				\item \textbf{direccionFactura}: Dirección de facturación. Calle, número, portal, escalera, piso y letra. (String)
+
+				\item \textbf{codigoPostalFactura}: Código postal de la dirección de facturación. (String) 
+
+				\item \textbf{puebloFactura}: Municipio de la dirección de facturación. (String)
+
+				\item \textbf{provinciaFactura}: Provincia de la dirección de facturación. (String)
+
+				\item \textbf{direccionEnvio}: Dirección donde se envía el pedido. Sólo tendrá valor si la dirección de envío es diferente a la dirección de facturacion. (String)
+
+				\item \textbf{codigoPostalEnvio}: Código postal de la dirección de envío.  Sólo tendrá valor si la dirección de envío es diferente a la dirección de facturacion. (String)
+
+				\item \textbf{puebloEnvio}: Municipio de la dirección de envio.  Sólo tendrá valor si la dirección de envío es diferente a la dirección de facturacion. (String)
+
+				\item \textbf{provinciaEnvio}: Provincia de la dirección de envío.  Sólo tendrá valor si la dirección de envío es diferente a la dirección de facturacion. (String)
+
+				\item \textbf{pedidos}: Número de pedidos realizados por el usuario en la tienda. (Number)
+
+		\end{itemize}
+
+	\item \textbf{Artículos}: Colección donde se almacena la información de los productos. 
+
+		\begin{itemize}
+				\item \textbf{codigoArticulo}: Identificador del artículo. Es único y debe estar presente en todos los documentos guardados. (String)
+
+				\item \textbf{categoria}: Grupo en el que se encuadra el artículo. (String)
+
+				\item \textbf{modelo}: Modelo del artículo. (String)
+
+				\item \textbf{marca}: Marca del artículo. (String)
+
+				\item \textbf{pvpTarifa}: Precio máximo del artículo (Number)
+
+				\item \textbf{pvp}: Precio del artículo con IVA. (Number) 
+
+				\item \textbf{estado}: Indica si el producto es visible o no en el catálogo. (Boolean)
+
+				\item \textbf{stock}: Existencias del artículo en el almacén. (Number)
+
+				\item \textbf{imagen}: Ubicación donde se encuentra la foto del producto en el servidor. (String)
+
+				\item \textbf{características}: Descripción del artículo con las características principales. (String)
+
+				\item \textbf{otros}: Información adicional del artículo. (String)
+
+				\item \textbf{fechaPublicacion}: Fecha en la que se guarda por primera vez el artículo en el sistema. (Date)
+
+				\item \textbf{fechaModificacion}: Fecha en la que algún campo del documento es actualizado. (Date)
+
+				\item \textbf{autor}: Nombre de quien agrego el artículo al sistema. (String)
+
+				\item \textbf{ventas}: Número de veces que el producto ha sido comprado. (Number)
+
+				\item \textbf{ofertas}: Identificador del descuento que se le aplica al producto si estuviese en oferta. (ObjectId)
+
+				\item \textbf{envioGratuito}: Indica si el artículo se envía sin ningún coste. (Boolean)
+
+				\item \textbf{estrellas}: Número de estrellas puestas en las reseñas. (Number)
+
+				\item \textbf{Usuarios}: Número de usuarios que han escrito una reseña sobre el producto. (Number)
+
+				\item \textbf{comentarios}: Array de identificadores de las reseñas del producto. (ObjectId)
+
+		\end{itemize}
+
+	\item \textbf{Categorías}: Colección donde se almacenan las diferentes categorías donde se agrupan los productos. 
+
+		\begin{itemize}
+				\item \textbf{nombre}: Nombre de la categoría. Es único y debe estar presente en todos los documentos. (String)
+
+				\item \textbf{imagen}: Ubicación donde se encuentra la foto, que representa la categoría, en el servidor. (String)
+
+				\item \textbf{categoriaGeneral}: Grupo donde se encuadra la categoría. (String)
+
+		\end{itemize}
+
+	\item \textbf{Marcas}: Colección donde se almacenan los proveedores, marcas, de los artículos. 
+
+		\begin{itemize}
+				\item \textbf{nombre}: Nombre de la marca. Es único y debe estar presente en todos los documentos. (String)
+
+				\item \textbf{imagen}: Ubicación donde se encuentra el logo de la marca en el servidor. (String)
+
+		\end{itemize}
+
+
+\end{itemize}
+
 
 \section{Diseño e implementación del servidor} 
 \label{sec:Disenioservidor}

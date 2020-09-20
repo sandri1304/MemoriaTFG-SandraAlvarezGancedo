@@ -805,12 +805,113 @@ El gestor de base de datos utilizado es MongoDB, que es una base de datos no rel
 
 				\item \textbf{fechaFin}: Fecha límite de la oferta. (Date)
 
-				\item \textbf{descripcion}:  (Date)
+				\item \textbf{descripcion}: Breve descripción del motivo de la oferta. (String)
+
+		\end{itemize}
+
+	\item \textbf{Comentarios}: Colección donde se almacenan las reseñas escritas por los usuarios. 
+
+		\begin{itemize}
+				\item \textbf{calificacionGeneral}: Puntación general que se le otorga al procucto. (Number)
+
+				\item \textbf{titulo}: Titulo de la reseña (String)
+
+				\item \textbf{comentario}: Valoración del usuario al producto. (String)
+
+				\item \textbf{recomendacion}: Indica si el usuario aconsejaría comprar el producto. (Boolean)
+
+				\item \textbf{calidadPrecio}: Puntación que se le otorga al producto en cuanto a calidad precio. (Number)
+
+				\item \textbf{alias}: Nombre del usuario que escribe la reseña. (String)
+
+				\item \textbf{email}: Correo del usuario que escribe la reseña. (String)
+
+		\end{itemize}
+
+	\item \textbf{Método de Pago}: Colección donde se almacenan los métodos de pago con los que se pueden pagar los pedidos. 
+
+		\begin{itemize}
+				\item \textbf{nombre}: Nombre del método de pago (String)
+
+				\item \textbf{imagen}: Ubicación donde se encuentra el logo del método de pago. (String)
+
+		\end{itemize}
+
+	\item \textbf{Transportes}: Colección donde se almacenan las empresas de transportes utilizadas para el envío de los pedidos. 
+
+		\begin{itemize}
+				\item \textbf{nombre}: Nombre de la empresa de transporte. (String)
+
+		\end{itemize}
+
+	\item \textbf{Pedidos}: Colección donde se almacena la información relativa a los pedidos. 
+
+		\begin{itemize}
+				\item \textbf{idPedido}: Identificador del pedido, debe ser único. (String)
+
+				\item \textbf{fechaEntrada}: Fecha en la que se realiza el pedido. (Date)
+
+				\item \textbf{fechaEntrega}: Fecha aproximada de la entrega del pedido. (Date)
+
+				\item \textbf{estado}: Indica la situación del pedido: pendiente, preparando, entregado y finalizado. (String)
+
+				\item \textbf{total}: Precio total del pedido. (Number)
+
+				\item \textbf{formasPago}: Método de pago del pedido. (String)
+
+				\item \textbf{cobrado}: Indica si el pedido está pagado o no. (Boolean)
+
+				\item \textbf{usuario}: Identificador del usuario que realizo el pedido. (ObjectId)
+
+				\item \textbf{articulos}: Artículos que contiene el pedido. Array de objetos formados por el identificador del producto y cantidad del producto comprado. (Array)
 
 		\end{itemize}
 
 
+	\item \textbf{Facturas}: Colección donde se almacena la información relativa a las facturas de los pedidos realizados. 
+
+		\begin{itemize}
+				\item \textbf{nFactura}: Identificador de la factura, debe ser único. (String)
+
+				\item \textbf{fecha}: Fecha en la que se crea la factura. (Date)
+
+				\item \textbf{cliente}: Identificador del usuario que realiza la compra. (ObjectId)
+
+				\item \textbf{total}: Precio total de la factura. (Number)
+
+				\item \textbf{formasPago}: Método de pago con el que se pago el pedido. (String)
+
+				\item \textbf{idPedido}: Identificador del pedido asociado a la factura. (String)
+
+				\item \textbf{articulos}: Artículos que contiene el pedido. Array de objetos formados por el identificador del producto y cantidad del producto comprado. (Boolean)
+
+		\end{itemize}
+
+	\item \textbf{Mensajes}: Colección donde se almacenan los mensajes enviados por parte de los usuarios al administrador. 
+
+		\begin{itemize}
+				\item \textbf{idUsuario}: Identificador del usuario que escribe el mensaje. (ObjectId)
+
+				\item \textbf{nombreUsuario}: Nombre del usuario que escribe el mensaje. (String)
+
+				\item \textbf{correoUsuario}: Correo del usuario que escribe el mensaje. (String)
+
+				\item \textbf{mensaje}: mensaje que se envía al administrador. (String)
+
+				\item \textbf{leido}: Indica si un mensaje se ha leído o no. (Boolean)
+
+				\item \textbf{fecha}: Fecha en la que se envió el mensaje. (Date)
+
+		\end{itemize}
+
 \end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=14cm]{img/baseRelacional.png}
+  \caption{Diseño base de datos del servidor utilizando una base de datos relacional}
+  \label{fig:baseRelacional}
+\end{figure}
 
 
 \section{Diseño e implementación del servidor} 
@@ -823,9 +924,6 @@ La implementación del servidor se ha realizado usando NodeJS y Express, usado es
 \subsection{Estructura del servidor} 
 \label{sec:estructuraServidor}
 
-En la figura ~\ref{fig:estructuraArchivosServidor} se puede observar como está organizado el servidor. 
-
-
 \begin{figure}[H]
   \centering
   \includegraphics[width=14cm, keepaspectratio]{img/estructuraServidor.png}
@@ -833,6 +931,7 @@ En la figura ~\ref{fig:estructuraArchivosServidor} se puede observar como está o
   \label{fig:estructuraArchivosServidor}
 \end{figure}
 
+En la figura ~\ref{fig:estructuraArchivosServidor} se puede observar como está organizado el servidor. 
 
 \begin{itemize}
 	\item  \textbf{Server.js}, archivo donde se establece el puerto de la conexión de la aplicación y, desde el cual se inicia el servidor. Además, carga el archivo \textbf{App.js}, archivo principal del servidor.
@@ -1129,6 +1228,14 @@ Para realizar la importación el administrador de la tienda debe ir a $\slash adm
 Para facilitar la creación de los documentos excel y evitar errores a la hora de importarlos, se ha implemantado una opción de descarga de plantilla. Para descargar esta plantilla, basta con seleccionar el tipo de dato que se quiere importar y pulsar sobre el botón plantilla, descargando un documento excel con las cabeceras de los campos que se han de rellenar. Este sistema de descarga de plantilla es similar al sistema de descarga de los documentos excel que se encuentran en las distintas vistas de la parte de administración.  
 
 Para la creacción de los documentos excel, se utiliza la librería de NodeJS $excel4node$. El documento excel se va rellenando con los metadatos de la cabecera y los datos devueltos por la base de datos. En el caso de la plantilla, sólo se rellena la cabecera del documento excel. Este documento se envía en la respuesta al cliente y, el cliente lo descarga utilizando \emph{saveAs} de la librería de Angular $File-saver$. 
+
+
+\section{Diseño e implementación del cliente} 
+\label{sec:implementacionCliente}
+
+El cliente se ha desarrollado utilizando Angular y está programado en Typescript. Está formado por diferentes vistas, que forman la interfaz de usuario. Estas vistas se cargan de manera dinámica e instántanea, ya que cuando se modifica de url no se recarga la página. Por lo tanto, el cliente se ha implementado como Single-Page. Además, con el uso de Angular, el cliente tiene una arquitectura modelo-vista-controlador. 
+
+El cliente es el encargado de recoger la información introducida por el usuario cuando interactua en la aplicación. Para atender los eventos lanzados por el usuario, se ha alojado en el servidor proporcionado por Angular-Cli.  
 
 
 

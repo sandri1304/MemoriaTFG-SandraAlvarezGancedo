@@ -512,7 +512,7 @@ Por otro lado Node es un buen aliado para desarrollar aplicaciones web, ya que a
 \label{sec:Npm}
 Es el sistema de administración de paquetes del entorno de ejecución de NodeJs. Contiene un cliente, con el que ejecutando una línea de comando, se instalan los paquetes necesarios para el funcionamiento de los proyectos NodeJs. Además, contiene una biblioteca o base de datos con más de 477000 paquetes disponibles para usarse. Todos estos paquetes están guardados con formato CommonsJs y, contienen un archivo para almacenar metadatos con formato Json. Fue desarrollado por Isaac Z. Schlueter y se desarrolló por completo en JavaScript.
 
-Al instalar un paquete a través de Npm, se instala bajo el directorio del proyecto \slash .node\_modules. Permite instalar con un único comando todas las dependencias del proyecto, siempre y cuando se ejecute el comando en la raíz del proyecto. Npm utiliza el archivo con formato Json, denominado Package.json, para guardar todos los metadatos relevantes a los modulos, paquetes y dependencias del proyecto. En el archivo package.json se guardan las versiones compatibles para los diferentes módulos, permitiendo hacer un versionado del modulo instalado. Gracias a esto, Npm hace que la instalación de proyectos NodeJs, descargados de Git sea sencilla.
+Al instalar un paquete a través de Npm, se instala bajo el directorio del proyecto \slash .node\_modules. Permite instalar con un único comando todas las dependencias del proyecto, siempre y cuando se ejecute el comando en la raíz del proyecto. Npm utiliza el archivo con formato Json, denominado Package.json, para guardar todos los metadatos relevantes a los módulos, paquetes y dependencias del proyecto. En el archivo package.json se guardan las versiones compatibles para los diferentes módulos, permitiendo hacer un versionado del módulo instalado. Gracias a esto, Npm hace que la instalación de proyectos NodeJs, descargados de Git sea sencilla.
 
 
 \section{Express.js} 
@@ -926,7 +926,7 @@ La implementación del servidor se ha realizado usando NodeJS y Express, usado es
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=14cm, keepaspectratio]{img/estructuraServidor.png}
+  \includegraphics[width=10cm, keepaspectratio]{img/estructuraServidor.png}
   \caption{Estructura de los Directorios del servidor.}
   \label{fig:estructuraArchivosServidor}
 \end{figure}
@@ -1237,6 +1237,65 @@ El cliente se ha desarrollado utilizando Angular y está programado en Typescript
 
 El cliente es el encargado de recoger la información introducida por el usuario cuando interactua en la aplicación. Para atender los eventos lanzados por el usuario, se ha alojado en el servidor proporcionado por Angular-Cli.  
 
+\subsection{Estructura del cliente} 
+\label{sec:estructuracliente}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=10cm, keepaspectratio]{img/estructuraCliente.png}
+  \caption{Estructura de los Directorios del cliente.}
+  \label{fig:estructuraArchivoscliente}
+\end{figure}
+
+En la figura ~\ref{fig:estructuraArchivoscliente} se puede observar como está organizado el cliente. 
+
+\begin{itemize}
+
+	\item \textbf{\slash node\_modules}, directorio donde se encuentran instaladas las dependencias del cliente. Se denomina así, porque utiliza el comando \emph{npm install} para descargar e instalar las dependencias, ya que Angular-Cli usa NodeJS para la ejecución de su servidor. 
+
+	\item \textbf{package.json}, archivo donde se especifican las dependencias utilizadas en el proyecto. Estas dependencias se declaran junto con la versión utilizada. 
+
+	\item \textbf{proxy.conf.json}, archivo de configuración del proxy utilizado como intermediario entre el cliente y el servidor. 
+
+	\item \textbf{tsconfig.json}, archivo de configuración del compilador de los archivos Typescript. 
+
+	\item \textbf{\slash src}, directorio donde se encuentra la lógica del cliente, en el se sitúan los componentes, las directivas y los servicios utilizados para interactuar en la interfaz de usuario. Está formado por: 
+
+	\begin{itemize}
+		\item \textbf{index.html}, archivo HTML principal de la interfaz de usuario. Se compone del componente raiz que inicia la aplicación y del que parten los demás componentes. En este HTML se cargan los estilos generales utilizados y los scripts necesarios para el correcto funcionamiento del cliente. 
+
+		\item \textbf{main.ts}, archivo Typescript principal. En el se estable el módulo principal del cliente, siendo este módulo \textbf{AppModule}
+
+		\item \textbf{styles.css}, archivo donde se definen los estilos generales de la interfaz de usuario. 
+
+		\item \textbf{\slash fonts}, directorio donde se almacenan las fuentes utilizadas en la interfaz de usuario. 
+
+		\item \textbf{\slash enviroments}, directorio donde se establece la configuración de los distintos entornos de desarrollo. En el caso de esta aplicación, no se ha configurado ningún entorno, ya que siempre se ha trabajado en local.
+
+		\item \textbf{\slash assets}, directorio donde se almacenan los recursos estáticos como el logo o las imágenes del carousel implementado en la página ``home" de la aplicación. 
+
+		\item \textbf{\slash app}, directorio que contiene los componentes, servicios y directivas utilizados para implementar el cliente. Está compuesto por: 
+
+		\begin{itemize}
+			\item \textbf{app.module.ts}, módulo principal del cliente. En este archivo se especifican todos los componentes que forman la interfaz de usuario. 
+
+			\item \textbf{app.component.html}, archivo HTML principal. Se compone de dos componentes fijos para todas las vistas, el ``header'' y el ``footer'' y una parte variable donde se cargan los distintos componentes. Estos componentes varían según se modifique la URL. 
+
+			\item \textbf{app.routing-module.ts}, archivo donde se declaran los componentes que se cargan en la parte variable del componente principal y cuando se han de cargar, es decir, se asocia el componente a la URL. 
+
+			\item \textbf{mat.module.ts}, archivo donde se declaran los módulos de angular material que se pueden utilizar.
+
+			\item \textbf{\slash components}, directorio que contiene los componentes que forman el cliente. Se divide en en cuatro subdirectorios \textbf{\slash admin} (componentes de la trastienda) \textbf{\slash client} (componentes de la tienda vista por los usuarios) \textbf{\slash footer} (componentes del footer) \textbf{\slash header} (components del header) \textbf{\slash init-page} (componentes que forman la vista ``home'' de la tienda). Cada uno de los componentes tiene asociado un archivo .html para crear el html de la vista, un archivo .css para definir los estilos de la vista y un archivo .ts que es el controlador de la vista. 
+
+			\item \textbf{\slash dataModels}, directorio que contiene los modelos de datos utilizados en el cliente. En este directorio se encuentra el archivo \textbf{properties.ts}, que contiene los contextos de las peticiones realizadas al servidor. De este modo, si uno de los contextos se modifica únicamente habría que modificar este fichero y no todos los archivos donde se encuentra el contexto a modificar. 
+
+			\item \textbf{\slash services}, directorio que contiene los servicios utilizados en los controladores de las vistas. Estos servicios se pueden usar desde cualquier componente y sirven para compartir información y datos de un componente a otro. Además, es en estos servicios donde se definen las peticiones a la API. Se divide en tres subdirectores \textbf{\slash admin} (servicios usados en la trastienda), \textbf{\slash front} (servicios usados en la tienda que ve el usuario), \textbf{\slash faq} (servicio usado en el componente preguntas frecuentes). Además contiene los archivos \textbf{auth-service.service} (contiene las peticiones a la API del registro), \textbf{user-service.service} (servicio donde se definen los valores de las variables guardadas en el localStorage). 
+
+		\end{itemize}
+
+	\end{itemize}
+
+\end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

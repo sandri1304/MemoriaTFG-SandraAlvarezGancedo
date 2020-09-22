@@ -30,6 +30,7 @@
 \usepackage{float}  %% H para posicionar figuras
 \usepackage[nottoc, notlot, notlof, notindex]{tocbibind} %% Opciones de índice
 \usepackage{latexsym}  %% Logo LaTeX
+\usepackage{subfig}
 
 \title{Memoria del Proyecto}
 \author{Nombre del autor}
@@ -1233,7 +1234,7 @@ Para la creacción de los documentos excel, se utiliza la librería de NodeJS $exc
 \section{Diseño e implementación del cliente} 
 \label{sec:implementacionCliente}
 
-El cliente se ha desarrollado utilizando Angular y está programado en Typescript. Está formado por diferentes vistas, que forman la interfaz de usuario. Estas vistas se cargan de manera dinámica e instántanea, ya que cuando se modifica de url no se recarga la página. Por lo tanto, el cliente se ha implementado como Single-Page. Además, con el uso de Angular, el cliente tiene una arquitectura modelo-vista-controlador. 
+El cliente se ha desarrollado utilizando Angular y está programado en Typescript. Está formado por diferentes vistas, que forman la interfaz de usuario. Estas vistas se cargan de manera dinámica e instántanea, ya que cuando se modifica la url no se recarga la página. Por lo tanto, el cliente se ha implementado como Single-Page. Además, con el uso de Angular, el cliente tiene una arquitectura modelo-vista-controlador. 
 
 El cliente es el encargado de recoger la información introducida por el usuario cuando interactua en la aplicación. Para atender los eventos lanzados por el usuario, se ha alojado en el servidor proporcionado por Angular-Cli.  
 
@@ -1242,7 +1243,7 @@ El cliente es el encargado de recoger la información introducida por el usuario 
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=10cm, keepaspectratio]{img/estructuraCliente.png}
+  \includegraphics[width=14cm, keepaspectratio]{img/estructuraCliente.png}
   \caption{Estructura de los Directorios del cliente.}
   \label{fig:estructuraArchivoscliente}
 \end{figure}
@@ -1297,6 +1298,120 @@ En la figura ~\ref{fig:estructuraArchivoscliente} se puede observar como está or
 
 \end{itemize}
 
+\subsection{Descarga de archivos} 
+\label{sec:descargaArchivos}
+
+Para la descarga de los archivos excel generados en la trastienda y que contienen la lista de productos, clientes, pedidos, facturas, marcas, categorías, empresas de transporte, métodos de pago y mensajes, se ha utilizado la librería $file-saver$. Para realizar la descarga, únicamente hay que llamar a la función \emph{saveAs} de dicha librería y, pasarle como parámetros los byte del archivo a descargar y el nombre con el que se va a guardar el archivo descargado. 
+
+\subsection{Integración con Paypal} 
+\label{sec:integracionPaypal}
+
+Existen tres métodos de pago para realizar los pagos de los pedidos: tarjeta bancaria, contra-reembolso y Paypal. Para realizar el pago a través de Paypal, se ha realizado una integración con la API de Paypal. De esta forma, se usa su pasarela de pagos y se evitan errores de seguridad al no tener que trabajar ni guardar los datos bancarios de los clientes.
+
+Para realizar la integración se han seguido los siguientes pasos: 
+
+\begin{enumerate}
+	\item Se crea una cuenta de Paypal para la tienda online en el sitio web de desarrolladores.
+
+	\item En la cuenta creada anteriormente se crea un sandbox que permita realizar y recibir los pagos. Al crear el sandbox se obtiene un identificador que se usará para la configuración de Paypal en el componente.
+
+	\item En el componente de los métodos de pago se hace la configuración para poder utilizar Paypal. Para ello, se crea un objeto paypalConfig en el que se indica el entorno, el identificador del sandbox, el pago (moneda en que se realiza el pago y cantidad) y una función denominada \emph{onAuthorize}. Dicha función se ejecuta al pulsar sobre el botón pagar de la pasarela de pagos de Paypal, es decir, es la que efectúa el pago. 
+
+	%\small\begin{verbatim} 
+	%	paypalConfig:  any = {
+    %		env: 'sandbox',
+   	% 		client: {sandbox: 'AcetckagNAGCl4yDvW...'},
+    %		commit: true, 
+    %		payment: (data, actions) => {
+    %  			return actions.payment.create({
+    %    			payment:{
+    %    				transactions:[{amount:{total:this.total,currency:'EUR'}}]
+    %    			}
+    % 			 });
+   	% 		},
+    %		onAuthorize: (data, actions) => {
+    %  			return actions.payment.execute().then((payment) =>{...});
+   	% 		}
+  	%	};
+	%\end{verbatim}
+	
+	\item Se añade el script que permite llamar a la API de paypal. Este script se ejecuta al pulsar sobre el botón Paypal, que aparece al seleccionar Paypal como método de pago del pedido. 
+	%\small\begin{verbatim} 
+	%	addPaypalScript(){
+    %	this.addScript =  true;
+    %	return new Promise((resolve, reject) => {
+    %  	let scripttagElement=document.createElement('script');
+    %  	scripttagElement.src='https://www.paypalobjects.com/api/checkout.js';
+    %  	scripttagElement.onload=resolve;
+    %  	document.body.appendChild(scripttagElement);
+    %	});
+  	%	};
+	%\end{verbatim}
+
+	\item Se añade el botón de Paypal en el HTML del componente ``métodos de pago''. 
+
+	%\small\begin{verbatim} 
+	%	addpaypal(){
+   	% 		if(!this.addScript){
+    %  			this.addPaypalScript().then(() => {
+    %    			paypal.Button.render(this.paypalConfig, "#paypal-checkout-button")
+    %    
+    %  			})
+   	% 		}
+  	%	}
+
+  	%\end{verbatim}
+
+\end{enumerate}
+
+Esta integración permite al usuario efectúar el pago en el sitio web de Paypal, ya que al pulsar sobre el botón ``Paypal pagar'' se abre la página de inicio de sesión de Paypal. En esta página el usuario deberá introducir las creedenciales correctas para acceder a su cuenta. Una vez dentro, el usuario puede elegir la forma de pago que más le conviene, ya que Paypal permite realizar los pagos a través de su propia cuenta Paypal, a través de tarjeta bancaria o a través de transferencia. Cuando el usuario finaliza el pago, pulsando sobre ``Pagar ahora'', se cierra el sitio web de Paypal y se redirecciona al ``Home'' de la tienda online, mostrando al usuario un mensaje indicando que su pedido ha finalizado correctamente. La figura ~\ref{fig:procesoPagoPaypal} muestra este proceso.
+
+
+
+\begin{figure}[H]
+ \centering
+ \subfloat{
+    \includegraphics[width=0.25\textwidth]{img/metodoPagoPaypal.png}}
+  \subfloat{
+    \includegraphics[width=0.25\textwidth]{img/inicioSesionPaypal.png}}
+  \subfloat{
+    \includegraphics[width=0.25\textwidth]{img/realizar_pago.png}}
+   \subfloat{
+    \includegraphics[width=0.25\textwidth]{img/homePaypl.png}}
+ \caption{Proceso de pago con paypal}
+ \label{fig:procesoPagoPaypal}
+\end{figure}
+
+En la figura ~\ref{fig:cuentasPaypal} se puede observar como el pago se descuenta de la cuenta del cliente y como se recibe en la cuenta de la tienda. 
+
+\begin{figure}[H]
+ \centering
+ \subfloat{
+    \includegraphics[width=0.25\textwidth]{img/resumenPagosCliente.png}}
+  \subfloat{
+    \includegraphics[width=0.25\textwidth]{img/inicioSesionPaypal.png}}
+ \caption{Ejemplo cargo en la cuenta del cliente y recibí en la cuenta de la tienda}
+ \label{fig:cuentasPaypal}
+\end{figure}
+
+
+\subsection{Sistema de avisos} 
+\label{sec:sistemaAvisos}
+
+Se ha creado un sistema de avisos mediante el cual el usuario es informado del estado de las operaciones realizadas en la tienda online. Este sistema consiste en mostrar un popup con el mensaje en el margen superior derecho de las vistas. Este popup se muestra una vez finalizada la operación. Si la operación ha finalizado de manera errónea el popup será de color rojo y, si por el contrario, ha finalizado correctamente el popup será de color verde. La figura  ~\ref{fig:mensajesAviso} muestra un ejemplo del formato de los avisos. 
+
+\begin{figure}[H]
+ \centering
+ \subfloat{
+    \includegraphics[width=0.5\textwidth]{img/avisoErroneo.png}}
+  \subfloat{
+    \includegraphics[width=0.5\textwidth]{img/mensajeCorrecto.png}}
+ \caption{Ejemplos mensajes de aviso}
+ \label{fig:mensajesAviso}
+\end{figure}
+
+
+Para implementar este sistema de avisos se ha utilizado el servicio $ToastrService$ de la librería de Angular $ngx-toastr$. Con el uso de este sistema, únicamente se ha de llamar a las funciones \emph{error}, cuando se produce un error y \emph{success}, cuando el proceso es correcto. A ambas funciones hay que pasarles por parámetros el mensaje que se muestra en pantalla y el tiempo que el popup es visible. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

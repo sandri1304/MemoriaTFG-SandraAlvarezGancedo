@@ -1692,12 +1692,90 @@ En cuanto a la parte de administración se podrían introducir las siguientes mejo
 \cleardoublepage
 \appendix
 \chapter{Manual de usuario}
-\label{app:manual}
+\label{app:manualUsuario}
 
-Esto es un apéndice.
-Si has creado una aplicación, siempre viene bien tener un manual de usuario.
-Pues ponlo aquí.
+\section{Registro de un nuevo usuario}
+\label{sec:registro}
 
+Para que un nuevo usuario pueda registrarse en la tienda online ningún otro usuario debe tener abierta una sesión. Para realizar el registro el usuario deber pulsar sobre el enlace ``Entrar''. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=14cm, keepaspectratio]{img/Barra_navegacion_entrar.png}
+	  \caption{Enlace entrar para registrar usuarios.}
+	  \label{fig:registroUsuarios}
+\end{figure}
+
+Al pulsar sobre el enlace ``Entrar'' se visualiza el formulario que permite registrar al usuario en la aplicación. El usuario debe relllenar todos los campos que son obligatorios. Cuando se introduce la contraseña en el formulario se comprueba como es de segura frente ataques. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=8cm, keepaspectratio]{img/registrarse.png}
+	  \caption{Formulario registro usuarios.}
+	  \label{fig:formularioRegistroUsuarios}
+\end{figure}
+
+Si alguno de los campos no tiene un formato correcto o no está relleno y es obligatorio, se muestra un mensaje de error por pantalla y se impide el registro del usuario. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=14cm, keepaspectratio]{img/ErrorRegistro.png}
+	  \caption{Error al registrar un usuario.}
+	  \label{fig:errorRegistroUsuarios}
+\end{figure}
+
+Cuando el registro finaliza correctamente se muestra un mensaje indicando al usuario que para completar el registro debe confirmar la cuenta de usuario. Para confirmar la cuenta, se le envía al usuario un enlace a su correo electrónico. El usuario debe pulsar sobre el enlace recibido para completar el registro. Un usuario que no confirma su cuenta no puede realizar compras en la tienda. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=16cm, keepaspectratio]{img/mensajeInfoRegister.png}
+	  \caption{Mensaje de confirmación de cuenta.}
+	  \label{fig:confirmacionRegistroUsuarios}
+\end{figure}
+
+\section{Inicio de sesión}
+\label{sec:inicioSesion}
+
+El usuario debe pulsar sobre el enlace ``Entrar'' de la barra de navegación. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=14cm, keepaspectratio]{img/Barra_navegacion_entrar.png}
+	  \caption{Enlace entrar para iniciar sesión.}
+	  \label{fig:inicioSesionEntrar}
+\end{figure}
+
+Al pulsar sobre el enlace ``Entrar'' se visualizan dos pestañas, una para el registro de usuarios y otro para iniciar sesión. El usuario debe pulsar sobre la pestaña ``Entrar''. Al pulsar sobre dicha pestaña se muestra el formulario que permite acceder a la cuenta de usuario. Para iniciar sesión, el usuario debe rellenar la contraseña y el email y pulsar sobre el botón ``Entrar''. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=10cm, keepaspectratio]{img/entrar.png}
+	  \caption{Formulario para iniciar sesión.}
+	  \label{fig:inicioSesion}
+\end{figure}
+
+Si la contraseña o el email es incorrecto se muestra un mensaje de error y no se permite el acceso a la cuenta. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=14cm, keepaspectratio]{img/entrarErroneo.png}
+	  \caption{Error al iniciar sesión.}
+	  \label{fig:ErrorinicioSesion}
+\end{figure}
+
+Si tanto la contraseña como el email son correctos, se redirecciona al usuario a la página principal de la tienda online y se muestra la barra de navegación del usuario logueado, que contiene un enlace para acceder al perfil de usuario, otro para acceder a los pedidos realizados, otro para mostrar el carrito y otro para cerrar sesión. Si el inicio de sesión se podruce cuando se esta tramitando el pedido al finalizar el login se redirecciona a la página del perfil de usuario. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=14cm, keepaspectratio]{img/homePaginaPrincipal.png}
+	  \caption{Pagina principal de la tienda.}
+	  \label{fig:finalInicioSesion}
+\end{figure}
+
+\section{Restablecer contraseña}
+\label{sec:restablecerContrania}
+
+El usuario para restablecer su contraseña debe pulsar sobre el enlace ``Entrar'' de la barra de navegación. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % BIBLIOGRAFIA %

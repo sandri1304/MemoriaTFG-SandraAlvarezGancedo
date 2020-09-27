@@ -1237,6 +1237,8 @@ Para la creacción de los documentos excel, se utiliza la librería de NodeJS $exc
 \subsection{Envío de correos} 
 \label{sec:nodemailer}
 
+Para el envío de correos se ha utilizado la librería $Nodemailer$ de Node. Lo primero que se hace es crear un objeto con la función \emph{createTransport}. A esta función se le pasan las creendenciales de la cuenta desde la que se va a realizar el envío. Posteriormente, se crea un nuevo objeto con los datos del usuario que recibe el correo, el asunto y el mensaje del correo. Y, por último, se envía el correo utilizando la función \emph{sendMail} de la propia librería. El envío de correos se ha usado en el registro del usuario, en el restablecimiento de la contraseña y en la respuesta de las preguntas de los usuarios al administrador. 
+
 \section{Diseño e implementación del cliente} 
 \label{sec:implementacionCliente}
 
@@ -1559,7 +1561,7 @@ En la figura ~\ref{fig:cuentasPaypal} se puede observar como el pago se descuent
 
 Se ha creado un sistema de avisos que permite informar al usuario del resultado de las operaciones realizadas en la tienda online. Este sistema muestra un popup en el margen superior derecho de las vistas. Si la operación ha finalizado de manera errónea, el popup será de color rojo y, si por el contrario, ha finalizado correctamente el popup será de color verde. La figura  ~\ref{fig:mensajesAviso} muestra un ejemplo del formato de los avisos. 
 
-\begin{figure}
+\begin{figure} [H]
  \centering
  \subfloat{
     \includegraphics[width=0.5\textwidth]{img/avisoErroneo.png}}
@@ -1602,7 +1604,7 @@ En algunos componentes se ha recurrido a Angular utilizando la nomenclatura \emp
 
 \begin{figure}[H]
 	  \centering
-	  \includegraphics[width=4cm, keepaspectratio]{img/movil.png}
+	  \includegraphics[width=6cm, keepaspectratio]{img/movil.png}
 	  \caption{Diseño responsive en móvil}
 	  \label{fig:disenoResponsiveMovil}
 \end{figure}
@@ -1611,7 +1613,7 @@ Por último, se ha utilizado la librería Angular material para ciertas vistas, po
 
 \begin{figure}[H]
 	  \centering
-	  \includegraphics[width=12cm, keepaspectratio]{img/pantalla_grande.png}
+	  \includegraphics[width=15cm, keepaspectratio]{img/pantalla_grande.png}
 	  \caption{Diseño responsive en ordenador}
 	  \label{fig:disenoResponsiveOrdenador}
 \end{figure}
@@ -1891,7 +1893,7 @@ Para modificar sus datos, debe rellenar los campos que son obligatorios y pulsar
 	  \label{fig:errorPerfilUsuario}
 \end{figure}
 
- 
+ \newpage
 
 \section{Realizar compra}
 \label{sec:realizarCompra}
@@ -2057,6 +2059,84 @@ Una vez el usuario haya iniciado sesión en su cuenta de Paypal, debe elegir como
 	  \caption{Pago con Paypal.}
 	  \label{fig:pagoPaypal}
 \end{figure} 
+
+\newpage
+
+\section{Tus pedidos}
+\label{sec:tusPedidos}
+
+El usuario puede ver los pedidos que ha realizado en la tienda online y conocer el estado de cada uno de ellos. Para ello, debe pulsar sobre el enlace ``Pedidos'' de la barra de navegación.
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=12cm, keepaspectratio]{img/barraNavegacionLogueado.png}
+	  \caption{Enlace pedidos.}
+	  \label{fig:enlacePedidos}
+\end{figure} 
+
+Al pulsar sobre el enlace, se muestran los pedidos del usuario. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/tusPedidos.png}
+	  \caption{Tabla de pedidos de un usuario.}
+	  \label{fig:pedidos}
+\end{figure}
+
+El usuario puede filtrar los pedidos por identificador del pedido, estado y fecha en la que se realizo el pedido. Además, puede seleccionar los pedidos que quiere mostrar en la tabla. 
+
+\section{Añadir reseña}
+\label{sec:aniadirResenia}
+
+El usuario puede escribir reseñas de los productos de la tienda. Pero, para ello, debe haber iniciado sesión (ver sección \ref{sec:inicioSesion}). Una vez que el usuario ha iniciado sesión, debe ir a la vista del detalle del producto y pulsar sobre ``Escriba una reseña''. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=11cm, keepaspectratio]{img/detalle_producto2.png}
+	  \caption{Enlace para escribir una reseña.}
+	  \label{fig:enlaceResenia}
+\end{figure}
+
+Al pulsar sobre el enlace se visualiza el formulario para publicar la reseña. El usuario debe rellenar la calificación general, el título, el comentario, sí recomendaría el producto y la valoración del producto en cuanto a calidad precio. Además, de indicar su alias y su correo. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=13cm, keepaspectratio]{img/EscribirResenia.png}
+	  \caption{Ventana para publicar la reseña.}
+	  \label{fig:escribeResenia}
+\end{figure}
+
+Para publicar la reseña debe pulsar sobre el botón ``Publicar Reseña''. 
+
+\section{Preguntas frecuentes}
+\label{sec:preguntasFrecuentes}
+
+Para acceder a las preguntas frecuentes, el usuario debe dirigirse al pie de página de la aplicación y pulsar sobre el enlace ``Preguntas frecuentes''. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/piePagina.png}
+	  \caption{Enlace preguntas frecuentes.}
+	  \label{fig:EnlacepreguntasFrecuentes}
+\end{figure}
+
+Para acceder a las respuestas de las preguntas hay que pulsar sobre la pregunta. Al pulsar sobre la pregunta se muestra la respuesta.
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/faq.png}
+	  \caption{Preguntas frecuentes.}
+	  \label{fig:preguntasFrecuentes}
+\end{figure}
+
+Desde esta vista, el usuario puede enviar una pregunta al administrador de la tienda. Para ello, debe rellenar el formulario de ``Envía tu pregunta'', pulsar sobre el botón ``Enviar'' y haber iniciado sesión en la tienda. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/enviaPregunta.png}
+	  \caption{Envía su pregunta.}
+	  \label{fig:enviaPregunta}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

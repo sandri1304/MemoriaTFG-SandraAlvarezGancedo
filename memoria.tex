@@ -1767,7 +1767,7 @@ Si tanto la contraseña como el email son correctos, se redirecciona al usuario a
 
 \begin{figure}[H]
 	  \centering
-	  \includegraphics[width=14cm, keepaspectratio]{img/homePaginaPrincipal.png}
+	  \includegraphics[width=12cm, keepaspectratio]{img/homePaginaPrincipal.png}
 	  \caption{Pagina principal de la tienda.}
 	  \label{fig:finalInicioSesion}
 \end{figure}
@@ -1776,6 +1776,123 @@ Si tanto la contraseña como el email son correctos, se redirecciona al usuario a
 \label{sec:restablecerContrania}
 
 Para restablecer la contraseña el usuario debe pulsar sobre el enlace ``Entrar'' de la barra de navegación y seleccionar la pestaña ``Entrar''. En esta pestaña debe pulsar sobre el enlace ``¿Has olvidado la contraseña?''.
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=9cm, keepaspectratio]{img/entrar.png}
+	  \caption{Enlace para restablecer contraseña.}
+	  \label{fig:enlaceParaRestablecer}
+\end{figure}
+
+Al pulsar sobre este enlace se visualiza el formulario que permite restablecer la contraseña. Para ello, el usuario debe introducir el correo electrónico con el que se registro en la aplicación. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/recuperarContrasenia.png}
+	  \caption{Formulario para restablecer la contraseña.}
+	  \label{fig:restablecerContrasenia}
+\end{figure}
+
+Si el correo introducido no coincide con ninguno de los registrados en la tienda online se muestra un mensaje y se impide restablecer la contraseña. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/errorRecuperarContrasenia.png}
+	  \caption{Correo no válido al restablecer constraseña.}
+	  \label{fig:errorrestablecerContrasenia}
+\end{figure}
+
+Si el correo está registrado en el sistema, se envía un correo electrónico con el enlace que permite modificar las contraseñas. Al abrir el enlace, se muestra el formulario a rellenar para el cambio de contraseña. Este formulario tiene dos campos, ``Contraseña nueva'' y ``Confirmación de la contraseña nueva''.
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/contraseniaNueva.png}
+	  \caption{Formulario cambio de contraseña.}
+	  \label{fig:cambioContrasenia}
+\end{figure}
+ 
+Para modificar la contraseña, el usuario debe introducir la misma contraseña en los dos campos y pulsar sobre el botón ``Cambiar contraseña''. Si al pulsar sobre el botón, las dos contraseñas no coinciden se muestra un mensaje de error y no se procede al cambio de contraseña. Si las contraseñas coinciden se actualizan en la base de datos y se redirecciona al usuario al login. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/errorNuevaContrasenia.png}
+	  \caption{Error cambio de contraseña.}
+	  \label{fig:errorCambioContrasenia}
+\end{figure}
+
+\section{Perfil de usuario}
+\label{sec:perfildeusuario}
+
+Un usuario puede acceder a su información personal que siempre haya iniciado sesión en su cuenta. Para ello, debe pulsar sobre el enlace que lleva su nombre en la barra de navegación. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/barraNavegacionLogueado.png}
+	  \caption{Barra de navegación con el enlace para acceder al perfil de usuario.}
+	  \label{fig:barraPerfilUsuario}
+\end{figure}
+
+Al pulsar sobre el enlace se visualiza un formulario con sus datos personales. La primera vez que acceda a su perfil de usuario todos los campos estarán vacíos excepto el correo electrónico. El usuario puede modificar sus datos personales tantas veces como lo desee. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=17cm, keepaspectratio]{img/perfilUsuario.png}
+	  \caption{Perfil de usuario.}
+	  \label{fig:perfilUsuario}
+\end{figure}
+
+Para modificar sus datos, debe rellenar los campos que son obligatorios y pulsar sobre el botón ``Guardar''. Si un campo es incorrecto se muestra un error y no se actualizan los datos. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=17cm, keepaspectratio]{img/errorPerfilUsuario.png}
+	  \caption{Error al actualizar los datos personales.}
+	  \label{fig:errorPerfilUsuario}
+\end{figure}
+
+
+\section{Realizar compra}
+\label{sec:realizarCompra}
+
+El usuario debe acceder a la página principal de la tienda online. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/homePaginaPrincipal.png}
+	  \caption{Página principal de la tienda.}
+	  \label{fig:paginaPrincipal2}
+\end{figure}
+
+Si en la página principal encuentra el producto que quiere comprar, puede visualizar el detalle del producto pulsando sobre la foto o sobre el modelo y puede añadirlo directamente al carrito desde el cual se tramita el pedido y se finaliza la compra. si en esta página no encuentra lo que desea debe seleccionar una categoría del menú de categorías generales. 
+
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/menuCategorias.png}
+	  \caption{Menú categorías generales.}
+	  \label{fig:menuCategoriasGenerales}
+\end{figure}
+
+
+Al seleccionar una categoría se redirecciona a la página de subcategorías de la categoría general. En está página debe elegir la subcategoría donde se encuendra el producto que busca. 
+
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/subcategorias.png}
+	  \caption{Subcategorías.}
+	  \label{fig:subcategorias}
+\end{figure}
+
+Para seleccionar la subcategoría, el usuario debe pulsar sobre la imagen que representa a la subcategoría. Al pulsar, se visualiza el listado de productos que tiene la subcategoría seleccionada. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/listadoProductosSubcategoria.png}
+	  \caption{Subcategorías.}
+	  \label{fig:subcategorias}
+\end{figure}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % BIBLIOGRAFIA %

@@ -1313,10 +1313,12 @@ En la figura ~\ref{fig:estructuraArchivoscliente} se puede observar como está or
 \label{sec:vistas}
 
 Las vistas de la aplicación forman la interfaz de usuario. Cada vista está formada por uno o más componentes. Cada uno de estos componentes tiene asociado un controlador, una hoja CSS y un documento HTML. Trabajar con Angular hace que el código este ordenado, por lo que las aplicaciones son más escalables.
-Para aumentar la escalabildad de la aplicación se han creado componentes reutilizables, es decir, componentes que se usan en varias vistas de la aplicación. Crear estos componentes reutilizables significa aumentar la mantenibilidad de las aplicaciones, ya que a la hora de producirse un error o una actualización en uno de los componentes reutilizables supone modificar únicamente el componente reutilizable, evitando modificar cada uno a uno los componentes afectados por el error o la actualización. Los componentes que se reutilizan en la aplicación son: 
+Para aumentar la escalabildad de la aplicación se han creado componentes reutilizables, es decir, componentes que se usan en varias vistas de la aplicación. Crear estos componentes reutilizables significa aumentar la mantenibilidad de las aplicaciones, ya que a la hora de producirse un error o una actualización en uno de los componentes reutilizables supone modificar únicamente el componente reutilizable, evitando modificar cada uno a uno los componentes afectados por el error o la actualización.
+
+Los componentes que se reutilizan en la aplicación son: 
 
 \begin{itemize}
-	\item \textbf{Client-product}: Tarjeta resumen del producto. Muestra la información más importante del producto, marca, modelo, precio y envío gratuito, si lo tuviese. Permite añadir el producto al carrito de compra pulsando al botón comprar, sin necesidad de pasar por la vista de ``Detalle del producto''. Se utiliza n veces en el home de la aplicación, ya que se usa para mostrar los productos más vendidos y los productos que tienen oferta. Se utiliza tantas veces como productos tenga la subcategoria en la vista ``Filtrado de productos''. Además, se utiliza en la vista ``Detalle del producto'' para mostar los productos de la sección ``Artículos relacionados''. 
+	\item \textbf{Client-product}: Tarjeta resumen del producto. Muestra la información más importante del producto, marca, modelo, precio y envío gratuito, si lo tuviese. Permite añadir el producto al carrito de compra pulsando el botón ``comprar'', sin necesidad de pasar por la vista de \textit{Detalle del producto}. Se utiliza $n$ veces en el \textit{Home} de la aplicación, ya que se usa para mostrar los productos más vendidos y los productos que tienen oferta. También, se utiliza tantas veces como productos tenga la subcategoría en la vista \textit{Filtrado de productos}. Además, se utiliza en la vista \textit{Detalle del producto} para mostrar los productos de la sección \textit{Artículos relacionados}. 
 
 	\begin{figure}[H]
 	  \centering
@@ -1325,57 +1327,55 @@ Para aumentar la escalabildad de la aplicación se han creado componentes reutili
 	  \label{fig:tarjetaResumen}
 	\end{figure}
 
-	\item \textbf{Product-row}: Fila de tarjetas resumen del producto. Permite mostrar varias tarjetas resumen en una misma fila. Se utiliza en el home de la aplicación, tanto en top ventas como en ofertas, en la vista ``Detalle del producto'' en el apartado Artículos relacionados.
+	\item \textbf{Product-row}: Fila de tarjetas resumen del producto. Permite mostrar varias tarjetas resumen en una misma fila. Se utiliza en el \textit{Home} de la aplicación, tanto en top ventas como en ofertas, y en la vista \textit{Detalle del producto} en el apartado \textit{Artículos relacionados}.
 
 	\begin{figure}[H]
 	  \centering
 	  \includegraphics[width=15cm, keepaspectratio]{img/product_row.png}
-	  \caption{Ejemplo Fila de tarjetas resumen del producto (Componente product-row).}
+	  \caption{Ejemplo fila de tarjetas resumen del producto (Componente product-row).}
 	  \label{fig:tarjetaResumen}
 	\end{figure}
 
-	\item \textbf{Product-detail-client}: Detalle del producto. Permite visualizar la información del producto de manera detallada. Se utiliza cada vez que se pulsa sobre la imagen o el modelo del producto del compenente client-product.
+	\item \textbf{Product-detail-client}: Detalle del producto. Permite visualizar la información del producto de manera detallada. Se utiliza cada vez que se pulsa sobre la imagen o el modelo del producto en el componente \textit{client-product}.
 
 	\begin{figure}[H]
 	  \centering
 	  \includegraphics[width=12cm, keepaspectratio]{img/detalle_producto.png}
-	  \caption{Ejemplo Detalle del producto (Componente Product-detail-client).}
+	  \caption{Ejemplo detalle del producto (Componente Product-detail-client).}
 	  \label{fig:tarjetaResumen}
 	\end{figure}
 
-	\item \textbf{Client-categorie}: Tarjeta Subcategoría. Permite visualizar el nombre y la imagen con la que se caracteriza una subcategoría. Se utiliza tantas veces como subcategorias tenga la categoría general. 
+	\item \textbf{Client-categories}: Tarjeta subcategoría. Permite visualizar el nombre y la imagen con la que se caracteriza una subcategoría. Se utiliza tantas veces como subcategorías tenga la categoría general. 
 
 	\begin{figure}[H]
 	  \centering
 	  \includegraphics[width=6cm, keepaspectratio]{img/tarjeta_subcategoria.png}
-	  \caption{Ejemplo Tarjeta subcategoria (Componente Product-detail-client).}
+	  \caption{Ejemplo tarjeta subcategoría (Componente Product-detail-client).}
 	  \label{fig:tarjetaResumen}
 	\end{figure}
 \end{itemize}
 
-Por otro lado, cada vista tiene asociada una ruta. Esta asociación se realiza en el archivo app-routing.module.ts. Cuando se cambia de ruta se cambia de vista, mostrándose la vista correspondiente a dicha ruta. 
-
 \textbf{Vistas parte pública de la tienda}
 
-Todas las vistas de la parte pública de la tienda tienen dos componentes comunes: \textbf{Header} (cabecera de la página) y \textbf{Footer} (pie de página).
+Todas las vistas de la parte pública de la tienda tienen dos componentes comunes: \textit{Header} (cabecera de la página) y \textit{Footer} (pie de página).
 
 \begin{itemize}
-	\item \textbf{Header}: Es una Navbar con enlaces que se adaptan según el usuario esté logueado o no. Si el usuario no está logueado tiene un enlace para ver el carrito y otro para realizar login. Sí, el usuario está logueado contiene un enlace para cerrar sesión, otro para acceder a su información personal, un tercero para ver los pedidos realizados y, por último, el enlace para visualizar el carrito. 
+	\item \textbf{Header}: Es una barra de navegación que se adapta en función de si se ha iniciado sesión. Si el usuario no ha iniciado sesión, se muestra un enlace para ver el carrito y otro para hacer login. Si el usuario ha iniciado sesión, se muestran enlaces para cerrar sesión, acceder a la información personal, ver los pedidos realizados y visualizar el carrito. 
 
-	\item \textbf{Footer}: Pie de página que contiene los enlaces para ver las condiciones de uso, la política de privacidad, las preguntas frecuentes y la página de contacto. A diferencia del \textbf{Header}  los enlaces siempres son los mismos.
+	\item \textbf{Footer}: Pie de página que contiene los enlaces para ver las condiciones de uso, la política de privacidad, las preguntas frecuentes y la página de contacto. A diferencia del \textit{Header}  los enlaces siempre son los mismos.
 \end{itemize}
 
 Vistas que no necesitan autenticarse en la aplicación para poder visualizarse:
 
 \begin{itemize} 
 
-	\item \textbf{Login}: Página donde el usuario puede registrarse o acceder a su cuenta. Consta de un tab con dos pestañas, uno para el registro y otro para el login. Cada una de estas pestañas es un formulario donde el usuario debe rellenar los datos de acceso (en el caso del login) y los datos para darse de alta (en el caso del registro). En ambos formulario se comprueba que los campos estén rellenos y que los datos sean válidos. Cuando se crea una cuenta la contraseña y la contraseña de confirmación deben coincidir. Además, se informa al usuario de la fortaleza de la misma en caso de ataque por fuerza bruta. Si se produce un error en el registro o en el acceso a la cuenta, se muestra un mensaje en pantalla a través del sistema de avisos, explicado en la sección \ref{sec:sistemaAvisos}. 
+	\item \textbf{Login}: Página donde el usuario puede registrarse o acceder a su cuenta. Está formado por dos pestañas, uno para el registro y otro para el login. Cada pestaña es un formulario donde el usuario debe rellenar los datos de acceso (en el caso del login) y los datos para darse de alta (en el caso del registro). En ambos formulario se comprueba que los campos estén rellenos y que los datos sean válidos. Cuando se crea una cuenta, la contraseña y la contraseña de confirmación deben coincidir. Además, se informa al usuario de la fortaleza de la contraseña. Si se produce un error en el registro o en el acceso a la cuenta, se muestra un mensaje en pantalla a través del sistema de avisos, explicado en la sección \ref{sec:sistemaAvisos}. 
 
-	\item \textbf{Olvidaste la contraseña}: Vista que permite restablecer la contraseña. Al email introducido en el input se envía un enlace para restablecer la contraseña. Este enlace en una nueva vista con dos input para rellenar la nueva contraseña y su confirmación. Cuando se pulsa el botón ``Cambiar contraseña'' se actualiza la contraseña.  
+	\item \textbf{Recuperar contraseña}: Vista que permite restablecer la contraseña, enviando un enlace al correo introducido en el formulario. Previamente, se comprueba que el correo es válido para un usuario de la aplicación. El enlace redirecciona a una nueva vista con dos campos a rellenar, la nueva contraseña y su confirmación. Cuando se pulsa el botón ``Cambiar contraseña'' se actualiza la contraseña.  
 
-	\item \textbf{Home}: Vista principal de la parte pública de la aplicación. Está formada por las categorías generales, un carousel, que sirve de sistema de anuncios, el ``Top ventas'' y ``Ofertas''. Tanto ``Top ventas'' como ``Ofertas'' están desarrollados con los componentes reutilizabes: \textbf{Product-row}, que permite mostrar los productos en filas, y \textbf{client-product}, que permite mostrar las tarjetas resumen del producto. Al pulsar sobre la foto o modelo del producto se navega a la vista \textbf{Detalle del producto}. Si se pulsa el botón comprar se añade un producto a la cesta. Las categorías generales son enlaces que permiten navegar a la vista de la categoría general seleccionada. Este elemento de la vista se convierte en un dropdown cuando el tamaño de la vista es pequeño. 
+	\item \textbf{Home}: Vista principal de la parte pública de la aplicación. Está formada por un menú que permite la elección de categorías generales, un carousel, que sirve de sistema de anuncios, y dos listados de productos, el \textit{Top ventas} y \textit{Ofertas}. Ambos listados están desarrollados con los componentes reutilizables \textit{Product-row} y \textit{client-product}. Al pulsar sobre la foto o modelo del producto se navega a la vista \textit{Detalle del producto}. Si se pulsa el botón comprar se añade un producto a la cesta. Las categorías generales son enlaces que permiten navegar a la vista de la categoría general seleccionada. Este elemento de la vista se convierte en un dropdown cuando el tamaño de la vista es pequeño. 
 
-	\item \textbf{Categoría}: Vista en la que se muestran las subcategorías de una categoría general. Todas las categorías generales tienen un formato de vista similar con la variación del título de la categoría y de las subcategorías que se muestran. Las subcategorías se visualizan a través del componente reutilizable \textbf{client-category}, que no es más que una tarjeta con la foto y el nombre de la subcategoría. Si se pulsa sobre la foto se navega al listado de productos de la subcategoría. 
+	\item \textbf{Categoría}: Vista en la que se muestran las subcategorías de una categoría general. Las subcategorías se visualizan a través del componente reutilizable \textit{client-categories}. Si se pulsa sobre la foto se navega al listado de productos de la subcategoría. 
 
 	\item \textbf{Listado de productos de una subcategoría}: Vista en la que se muestra el listado de los productos de una subcategoría. Este listado está páginado, como máximo se van a mostrar 12 productos por página. Se diseño así para que a la query de busqueda de productos fuese más eficiente y más rapida. Para el listado se ha utilizado Angular Material y para la visualización del producto el componente reutilizable \textbf{client-product}. Los productos se pueden ordenadar por: los más vendidos, los mejores valorados o de más caros a más baratos y viceversa. Además, se puede filtrar por marca (únicamente se muestran las marcas de los productos de la subcategoría seleccionada), por precio(entre un rango de 0 a 1000), por disponibilidad, por oferta y por características. Para implementar el menú de filtros se ha utilizado también Angular Material. Para realizar el filtrado y la ordenación de los productos se ha recurrido al uso de la función \emph{aggregate} de Mongoose, ya que permite ir transformando los datos por etapas hasta conseguir los que se desean y, de esta manera, sólo se hacía una query para la búsqueda. 
 
@@ -1775,7 +1775,7 @@ Si tanto la contraseña como el email son correctos, se redirecciona al usuario a
 \section{Restablecer contraseña}
 \label{sec:restablecerContrania}
 
-El usuario para restablecer su contraseña debe pulsar sobre el enlace ``Entrar'' de la barra de navegación. 
+Para restablecer la contraseña el usuario debe pulsar sobre el enlace ``Entrar'' de la barra de navegación y seleccionar la pestaña ``Entrar''. En esta pestaña debe pulsar sobre el enlace ``¿Has olvidado la contraseña?''.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % BIBLIOGRAFIA %

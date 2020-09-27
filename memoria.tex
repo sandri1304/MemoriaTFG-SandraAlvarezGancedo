@@ -1234,6 +1234,8 @@ Para facilitar la creación de los documentos excel y evitar errores a la hora de
 
 Para la creacción de los documentos excel, se utiliza la librería de NodeJS $excel4node$. El documento excel se va rellenando con los metadatos de la cabecera y los datos devueltos por la base de datos. En el caso de la plantilla, sólo se rellena la cabecera del documento excel. Este documento se envía en la respuesta al cliente y, el cliente lo descarga utilizando \emph{saveAs} de la librería de Angular $File-saver$. 
 
+\subsection{Envío de correos} 
+\label{sec:nodemailer}
 
 \section{Diseño e implementación del cliente} 
 \label{sec:implementacionCliente}
@@ -1415,14 +1417,25 @@ Vistas donde el usuario necesita estar logueado para visualizarlas:
 
 \textbf{Vistas de la trastienda}
 
-Las vistas de la trastienda tienen un componente \textbf{Header}, que contiene un enlace para cerrar sesión y un indicador con el número de pedidos en estado pendiente. La vista principal de la trastienda es un menú en el lado izquierdo con diferentes secciones y un div que varía dependiendo de la sección seleccionada. Las secciones de la trastienda son: Pedidos, clientes, catálogo, servicios, ofertas, importación y mensajes. Excepto la sección de importación, todas ellas contienen una tabla que muestra la información de cada una de las secciones. Cada una de las tablas se puede exportar a un documento excel, se puede filtrar por determinados campos y ordenadar según le convenga al administrador. En las secciones pedidos, facturas y clientes se puede visualizar la información de cada registro a través de una ventana diálogo que se muestra cuando se pulsa sobre el botón ``Info''. Los campos de estas ventanas están bloqueados excepto en pedidos que tanto el estado como cobrado se puede modificar. Además, en pedidos y facturas no se puede eliminar ni crear registros de la tabla. Clientes permite eliminar registros pero no crearlos. En las tablas de las secciones catálogo  (productos) y ofertas también se puede visualizar la información de un registro a través de una ventana diálogo, pero a diferencia de las otras secciones sus campos no están bloqueados, ya que tanto el producto y la oferta puede sufrir modificaciones. La ventana de información de productos tiene la peculiaridad que en sus campos características y otras se puede añadir texto con estilo propio. Para ello, se ha utilizaso la librería $HTML-EDITOR$, que permite convertir el texto formateado en html, por lo que al visualizarlo en la página \textbf{Detalle del producto} se muestra con los estilos definidos por el administrador. Estas tablas permiten crear y eliminar registros. En las secciones catálogo (marcas y categorías) y servicios, sus tablas no tienen el botón ``Info'' que permite ver la información, pero si se pueden eliminar y crear nuevos registros. En la sección de mensajes se puede ver la información del mensaje a través de la ventana diálogo y, en esta ventana, escribir y enviar la respuesta al usuario. Se puede marcar como leído un corro y se puede eliminar un mensaje de la tabla.
+La vista principal de la trastienda está compuesta por: 
 
-La sección de importación es completamente distinta a las demás secciones, ya que en está sección no se muestra ninguna tabla, si no lo que se muestra son los campos necesarios para realizar la importación y descarga del documento excel que actúa como plantilla. Además, contiene un espacio donde se escriben los errores producidos a la hora de realizar la importación. 
- 
+\begin{itemize}
+	\item \textbf{Header}: Es el componente \textit{header} descrito anteriormente. Cuando el perfil del usuario es administrador, se muestra un indicador con el número de pedidos en estado pendiente.
+	\item \textbf{Menú}: El menú se muestra en el lateral izquierdo y permite seleccionar las diferentes secciones de administración. Cuando se reduce el tamaño de pantalla, el menú cambia de posición y se muestra debajo del \textit{header}. 
+	\item \textbf{Espacio de trabajo}: Es un contenedor que rellena todo el espacio disponible y donde se muestran las distintas secciones de administración. 
+\end{itemize}
+
+Las secciones de la trastienda son: Clientes, pedidos (pedidos y facturas), catálogo (productos, marcas y categorías), servicios (métodos de pago y transporte), ofertas, importación y mensajería.
+
+Todas las secciones se organizan de la misma forma. Tienen tabla, creada con \emph{mat-table} de Angular Material, que muestra la información de cada sección de forma paginada. Cada tabla puede ordenar y filtrar la información. Para ello, se recogen los valores de filtrado mediante un formulario y se envían al servidor, que se encarga de introducirlos en la query para devolver exclusiviamente los datos que coinciden. Además, las tablas son exportables a Excel (sección \ref{sec:importacion}). También, hay tablas que permiten realizar acciones exclusivas. Por ejemplo, la tabla de facturas permite la exportación de cada factura en formato PDF (sección \ref{sec:pdfs}). La tabla de mensajería, además, de permitir ver los mensajes enviados por los usuarios, permite contestar enviando una respuesta por correo, utilizando la librería $Nodemailer$ (sección \ref{sec:nodemailer}). 
+
+Cada uno de los registros de las tablas tiene opciones para mostrar datos, editar la información o borrar registros. Tanto en la visualización como en la edición o creación de registros, se crea una ventana de diálogo con \emph{mat-dialog} de Angular Material. Estas ventanas muestran y permiten la edición de los datos mediante formularios, creados con Angular Material. Todos los campos tienen control de errores. Además, son validados en el servidor y en caso de error se muestra un mensaje con el sistema de avisos  (sección \ref{sec:sistemaAvisos}).  En algunas de estas ventanas, por ejemplo, productos o marcas, se permite la subida de imágenes (sección \ref{sec:subidaArchivos}) para después mostrarlas en la parte pública de la tienda. En la ventana de productos se ha utilizado la librería \emph{HTML-editor}, que permite escribir texto formateado (listas, colores, tamaños y tipos de letras, etc.). Este texto formateado corresponde con las características de cada producto, que se mostrará en la parte pública de la tienda. 
+
+La sección de importante es completamente diferente a las descritas anteriormente. Esta sección permite la descarga de plantillas XLSX para ser importadas después, lo que permite cargar datos en la aplicación de manera masiva (sección \ref{sec:importacion}). El resultado final de la importación se muestra en la misma pantalla, permitiendo conocer registros erróneos o duplicados. 
 
 \subsection{Uso Angular Material} 
 \label{sec:usoAngularMaterial}
-
+{}
 Angular Material es una librería de Angular creada por Google. Permite crear componentes de manera rápida y sencilla. Sus componentes se adaptan a los distintos tamaños de pantalla, por lo que se suelen utilizar para crear diseños responsive. En la aplicación se ha utilizado en: 
 
 \begin{itemize}
@@ -1827,6 +1840,18 @@ Para modificar la contraseña, el usuario debe introducir la misma contraseña en 
 	  \label{fig:errorCambioContrasenia}
 \end{figure}
 
+\section{Cerrar sesión}
+\label{sec:cerrarSesion}
+
+Para cerrar sesión, el usuario debe pulsar sobre el enlace ``Salir'' de la barra de navegación. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/barraNavegacionLogueado.png}
+	  \caption{Enlace Salir.}
+	  \label{fig:cerrarSesionEnlace}
+\end{figure}
+
 \section{Perfil de usuario}
 \label{sec:perfildeusuario}
 
@@ -1848,6 +1873,15 @@ Al pulsar sobre el enlace se visualiza un formulario con sus datos personales. L
 	  \label{fig:perfilUsuario}
 \end{figure}
 
+El usuario puede tener una dirección de facturación distinta que la dirección donde se van a enviar los pedidos. Para agregar la dirección de envío, debe marcar la opción ``¿Desea utilizar otra dirección para el envío?''. Al marcar esta opción aparece un formulario donde se rellenan los datos de la nueva dirección. Si está marcada esta opción, los campos de la dirección de envío son obligatorios. 
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=17cm, keepaspectratio]{img/datosEnvio.png}
+	  \caption{Formulario para los datos de la dirección de envío.}
+	  \label{fig:datosEnvio}
+\end{figure}
+
 Para modificar sus datos, debe rellenar los campos que son obligatorios y pulsar sobre el botón ``Guardar''. Si un campo es incorrecto se muestra un error y no se actualizan los datos. 
 
 \begin{figure}[H]
@@ -1857,6 +1891,7 @@ Para modificar sus datos, debe rellenar los campos que son obligatorios y pulsar
 	  \label{fig:errorPerfilUsuario}
 \end{figure}
 
+ 
 
 \section{Realizar compra}
 \label{sec:realizarCompra}
@@ -1865,7 +1900,7 @@ El usuario debe acceder a la página principal de la tienda online.
 
 \begin{figure}[H]
 	  \centering
-	  \includegraphics[width=15cm, keepaspectratio]{img/homePaginaPrincipal.png}
+	  \includegraphics[width=12cm, keepaspectratio]{img/homePaginaPrincipal.png}
 	  \caption{Página principal de la tienda.}
 	  \label{fig:paginaPrincipal2}
 \end{figure}
@@ -1904,7 +1939,7 @@ El usuario puede ordenar los productos de más baratos a más caros, de más caros 
 
 \begin{figure}[H]
 	  \centering
-	  \includegraphics[width=5cm, keepaspectratio]{img/ordenadoProductos.png}
+	  \includegraphics[width=4cm, keepaspectratio]{img/ordenadoProductos.png}
 	  \caption{Ordenación de productos.}
 	  \label{fig:ordenacionProductos}
 \end{figure}
@@ -1913,16 +1948,16 @@ Además, puede filtrar los productos por marca, precio, disponibilidad, ofertas y
 
 \begin{figure}[H]
 	  \centering
-	  \includegraphics[width=3.5cm, keepaspectratio]{img/filtros.png}
+	  \includegraphics[width=4cm, keepaspectratio]{img/filtros.png}
 	  \caption{Filtros.}
 	  \label{fig:filtros}
 \end{figure}
 
-Desde esta vista, el usuario puede añadir directamente el producto al carrito pulsando sobre el botón ``Comprar'' o ir al detalle del producto. Si el usuario decide ir al detalle del producto debe pulsar sobre la foto del producto. En la vista de detalle del producto se visualiza la imagen del producto, el logo de la marca, el modelo, las estrellas y opiniones que tiene el producto, el precio del envío, la disponibilidad, el precio, las características y las opiniones de los demás usuarios. 
+Desde esta vista, el usuario puede añadir directamente el producto al carrito pulsando sobre el botón ``Comprar'' o ir al detalle del producto. Si el usuario decide ir al detalle del producto debe pulsar sobre la foto del producto. En la vista de detalle del producto se visualiza la imagen del producto, el logo de la marca, el modelo, las estrellas y opiniones que tiene el producto, el precio del envío, la disponibilidad, el precio, las características y las opiniones de los usuarios. 
 
 \begin{figure}[H]
 	  \centering
-	  \includegraphics[width=17cm, keepaspectratio]{img/detalle_producto2.png}
+	  \includegraphics[width=15cm, keepaspectratio]{img/detalle_producto2.png}
 	  \caption{Detalle del producto.}
 	  \label{fig:detalleDelProducto}
 \end{figure}
@@ -1931,7 +1966,7 @@ Para visualizar las opiniones del producto debe pulsar sobre la pestaña ``Reseña
 
 \begin{figure}[H]
 	  \centering
-	  \includegraphics[width=17cm, keepaspectratio]{img/reseniasProductos.png}
+	  \includegraphics[width=15cm, keepaspectratio]{img/reseniasProductos.png}
 	  \caption{Reseñias del producto.}
 	  \label{fig:reseniasDelProducto}
 \end{figure}

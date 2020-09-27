@@ -1379,8 +1379,15 @@ Vistas que no necesitan autenticarse en la aplicación para poder visualizarse:
 
 	\item \textbf{Listado de productos de una subcategoría}: Vista en la que se muestra el listado de los productos de una subcategoría. Este listado está paginado permitiendo al usuario elegir la cantidad de productos a mostrar, siendo 12 el número máximo. Se diseñó así para evitar cargar todos los productos de la base de datos, haciendo que la query sea rápida y eficiente. Para la creación del listado se ha utilizado el componente \emph{grid} de Angular Material, que a su vez muestra los productos utilizando el componente \textit{client-product}. Los productos se pueden ordenar por: los más vendidos, los mejores valorados o de más caros a más baratos y viceversa. Además, se puede filtrar por marca (únicamente se muestran las marcas de los productos de la subcategoría seleccionada), por precio (entre un rango de 0 a 1000), por disponibilidad, por oferta y por características. Para implementar el menú de filtros se ha utilizado \emph{mat-accordion} de Angular Material. Para realizar el filtrado y la ordenación de los productos se ha recurrido al uso de la función \emph{aggregate} de Mongoose, que permite transformar los datos por etapas hasta conseguir el resultado esperado. 
 
-	\item \textbf{Detalle del producto}: Vista que permite conocer la información detallada de un producto: Foto, marca, modelo, estrellas, envío(si es gratuito o no), promociones si las tuviese, disponibilidad (la información de la disponibilidad varía de color dependiendo del stock del producto. Si no hay stock se muestra en rojo, si el stock es inferior a 5 se muestra en amarillo y si es mayor se muestra en verde), características y reseñas. Las características y las reseñas se sitúan en un tab, en la parte inferior de la vista. Las características se visualizan con el estilo definido cuando el producto se almacenó en el sistema. Para ello, se ha utilizado la librería $HTML-EDITOR$, que permite definir el estilo del texto transformándolo a HTML. En cuanto a la visualización de las reseñas, los usuarios pueden filtrar las reseñas por el número de estrellas que puso el usuario cuando escribió la valoración. Para escribir la valoración del producto, los usuarios deben hacer login en la tienda online. El dialogo que se abre cuando se pulsa sobre ``Escribe una reseña'' se explica más adelante. 
-	El botón comprar añade el producto al carrito. Cuando se añade el producto al carrito, el producto se añade a la variable Cart del \emph{LocalStorage} del navegador, permitiendo mantenar el carrito si se cierra el navegador.
+	\item \textbf{Detalle del producto}: Vista que permite conocer la información detallada de un producto: Foto, marca, modelo, estrellas, envío (si es gratuito o no), promociones, disponibilidad, características y reseñas.
+
+	La información de la disponibilidad cambia de color en función de la cantidad de productos en stock. Si no hay stock se muestra en rojo, si el stock es inferior a 5 se muestra en amarillo y si es mayor se muestra en verde.
+
+	Las características se visualizan con el formato que se definió (con \textit{html-editor}) cuando el producto se almacenó en el sistema. 
+
+	Las reseñas pueden ser filtradas por el número de estrellas de cada valoración. Para escribir una nueva valoración de un producto, se utiliza la vista \textit{Añadir reseña} y es necesario haber iniciado sesión. 
+
+	Cuando se pulsa el botón comprar, se añade el producto al carrito, guardando los datos necesarios en el \emph{LocalStorage} en formato JSON.
 
 	\item \textbf{Carrito}: Muestra los productos que hay en el carrito, el total del carrito y la forma de entrega. Cuando la cantidad elegida de un producto es mayor que uno, la forma de entrega es la misma para todos. Si el carrito contiene diferentes productos, se permiten diferentes formas de entrega (envío a domicilio o recogida en tienda). Además, se permite la eliminación de los productos de forma individual o colectiva, al pulsar ``Vaciar cesta''. Para la implementación del carrito se ha utilizado \emph{LocalStorage}, donde se almacenan los productos seleccionados por el usuario en formato JSON.
 
@@ -1396,7 +1403,7 @@ Vistas que no necesitan autenticarse en la aplicación para poder visualizarse:
 Vistas donde el usuario necesita estar logueado para visualizarlas: 
 
 \begin{itemize}
-	\item \textbf{Añade una reseña}: Vista que permite publicar la valoración de un producto. Es un formulario con los campos valoración general, título, comentario, recomendación a otros usuarios y valoración del producto en cuanto a calidad precio. La valoración general en forma de número de estrellas se suma al computo total de estrellas de producto que, finalmente, se muestra en la vista \textit{Detalle del producto} junto con la reseña.
+	\item \textbf{Añadir reseña}: Vista que permite publicar la valoración de un producto. Es un formulario con los campos valoración general, título, comentario, recomendación a otros usuarios y valoración del producto en cuanto a calidad precio. La valoración general en forma de número de estrellas se suma al computo total de estrellas de producto que, finalmente, se muestra en la vista \textit{Detalle del producto} junto con la reseña.
 
 	\item \textbf{Perfil de usuario}: Vista donde se visualiza la información personal del usuario, es decir, nombre, apellidos, email, teléfono, fecha de nacimiento, DNI, dirección de facturación, código postal, municipio,  provincia de la dirección de facturación y la dirección, el código postal, el municipio y la provincia de envío. Todos los campos son obligatorios para realizar compras, excepto los de la dirección envío que serán obligatorios si la dirección de facturación es distinta. Si algún campo no se rellena se mostrará un mensaje de error en la pantalla a través del sistema de aviso, explicado en la sección \ref{sec:sistemaAvisos}. Esta vista se muestra cuando el usuario accede a ella a través del enlace de la barra de navegación y cuando se tramita el pedido, ya que el usuario debe comprobar los datos antes de finalizar con el pedido. 
 
@@ -1902,7 +1909,7 @@ El usuario puede ordenar los productos de más baratos a más caros, de más caros 
 	  \label{fig:ordenacionProductos}
 \end{figure}
 
-Además, puede filtrar los productos  por marca, precio, disponibilidad, ofertas y características. 
+Además, puede filtrar los productos por marca, precio, disponibilidad, ofertas y características. 
 
 \begin{figure}[H]
 	  \centering
@@ -1911,6 +1918,110 @@ Además, puede filtrar los productos  por marca, precio, disponibilidad, ofertas 
 	  \label{fig:filtros}
 \end{figure}
 
+Desde esta vista, el usuario puede añadir directamente el producto al carrito pulsando sobre el botón ``Comprar'' o ir al detalle del producto. Si el usuario decide ir al detalle del producto debe pulsar sobre la foto del producto. En la vista de detalle del producto se visualiza la imagen del producto, el logo de la marca, el modelo, las estrellas y opiniones que tiene el producto, el precio del envío, la disponibilidad, el precio, las características y las opiniones de los demás usuarios. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=17cm, keepaspectratio]{img/detalle_producto2.png}
+	  \caption{Detalle del producto.}
+	  \label{fig:detalleDelProducto}
+\end{figure}
+
+Para visualizar las opiniones del producto debe pulsar sobre la pestaña ``Reseñas''. Estas reseñas se pueden filtrar por número de estrellas. Para ello, el usuario debe pulsar sobre la fila de estrellas que desea buscar. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=17cm, keepaspectratio]{img/reseniasProductos.png}
+	  \caption{Reseñias del producto.}
+	  \label{fig:reseniasDelProducto}
+\end{figure}
+
+Para añadir el producto al carrito, el usuario debe pulsar sobre el botón ``Comprar''. Al pulsar sobre este botón, se redirecciona a la vista de carrito, donde el usuario ve los productos que tiene guardados en el carrito. Puede aumentar o disminuir la cantidad de un mismo producto pulsando sobre los botones ``+'' o ``-'', elegir la forma de envío (envío a domicilio o recogida a casa) siempre y cuando los productos sean diferentes y eliminar todos los productos del carrito pulsando sobre el botón ``Vaciar cesta''. Si el usuario quiere seguir comprando, debe pulsar el botón ``Seguir comprando''. Si desea finalizar el pedido debe pulsar sobre el botón ``Tramitar Pedido''. 
+
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/carrito.png}
+	  \caption{Carrito.}
+	  \label{fig:carrito}
+\end{figure}
+
+Al pulsar sobre el botón ``Tramitar pedido'' se visualizan los datos personales del usuario (perfil de usuario), ya que el usuario debe comprobar que la información guardada es correcta. 
+
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/perfilUsuarioCarrito.png}
+	  \caption{Perfil de usuario.}
+	  \label{fig:perfilUsuarioCarrito}
+\end{figure}
+
+Para finalizar el pedido, el usuario debe pulsar sobre el botón ``Continuar pedido''. Al pulsar sobre este botón, se visualizan los métodos de pago disponibles: Tarjeta de crédito, Paypal y contrareembolso.
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/metodosPago.png}
+	  \caption{Métodos de pago.}
+	  \label{fig:metodosPago}
+\end{figure}
+
+ Al seleccionar Tarjeta de crédito, se muestra un formulario donde se han de rellenar los datos relativos a la tarjeta de crédito. Los datos de la tarjeta de crédito deben ser correctos, ya que se comprueba que su formato sea válido.
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/tarjetaBancaria.png}
+	  \caption{Formulario tarjeta de crédito.}
+	  \label{fig:tarjetaCredito}
+\end{figure} 
+
+Si al finalizar el pedido, pulsando sobre el botón ``Finalizar Pedido'' se produce un error, como, por ejemplo, el número de tarjeta es erróneo o el CCV tiene una longitud superior a tres, se muestra un mensaje en la pantalla y no se finaliza el pedido. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/errorTarjetaCredito.png}
+	  \caption{Error al finalizar pedido con tarjeta de crédito.}
+	  \label{fig:errortarjetaCredito}
+\end{figure} 
+
+Si los datos son correctos, se procesa el pedido y al usuario se le redirecciona a la página principal de la tienda. 
+
+
+Si el usuario elige como método de pago Contrareembolso, debe marca la opción contrareembolso y  pulsar sobre el botón ``Finalizar Pedido'', ya que el pago se realiza cuando el producto le llege a su domicilio. Al finalizar el pedido, se redirecciona al usuario a la página principal de la tienda, como con tarjeta de crédito. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/contrareembolso.png}
+	  \caption{Método de pago. Contrareembolso.}
+	  \label{fig:contrareembolso}
+\end{figure} 
+
+
+Si el usuario decide que va a realizar el pago a través de Paypal, debe marcar la opción Paypal y pulsar sobre el botón ``Paypal pagar''.  
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/metodoPaypal.png}
+	  \caption{Método de pago. Paypal.}
+	  \label{fig:paypal}
+\end{figure} 
+
+Cuando pulsa sobre este botón, se abre la ventana de inicio de sesión del sitio web de Paypal, donde debe introducir sus creedenciales. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/paypalInicioSesion.png}
+	  \caption{Inicio sesión en Paypal.}
+	  \label{fig:inicioSesionPaypal}
+\end{figure} 
+
+Una vez el usuario haya iniciado sesión en su cuenta de Paypal, debe elegir como realizar el pago, ya que Paypal permite pagar a través de tarjeta de crédito, transferencia o su cuenta de Paypal. Seleccionada la opción deseada, se pulsa sobre ``Pagar ahora'' para finalizar el pedido. Si todo ha ido correctamente, se cerrará el sitio web de Paypal y se redirecciona al usuario a la página principal de la tienda. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/pagarAhoraPaypal.png}
+	  \caption{Pago con Paypal.}
+	  \label{fig:pagoPaypal}
+\end{figure} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

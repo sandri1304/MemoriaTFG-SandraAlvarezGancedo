@@ -1377,32 +1377,32 @@ Vistas que no necesitan autenticarse en la aplicación para poder visualizarse:
 
 	\item \textbf{Categoría}: Vista en la que se muestran las subcategorías de una categoría general. Las subcategorías se visualizan a través del componente reutilizable \textit{client-categories}. Si se pulsa sobre la foto se navega al listado de productos de la subcategoría. 
 
-	\item \textbf{Listado de productos de una subcategoría}: Vista en la que se muestra el listado de los productos de una subcategoría. Este listado está páginado, como máximo se van a mostrar 12 productos por página. Se diseño así para que a la query de busqueda de productos fuese más eficiente y más rapida. Para el listado se ha utilizado Angular Material y para la visualización del producto el componente reutilizable \textbf{client-product}. Los productos se pueden ordenadar por: los más vendidos, los mejores valorados o de más caros a más baratos y viceversa. Además, se puede filtrar por marca (únicamente se muestran las marcas de los productos de la subcategoría seleccionada), por precio(entre un rango de 0 a 1000), por disponibilidad, por oferta y por características. Para implementar el menú de filtros se ha utilizado también Angular Material. Para realizar el filtrado y la ordenación de los productos se ha recurrido al uso de la función \emph{aggregate} de Mongoose, ya que permite ir transformando los datos por etapas hasta conseguir los que se desean y, de esta manera, sólo se hacía una query para la búsqueda. 
+	\item \textbf{Listado de productos de una subcategoría}: Vista en la que se muestra el listado de los productos de una subcategoría. Este listado está paginado permitiendo al usuario elegir la cantidad de productos a mostrar, siendo 12 el número máximo. Se diseñó así para evitar cargar todos los productos de la base de datos, haciendo que la query sea rápida y eficiente. Para la creación del listado se ha utilizado el componente \emph{grid} de Angular Material, que a su vez muestra los productos utilizando el componente \textit{client-product}. Los productos se pueden ordenar por: los más vendidos, los mejores valorados o de más caros a más baratos y viceversa. Además, se puede filtrar por marca (únicamente se muestran las marcas de los productos de la subcategoría seleccionada), por precio (entre un rango de 0 a 1000), por disponibilidad, por oferta y por características. Para implementar el menú de filtros se ha utilizado \emph{mat-accordion} de Angular Material. Para realizar el filtrado y la ordenación de los productos se ha recurrido al uso de la función \emph{aggregate} de Mongoose, que permite transformar los datos por etapas hasta conseguir el resultado esperado. 
 
 	\item \textbf{Detalle del producto}: Vista que permite conocer la información detallada de un producto: Foto, marca, modelo, estrellas, envío(si es gratuito o no), promociones si las tuviese, disponibilidad (la información de la disponibilidad varía de color dependiendo del stock del producto. Si no hay stock se muestra en rojo, si el stock es inferior a 5 se muestra en amarillo y si es mayor se muestra en verde), características y reseñas. Las características y las reseñas se sitúan en un tab, en la parte inferior de la vista. Las características se visualizan con el estilo definido cuando el producto se almacenó en el sistema. Para ello, se ha utilizado la librería $HTML-EDITOR$, que permite definir el estilo del texto transformándolo a HTML. En cuanto a la visualización de las reseñas, los usuarios pueden filtrar las reseñas por el número de estrellas que puso el usuario cuando escribió la valoración. Para escribir la valoración del producto, los usuarios deben hacer login en la tienda online. El dialogo que se abre cuando se pulsa sobre ``Escribe una reseña'' se explica más adelante. 
 	El botón comprar añade el producto al carrito. Cuando se añade el producto al carrito, el producto se añade a la variable Cart del \emph{LocalStorage} del navegador, permitiendo mantenar el carrito si se cierra el navegador.
 
-	\item \textbf{Carrito}: Vista que muestra el resumen del carrito y que permite tramitar el pedido. Se visualizan los productos que hay en el carrito, el total de la cesta y la manera de recibir los productos. Cuando hay dos productos del mismo modelo, los dos deben recibirse de la misma forma pero, si los productos tienen distinto modelo se puede recibir uno en casa y el otro ir a recogerlo a la tienda. Los productos se pueden eliminar de la cesta individualmente o colectivamente si se pulsa sobre el botón ``Vaciar cesta''. Cada vez que se elimina el producto del carrito se borra de la variable ``Cart'' del \emph{LocalStorage} del navegador. Para finalizar la compra se pulsa sobre el botón ``Tramitar pedido''.
+	\item \textbf{Carrito}: Muestra los productos que hay en el carrito, el total del carrito y la forma de entrega. Cuando la cantidad elegida de un producto es mayor que uno, la forma de entrega es la misma para todos. Si el carrito contiene diferentes productos, se permiten diferentes formas de entrega (envío a domicilio o recogida en tienda). Además, se permite la eliminación de los productos de forma individual o colectiva, al pulsar ``Vaciar cesta''. Para la implementación del carrito se ha utilizado \emph{LocalStorage}, donde se almacenan los productos seleccionados por el usuario en formato JSON.
 
-	\item \textbf{Contacto}: Vista que permite conocer los datos de contacto de la tienda física. Además, permite conocer como se fundó la tienda de electrodomésticos Nevado.
+	% \item \textbf{Contacto}: Vista que permite conocer los datos de contacto de la tienda física. Además, permite conocer como se fundó la tienda de electrodomésticos Nevado.
 
-	\item \textbf{Condiciones de uso}: Vista que contiene las condiciones de uso de la tienda online. Se explica como deben efecturarse los pedidos, como se realizan los envíos, como hay que hacer las devoluciones y como es la garantía de los productos. 
+	% \item \textbf{Condiciones de uso}: Vista que contiene las condiciones de uso de la tienda online. Se explica como deben efecturarse los pedidos, como se realizan los envíos, como hay que hacer las devoluciones y como es la garantía de los productos. 
 
-	\item \textbf{Política de privacidad}: Vista en la que se define la política de privacidad. Por la Ley de protección de datos la tienda debe informar a los usuarios como van a ser tratados sus datos. Y son estos, los que deciden si lo aceptan o no. 
+	% \item \textbf{Política de privacidad}: Vista en la que se define la política de privacidad. Por la Ley de protección de datos la tienda debe informar a los usuarios como van a ser tratados sus datos. Y son estos, los que deciden si lo aceptan o no. 
 
-	\item \textbf{Preguntas frecuentes}: Vista que permite conocer la respuesta de las preguntas más frecuentes formuladas por los usarios. Cuando el usuario ha iniciado sesión puede enviar preguntas al administrador a través del formulario que aparece en esta vista. 
+	\item \textbf{Preguntas frecuentes}: Vista que permite conocer la respuesta de las preguntas más frecuentes formuladas por los usuarios. Cuando el usuario ha iniciado sesión puede enviar preguntas al administrador a través del formulario que aparece en esta vista. El administrador puede ver los mensajes desde la trastienda y contestarlos enviando un correo.
 \end{itemize}
 
 Vistas donde el usuario necesita estar logueado para visualizarlas: 
 
 \begin{itemize}
-	\item \textbf{Añade una reseña}: Vista que permite publicar la valoración de un producto. Es un formulario con los campos valoración general, título de la reseña, comentario o reseña, recomendación a otros usuarios y valoración del producto en cuanto a calidad precio. Esta valoración se mostrará en la vista \textbf{Detalle del producto}. La valoración general en forma de número de estrellas se suma al computo total de estrellas de producto. Este computo es el que luego se muestra en la pantalla de \textbf{Detalle del producto}.
+	\item \textbf{Añade una reseña}: Vista que permite publicar la valoración de un producto. Es un formulario con los campos valoración general, título, comentario, recomendación a otros usuarios y valoración del producto en cuanto a calidad precio. La valoración general en forma de número de estrellas se suma al computo total de estrellas de producto que, finalmente, se muestra en la vista \textit{Detalle del producto} junto con la reseña.
 
-	\item \textbf{Perfil de usuario}: Vista donde se visualiza la información personal del usuario. Cuando un usuario se registra en la aplicación debe rellenar esta información pero, posteriormente puede realizar modificaciones sobre su perfil. La vista es un formulario que contiene los siguientes campos: nombre, apellidos, email, teléfono, fecha de nacimiento, DNI, dirección de facturación, código postal, municipio,  provincia de la dirección de facturación y la dirección, el código postal. el municipio y la provincia de envío. Todos los campos son obligatorios excepto los del envío que serán obligatorios si la dirección de facturación y de envío son diferentes. Si algun campo no se rellena se mostrará un mensaje de error en la pantalla a través del sistema de aviso, explicado en la sección \ref{sec:sistemaAvisos}. Esta vista se muestra cuando se registra un usuario, cuando el usuario accede a ella a través del enlace de la cabecera y cuando se tramita el pedido, ya que debe comprar los datos antes de finalizar con el pedido. 
+	\item \textbf{Perfil de usuario}: Vista donde se visualiza la información personal del usuario, es decir, nombre, apellidos, email, teléfono, fecha de nacimiento, DNI, dirección de facturación, código postal, municipio,  provincia de la dirección de facturación y la dirección, el código postal, el municipio y la provincia de envío. Todos los campos son obligatorios para realizar compras, excepto los de la dirección envío que serán obligatorios si la dirección de facturación es distinta. Si algún campo no se rellena se mostrará un mensaje de error en la pantalla a través del sistema de aviso, explicado en la sección \ref{sec:sistemaAvisos}. Esta vista se muestra cuando el usuario accede a ella a través del enlace de la barra de navegación y cuando se tramita el pedido, ya que el usuario debe comprobar los datos antes de finalizar con el pedido. 
 
-	\item \textbf{Pedidos del usuario}: Vista que permite conocer al usuario los pedidos realizados y el estado de cada uno de ellos. Es una tabla en la que se visualiza el identificador del pedido, la fecha de entrada, la fecha aproximada de entrega y el estado. La tabla está páginada y el usuario puede decidir la cantidad de pedidos que desea mostrar por página. Además, se le permite filtrar por identificador de pedido, estado ó fecha de entrada. 
+	\item \textbf{Pedidos del usuario}: Vista que permite conocer al usuario los pedidos realizados y el estado de cada uno de ellos. Es una tabla en la que se visualiza el identificador del pedido, la fecha del pedido, la fecha aproximada de entrega y el estado. La tabla está paginada y el usuario puede decidir la cantidad de pedidos que desea mostrar por página. Además, se le permite filtrar por identificador de pedido, estado ó fecha de pedido. 
 
-	\item \textbf{Métodos de Pago}: Vista donde el usuario decide como desea pagar su pedido. Se puede elegir entre tarjeta de crédito, Paypal y contra-reembolso. Cuando se selecciona tarjeta de crédito aparece un formulario con el tipo de tarjeta, el nombre del titular, la fecha de expiración, el número de tarjeta de pago y el ccv. Todos los campos deben estar rellenos. Además, se comprueba que el número de tarjeta sea válido para el tipo de tarjeta seleccionado, que el CCV sea de tres posiciones y que la fecha de expiración tenga un formato correcto. Cuando se selecciona el método de pago Paypal aparece el botón ``Paypal pagar'', que permite realizar el pago en el sitio web de Paypal. Cuando se selecciona contra-reembolso únicamente aparece el botón ``Finalizar pedido''. El pedido se finaliza cuando se pulsa sobre el botón ``Finalizar Pedido'' o cuando se realiza el pago en el sitio web de Paypal. Al finalizar el pedido se genera la factura excepto en la opción contra-reembolso que se genera manualmente por el administrador una vez que se cobre el pedido. En tarjeta de crédito no se llega a conectar con los bancos porque para poder acceder a su pasarela de pagos se necesitaban datos de cuentas reales. 
+	\item \textbf{Métodos de Pago}: Vista donde el usuario decide el método de pago del pedido. Se puede elegir entre tarjeta de crédito, Paypal y contra-reembolso. Cuando se selecciona tarjeta de crédito aparece un formulario con el tipo de tarjeta, el nombre del titular, la fecha de expiración, el número de tarjeta de pago y el CCV. Además, se comprueba que el número de tarjeta sea válido para el tipo de tarjeta seleccionado, que el CCV sea de tres posiciones y que la fecha de expiración tenga un formato correcto. Cuando se selecciona el método de pago Paypal aparece el botón ``Paypal pagar'', que permite realizar el pago en el sitio web de Paypal. Cuando se selecciona contra-reembolso únicamente aparece el botón ``Finalizar pedido''. Al finalizar el pedido se genera la factura excepto en la opción contra-reembolso que se genera manualmente por el administrador una vez que se cobre el pedido. El pago con tarjeta de crédito finaliza tras la validación de la tarjeta. No se ha implementado la conexión con el banco porque requería datos y cuentas reales. 
  
 \end{itemize}
 
@@ -1879,7 +1879,7 @@ Al seleccionar una categoría se redirecciona a la página de subcategorías de la 
 
 \begin{figure}[H]
 	  \centering
-	  \includegraphics[width=15cm, keepaspectratio]{img/subcategorias.png}
+	  \includegraphics[width=12cm, keepaspectratio]{img/subcategorias.png}
 	  \caption{Subcategorías.}
 	  \label{fig:subcategorias}
 \end{figure}
@@ -1888,10 +1888,29 @@ Para seleccionar la subcategoría, el usuario debe pulsar sobre la imagen que rep
 
 \begin{figure}[H]
 	  \centering
-	  \includegraphics[width=15cm, keepaspectratio]{img/listadoProductosSubcategoria.png}
+	  \includegraphics[width=13cm, keepaspectratio]{img/listadoProductosSubcategoria.png}
 	  \caption{Subcategorías.}
 	  \label{fig:subcategorias}
 \end{figure}
+
+El usuario puede ordenar los productos de más baratos a más caros, de más caros a más baratos, los más vendidos y los mejores valorados. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=5cm, keepaspectratio]{img/ordenadoProductos.png}
+	  \caption{Ordenación de productos.}
+	  \label{fig:ordenacionProductos}
+\end{figure}
+
+Además, puede filtrar los productos  por marca, precio, disponibilidad, ofertas y características. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=3.5cm, keepaspectratio]{img/filtros.png}
+	  \caption{Filtros.}
+	  \label{fig:filtros}
+\end{figure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

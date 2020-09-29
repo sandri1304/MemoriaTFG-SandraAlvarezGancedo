@@ -459,9 +459,9 @@ La arquitectura de una aplicación Angular se basa en clases de 4 tipos distintos
 
 Los módulos suministran el contexto de compilación de los componentes, es decir, es aquí donde se definen los diferentes componentes que va a formar la aplicación, las dependencias, las clases que actúan como servicios en la aplicación y las rutas de navegación que establecen las vistas de la aplicación. 
 
-Toda aplicación angular tiene un módulo principal, que es el raíz. Este módulo suele recibir el nombre de AppModule y, es el que inicia el sistema de arranque de la aplicación. 
+Toda aplicación angular tiene un módulo principal, que es el raíz. Este módulo suele recibir el nombre de AppModule y es el que inicia el sistema de arranque de la aplicación. 
 
-Al igual que en Javascript, los módulos de Angular permiten importar y exportar funcionalidades proporcionadas por otros módulos, por lo que una aplicación puede tener más de un módulo y, cada uno de ellos ser independiente. La manera en que se organizan estos módulos ayuda a la realización de aplicaciones más complejas y a la reutilización de código. Además, pemite que la carga inicial sea mínima, ya que cada módulo se carga a petición, es decir, cuando se va a utilizar. 
+Al igual que en Javascript, los módulos de Angular permiten importar y exportar funcionalidades proporcionadas por otros módulos, por lo que una aplicación puede tener más de un módulo, siendo cada uno de ellos independiente. La manera en que se organizan estos módulos ayuda a la realización de aplicaciones más complejas y a la reutilización de código. Además, pemite que la carga inicial sea mínima, ya que cada módulo se carga a petición, es decir, cuando se va a utilizar. 
 
 \textbf{Componentes}. 
 
@@ -481,9 +481,9 @@ Las directivas son clases en las que se definen los términos claves que se usan 
 
 Existen dos clases de directivas, las de atributo, que modifican el comportamiento del componente, y las estructurales, que únicamente modifican la apariencia. 
 
-Angular dispone de un enrutador, módulo que contiene un servicio para definir las rutas de navegación de la aplicación. Este módulo se ajusta a las convenciones de los navegadores. Es decir, tanto si se pone la URL en la barra de direcciones, como si se pincha un enlace en la aplicación, como si se hace clic en el botón de retroceso o avance, se navegá a la página correspondiente. El enrutador es el que muestra u oculta una vista. Cada vez que se modifica la URL, el enrutador se encarga de añadir la ruta en el historial del navegador, de ahí que los botones de retroceso y avance funcionen. Cada ruta de navegación está asociado a un componente. 
+Angular dispone de un enrutador, módulo que contiene un servicio para definir las rutas de navegación de la aplicación. Este módulo se ajusta a las convenciones de los navegadores. Es decir, tanto si se pone la URL en la barra de direcciones, como si se pincha un enlace en la aplicación, como si se hace clic en el botón de retroceso o avance, se navega a la página correspondiente. El enrutador es el que muestra u oculta una vista. Cada vez que se modifica la URL, el enrutador se encarga de añadir la ruta en el historial del navegador, de ahí que los botones de retroceso y avance funcionen. Cada ruta de navegación está asociado a un componente. 
 
-Angular dispone de varias versiones, aportando todas ellas mejoras en dicho framework. La primera versión de Angular, se conoce como AngularJS y, es la más distinta a las demás. El resto son actualizaciones de Angular 2. Cuando se definió la segunda versión se decidió modificar el nombre del framework y dejarlo como Angular. La última versión estable es la versión 8.
+Angular dispone de varias versiones, aportando todas ellas mejoras en dicho framework. La primera versión de Angular, se conoce como AngularJS, y es la más distinta a las demás. El resto son actualizaciones de Angular 2. Cuando se definió la segunda versión se decidió modificar el nombre del framework y dejarlo como Angular. La última versión estable es la versión 8.
 
 \subsection{Angular CLI} 
 \label{sec:Angular CLI}
@@ -493,7 +493,7 @@ Angular CLI (Command Line Interface) es una herramienta de línea de comandos cre
 \subsection{Angular Material} 
 \label{sec:Angular Material}
 
-Angular Material es una librería creada por Google para las aplicaciones web desarrolladas con Angular. Al igual que Boostrap ayuda a diseñar aplicaciones web atractivas, con estilos y formas únicas, ya que contiene multitud de componentes con estilos prefijados. Estos componentes permiten a las aplicaciones web ser rápidas, consistentes y versátiles. Además, con el uso de esta librería las aplicaciones web se adaptan mejor a la mayoría de resoluciones de pantalla y de dispositvos, facilitando el diseño responsive de las aplicaciones. También, con su uso se crean aplicaciones web accesibles, ya que los componentes cumplen con los estándares de accesibilidad. Además, esta librería facilita la internacionalización de la aplicación, puesto que permite la utilización de diferentes idiomas. Es compatible con todos los navegadores modernos. 
+Angular Material es una librería creada por Google para las aplicaciones web desarrolladas con Angular. Al igual que Boostrap, ayuda a diseñar aplicaciones web atractivas, con estilos y formas únicas, ya que contiene multitud de componentes con estilos prefijados. Estos componentes permiten a las aplicaciones web ser rápidas, consistentes y versátiles. Además, con el uso de esta librería las aplicaciones web se adaptan mejor a la mayoría de resoluciones de pantalla y de dispositvos, facilitando el diseño responsive de las aplicaciones. También, con su uso se crean aplicaciones web accesibles, ya que los componentes cumplen con los estándares de accesibilidad. Además, esta librería facilita la internacionalización de la aplicación, puesto que permite la utilización de diferentes idiomas. Es compatible con todos los navegadores modernos. 
 
 \subsection{Angular Editor} 
 \label{sec:Angular Editor}
@@ -504,16 +504,16 @@ Es un componente de Angular, que permite escribir texto con formato y estilo pro
 \label{sec:nodejs}
 Node js fue creado en 2009 por Ryan Dahl como sistema de desarrollo de aplicaciones red escalables. Es un entorno de ejecución orientado a eventos asíncronos que utiliza el motor V8 de Google, desarrollado en C++ y de código abierto, para interpretar el código javascript, del mismo modo que hace el navegador Chrome. 
 
-Se basa en sistemas como Event Machine de Ruby y Twisted de Python. Arranca cuando se ejecuta el script de entrada al bucle de inicio de eventos y, finaliza cuando no hay más devoluciones de llamadas callbacks, utilizando así un único hilo. De este modo, cada nuevo evento se añade al bucle de eventos que se ejecuta al inicio, evitando el bloqueo de procesos que se produce en los sistemas de concurrencias basados en la utilización de hilos de los sistemas operativos. Estos procesos usan un hilo por cada conexión provocando la ineficiencia de los recursos utilizados. A pesar de que Node.js esté pensado para usar un único hilo se pueden crear hilos diferentes o subprocesos a través de Apis propias de Node como API\_child.process.fork(). 
+Se basa en sistemas como Event Machine de Ruby y Twisted de Python. Arranca cuando se ejecuta el script de entrada al bucle de inicio de eventos y finaliza cuando no hay más devoluciones de llamadas callbacks, utilizando así un único hilo. De este modo, cada nuevo evento se añade al bucle de eventos que se ejecuta al inicio, evitando el bloqueo de procesos que se produce en los sistemas de concurrencias basados en la utilización de hilos de los sistemas operativos. Estos procesos usan un hilo por cada conexión provocando la ineficiencia de los recursos utilizados. A pesar de que Node.js esté pensado para usar un único hilo se pueden crear hilos diferentes o subprocesos a través de Apis propias de Node como API\_child.process.fork(). 
 
-Por otro lado Node es un buen aliado para desarrollar aplicaciones web, ya que a la hora de implementar el protocolo Http para Node se pensó tanto en la latencia de transmisión como en la transimisión por streaming de datos. 
+Por otro lado, Node es un buen aliado para desarrollar aplicaciones web, ya que a la hora de implementar el protocolo Http para Node se pensó tanto en la latencia de transmisión como en la transimisión por streaming de datos. 
 
 
 \section{Npm} 
 \label{sec:Npm}
-Es el sistema de administración de paquetes del entorno de ejecución de NodeJs. Contiene un cliente, con el que ejecutando una línea de comando, se instalan los paquetes necesarios para el funcionamiento de los proyectos NodeJs. Además, contiene una biblioteca o base de datos con más de 477000 paquetes disponibles para usarse. Todos estos paquetes están guardados con formato CommonsJs y contienen un archivo para almacenar metadatos con formato Json. Fue desarrollado por Isaac Z. Schlueter y se desarrolló por completo en JavaScript.
+Es el sistema de administración de paquetes del entorno de ejecución de NodeJs. Contiene un cliente con el que, ejecutando una línea de comando, se instalan los paquetes necesarios para el funcionamiento de los proyectos NodeJs. Además, contiene una biblioteca o base de datos con más de 477000 paquetes disponibles para usarse. Todos estos paquetes están guardados con formato CommonsJs y contienen un archivo para almacenar metadatos con formato Json. Fue desarrollado por Isaac Z. Schlueter y se desarrolló por completo en JavaScript.
 
-Al instalar un paquete a través de Npm, se instala bajo el directorio del proyecto \slash .node\_modules. Permite instalar con un único comando todas las dependencias del proyecto, siempre y cuando se ejecute el comando en la raíz del proyecto. Npm utiliza el archivo con formato Json, denominado Package.json, para guardar todos los metadatos relevantes a los módulos, paquetes y dependencias del proyecto. En el archivo package.json se guardan las versiones compatibles para los diferentes módulos, permitiendo hacer un versionado del módulo instalado. Gracias a esto, Npm hace que la instalación de proyectos NodeJs, descargados de Git sea sencilla.
+Al instalar un paquete a través de Npm, se instala bajo el directorio del proyecto \slash .node\_modules. Permite instalar con un único comando todas las dependencias del proyecto, siempre y cuando se ejecute el comando en la raíz del proyecto. Npm utiliza el archivo con formato Json, denominado Package.json, para guardar todos los metadatos relevantes a los módulos, paquetes y dependencias del proyecto. En el archivo package.json se guardan las versiones compatibles para los diferentes módulos, permitiendo hacer un versionado del módulo instalado. Gracias a esto, Npm hace que la instalación de proyectos NodeJs descargados de Git sea sencilla.
 
 
 \section{Express.js} 
@@ -548,7 +548,7 @@ Cuando se programa en Node, los cambios realizados en el código fuente no se ven
 \label{sec:MongoDB}
 MongoDB es una base de datos no relacional, una base de datos NoSQL, que se basa en documentos para guardar la información. 
 
-Es una base de datos gratuita y multiplataforma (Linux, Windows, Os X y Solaris). Las distintas versiones se lanzaban bajo la licencia AGPL pero, a partir de octubre de 2018, se publican bajo la licencia pública SSPL, aunque tiene una línea comercial que contiene caractarísticas más avanzadas.
+Es una base de datos gratuita y multiplataforma (Linux, Windows, Os X y Solaris). Las distintas versiones se lanzaban bajo la licencia AGPL, pero a partir de octubre de 2018, se publican bajo la licencia pública SSPL, aunque tiene una línea comercial que contiene características más avanzadas.
 
 A diferencia de las bases de datos relacionales, MongoDB almacena sus datos en documentos y no en tablas. Estos documentos son de esquemas libres, lo que quiere decir que cada entrada puede tener una estructura de datos distinta, con campos que no se tienen porque repetir en otro registro. Por eso, MongoDB tiene mayor flexibilidad y escalabilidad que las bases de datos relacionales. Los documentos se guardan en formato BSON (Binary JSON), lo que permite guardar índices de array, longitudes de campos y datos relevantes, que hacen las búsquedas más rápidas y eficientes. A pesar de que se almacenan en BSON, los desarrolladores siempre trabajarán con documentos JSON. 
 
@@ -573,7 +573,7 @@ Mongoose es un ODM (Object Document Mapping) de MongoDB, es decir, sirve para ma
 
 Es una librería de javascript que se instala a través de un único comando npm en los proyectos que utilizan Node y MongoDB. 
 
-Para mapear los objetos a documentos, lo que hace es crear esquemas con datos fuertemente tipados. Estos esquemas se traducen en un modelo Mongoose y, es este modelo Mongoose el que se traduce en el documento MongoDB. 
+Para mapear los objetos a documentos, lo que hace es crear esquemas con datos fuertemente tipados. Estos esquemas se traducen en un modelo Mongoose, y es este modelo Mongoose el que se traduce en el documento MongoDB. 
 
 Contiene una infinidad de funciones para realizar búsqueda de datos, validación de datos, guardado y eliminado de datos, etc. Todas estas funciones se basan en las funciones más comunes que Mongo tiene para realizar estas operaciones. 
 
@@ -595,7 +595,7 @@ Passport es un middleware que permite la autenticación en aplicaciones Node. Es 
 	\item Tiene numerosas estrategias de autenticación. Por ejemplo, permite autenticarse utilizando bases de datos, en las que se almacenan las sesiones o puede autenticarse con el inicio de sesión único de OpenID y OAuth, usados por ejemplo, en Facebook. 
 	\item Permite desarrollar nuevas estrategias de autenticación. 
 	\item Permite usar sesiones persistentes. 
-	\item Gestiona el proceso de autenticación indicando si la autenticación ha sido satisfactoria. 
+	\item Gestiona el proceso de autenticación indicando si ha sido satisfactoria. 
 \end{itemize}
 
 
@@ -645,7 +645,7 @@ Mongo Compass es una herramienta gráfica, multiplataforma (Linux, Mac y Windows)
 \section{Arquitectura general} 
 \label{sec:arquitectura}
 
-La aplicación implementada en este trabajo tiene una arquitectura $Three-Tier$, es decir, una arquitectura de tres niveles. El primer nivel de esta arquitectura es la capa de presentación o cliente. Este nivel está compuesto por las diferentes vistas de la aplicación que forman la interfaz de usuario. Es el encargado de recoger la información que produce el usuario al interacturar en la aplicación y el que envía, a través de peticiones, la información al segundo nivel. El segundo nivel, es el servidor donde se encuentra la lógica de negocio. Se encarga de recibir todas las peticiones de usuario enviadas por el cliente y de su posterior respuesta. Es el único nivel que se comunica con el resto, puesto que, también puede comunicarse con el tercer nivel, capa de acceso a base de datos o servidor de base de datos. Este tercer nivel es el que maneja la información. En la figura ~\ref{fig:arquitecturaThreeTier} se representa un ejemplo de este tipo de arquitectura. 
+La aplicación implementada en este trabajo tiene una arquitectura $Three-Tier$, es decir, una arquitectura de tres niveles. El primer nivel de esta arquitectura es la capa de presentación o cliente. Este nivel está compuesto por las diferentes vistas de la aplicación que forman la interfaz de usuario. Es el encargado de recoger la información que produce el usuario al interacturar en la aplicación y el que envía, a través de peticiones, la información al segundo nivel. El segundo nivel es el servidor, donde se encuentra la lógica de negocio. Se encarga de recibir todas las peticiones de usuario enviadas por el cliente y de su posterior respuesta. Es el único nivel que se comunica con el resto, puesto que, también puede comunicarse con el tercer nivel, acceso a base de datos o servidor de base de datos. Este tercer nivel es el que maneja la información. En la figura ~\ref{fig:arquitecturaThreeTier} se representa un ejemplo de este tipo de arquitectura. 
 
 \begin{figure}[H]
   \centering
@@ -920,7 +920,7 @@ El gestor de base de datos utilizado es MongoDB, que es una base de datos no rel
 
 El servidor es el encargado de recibir las peticiones del cliente y de su posterior respuesta. Para ello, se ha implementado un API REST. Esta API REST es la encargada de devolver los datos requeridos en cada petición del cliente. El API REST se explica en la sección ~\ref{sec:apirest}. Por otro lado, el servidor es el que realiza las peticiones a base de datos para la obtención, el guardado, borrado y actualización de los datos almacenados en ella. 
 
-La implementación del servidor se ha realizado usando NodeJS y Express, usado este último para la estructuración de los archivos del servidor y para el enrutamiento de las llamadas a la API REST. NodeJs está orientado a eventos asíncronos que se ejecutan en un único hilo, como se explicó en la sección ~\ref{sec:nodejs}. Para el manejo de los eventos asícronos es necesario recurrir a la programación asíncrona y, en este tipo de programación, es común recurrir al uso de los denominados callbacks, funciones que ejecutan otra función una vez terminada la operación. Para evitar estos callbacks y hacer el código más legible, se ha recurrido al uso de los operadores $async$ y $await$. Estos operadores tienen como finalidad simplificar la manera de programación cuando se programa de manera asícrona, ya que permiten ejecutar promesas y esperar el resultado sin utilizar $then$ y $catch$, muy usados en Javascript para este tipo de programación y, que lo único que les diferencia de los callbacks es la simplifidad en el código.  
+La implementación del servidor se ha realizado usando NodeJS y Express, usado este último para la estructuración de los archivos del servidor y para el enrutamiento de las llamadas a la API REST. NodeJs está orientado a eventos asíncronos que se ejecutan en un único hilo, como se explicó en la sección ~\ref{sec:nodejs}. Para el manejo de los eventos asícronos es necesario recurrir a la programación asíncrona y, en este tipo de programación, es común recurrir al uso de los denominados callbacks, funciones que ejecutan otra función una vez terminada la operación. Para evitar estos callbacks y hacer el código más legible, se ha recurrido al uso de los operadores $async$ y $await$. Estos operadores tienen como finalidad simplificar la manera de programación cuando se programa de manera asícrona, ya que permiten ejecutar promesas y esperar el resultado sin utilizar $then$ y $catch$, muy usados en Javascript para este tipo de programación, y que lo único que les diferencia de los callbacks es la simplifidad en el código.  
 
 \subsection{Estructura del servidor} 
 \label{sec:estructuraServidor}
@@ -1003,7 +1003,7 @@ Los endpoints de la aplicación implementada en este trabajo son:
 
 	\item \textbf{POST \slash nevado\slash admin\slash orders\slash idPedido}: Actualiza el estado del pedido. Cuando un cliente finaliza un pedido siempre se crea con estado ``pendiente". El administrador modifica el estado cuando se empieza a preparar para permitir al usuario conecer el estado de su pedido.
 
-	\item \textbf{POST \slash nevado\slash admin\slash orders\slash cobrado\slash idPedido}: Actualiza el campo cobrado de un pedido. Está opción se implemento pensando en los pagos contra-reembolso, ya que estos pagos se realizan en el momento que el cliente ha recibido su producto en casa. 
+	\item \textbf{POST \slash nevado\slash admin\slash orders\slash cobrado\slash idPedido}: Actualiza el campo cobrado de un pedido. Esta opción se implemento pensando en los pagos contra-reembolso, ya que estos pagos se realizan en el momento que el cliente ha recibido su producto en casa. 
 
 	\item \textbf{GET \slash nevado\slash admin\slash orders\slash pending}: Devuelve el número de pedidos que están con estado ``pendiente". Este número se muestra en el header de la parte de administración, agilizando la preparación de los envíos.  
 
@@ -1089,9 +1089,9 @@ Los endpoints de la aplicación implementada en este trabajo son:
 
 	\item \textbf{GET \slash nevado\slash admin\slash offers\slash Products}: Devuelve los productos que tienen ofertas. 
 
-	\item \textbf{GET \slash nevado\slash admin\slash messages}: Retorna la lista de mensajes envíados por los usuarios.
+	\item \textbf{GET \slash nevado\slash admin\slash messages}: Retorna la lista de mensajes enviados por los usuarios.
 
-	\item \textbf{GET \slash nevado\slash admin\slash messages\slash export}: Exporta la lista de mensajes envíados por los usuarios en formato excel. 
+	\item \textbf{GET \slash nevado\slash admin\slash messages\slash export}: Exporta la lista de mensajes enviados por los usuarios en formato excel. 
 
 	\item \textbf{DELETE \slash nevado\slash admin\slash messages\slash idMensaje}: Elimina un mensaje.
 
@@ -1175,7 +1175,7 @@ Cuando un usuario decide registrarse en la tienda online debe acceder a $\slash 
 
 \begin{enumerate}
 	\item Se genera el salt, valor aleatorio que es usado para dar mayor robustez a la encriptación. Para generar este valor se utiliza la función \emph{genSalt}, función propia de la librería de Bcrypt. El salt generado tiene una longitud de 10 caracteres, valor por defecto de Bcrypt. Se ha optado por este valor porque es lo suficientemente grande para evitar que ataques de fuerza bruta consigan descifrar la contraseña. Además, con este valor el proceso de encriptación no se demora mucho tiempo. 
-	\item Se encripta la contraseña utilizando la función \emph{hash}, también de Bcrypt. Para llevar a cabo la encriptación, está función utiliza el salt generado en el paso anterior. 
+	\item Se encripta la contraseña utilizando la función \emph{hash}, también de Bcrypt. Para llevar a cabo la encriptación, esta función utiliza el salt generado en el paso anterior. 
 \end{enumerate}
 
 Una vez encriptada la contraseña, se crea el nuevo registro en la colección usuarios. Además, se crea una nueva entrada en la colección clientes, que almacena la información personal del cliente. Para dar por finalizado el proceso de registro, se envía un correo al usuario. El correo contiene un enlace de confirmación de la cuenta. De este modo, se garantiza que el correo introducido por el usuario es válido y está dado de alta en un sistema de mensajería. Si el usuario no confirma el correo no podrá realizar compras en la tienda online. 
@@ -1186,7 +1186,7 @@ Un usuario debe autenticarse para poder realizar determinadas operaciones dentro
 
 Para acceder a una cuenta de usuario, se deber navegar a \slash nevado\slash login, acceder a la pestaña entrar, rellenar el email y la contraseña y pulsar sobre el botón entrar. Al pulsar sobre el botón, se realiza una petición al servidor, en la que viajan la contraseña y el email introducido por el usuario. El servidor ejecuta la estrategia de Passport que se ha implementado. Esta estrategia consiste en buscar el email en el sistema. Si no lo encuentra envía un error, indicando que el usuario no está registrado. Si lo encuentra, procede a comparar la contraseña enviada con la almacenada. Para realizar esta comparación se ha utilizado la función de bcrypt \emph{compare}, que encripta la contraseña introducida y la compara con la almacenada. Si las contraseñas no coinciden se envía un error. Si coinciden, Passport crea una sesión de usuario que serializa y guarda en la base de datos. Además, estos datos de la sesión se añaden a la cookie, la cual se envía en cada una de las peticiones realizadas al servidor. De esta forma, no hay que enviar el email y la contraseña en cada llamada. El servidor únicamente se encargará de validar la cookie enviada.
 
-Para acceder a determinadas vistas de la aplicación como, por ejemplo, las vistas de administración, el usuario además de estar logueado deberá tener el perfil de administrador. Para hacer esta comprobación, en cada llamada realizada bajo el contexto $\slash admin$ se ejecutará una función que valida que el usuario tenga este perfil. Si el perfil no coincide, no se permitirá el acceso a esta parte y se redireccionará a la página principal. 
+Para acceder a determinadas vistas de la aplicación como, por ejemplo, las vistas de administración, el usuario, además de estar logueado, deberá tener el perfil de administrador. Para hacer esta comprobación, en cada llamada realizada bajo el contexto $\slash admin$ se ejecutará una función que valida que el usuario tenga este perfil. Si el perfil no coincide, no se permitirá el acceso a esta parte y se redireccionará a la página principal. 
 
 \subsection{Sistema de subida de archivos en el servidor} 
 \label{sec:subidaArchivos}
@@ -1228,11 +1228,11 @@ Cuando se realiza un pedido es necesario enviar la factura, ya que es esta la qu
 
 Una tienda online requiere tener en su catálogo numerosos productos. Añadir cada uno de ellos al sistema puede llegar a ser pesado y tedioso. Por eso, se ha implementado un sistema de importación, que permite cargar masivamente datos en la base de datos. En este sistema se pueden cargar productos, marcas y categorías. 
 
-Para realizar la importación el administrador de la tienda debe ir a $\slash admin\slash import$, seleccionar el tipo de datos que se van a importar, es decir, debe indicar si son productos, categorías o marcas y pulsar sobre el botón importar. Cuando se pulsa sobre el botón importar se realiza una petición al servidor, en la que viaja el archivo a importar. El tipo de archivo que se permite importar es .zip. El zip contiene un excel con los registros que se quieren añadir a la base de datos y las imágenes asociadas a cada registro. Cuando se recibe la peticion, se guarda el archivo .zip en el servidor, como se explica en la sección ~\ref{sec:subidaArchivos} y, posteriormente, se realiza la importación. Para ello, se descomprime el archivo .zip, utilizando la librería $Adm-zip$. Se extrae el documento excel y se parsea dicho documento para convertirlo en un array de objetos Json. Para realizar el parseo del documento excel se usa la librería $SheetJS-XLSX$. El array va a tener tantos objetos Json como registros tenga el documento excel. A cada objeto Json se le añade la ubicación de la imagen asociada a cada registro. Antes de guardarlo en la base de datos, se realizan una serie de comprobaciones como, por ejemplo, que todos los campos obligatorios estén rellenos o, en el caso de los productos, que el precio sea numérico o la marca y categoría exista en  la base de datos. Una vez terminada esta comprobación, se insertan en la base de datos todos los registros, utilizando el comando \emph{insertMany} de Mongoose, realizando así una única query. Cuando el proceso termina, se muestra en pantalla, a través de un sistema de log, el número de registros importados y cuales de ellos han fallado, indicando el número de línea y el error producido. 
+Para realizar la importación el administrador de la tienda debe ir a $\slash admin\slash import$, seleccionar el tipo de datos que se van a importar, es decir, debe indicar si son productos, categorías o marcas y pulsar el botón importar. Cuando se pulsa el botón importar se realiza una petición al servidor, en la que viaja el archivo a importar. El tipo de archivo que se permite importar es .zip. El zip contiene un excel con los registros que se quieren añadir a la base de datos y las imágenes asociadas a cada registro. Cuando se recibe la petición, se guarda el archivo .zip en el servidor, como se explica en la sección ~\ref{sec:subidaArchivos} y, posteriormente, se realiza la importación. Para ello, se descomprime el archivo .zip, utilizando la librería $Adm-zip$. Se extrae el documento excel y se parsea dicho documento para convertirlo en un array de objetos Json. Para realizar el parseo del documento excel se usa la librería $SheetJS-XLSX$. El array va a tener tantos objetos Json como registros tenga el documento excel. A cada objeto Json se le añade la ubicación de la imagen asociada a cada registro. Antes de guardarlo en la base de datos, se realizan una serie de comprobaciones como, por ejemplo, que todos los campos obligatorios estén rellenos o, en el caso de los productos, que el precio sea numérico o la marca y categoría exista en  la base de datos. Una vez terminada esta comprobación, se insertan en la base de datos todos los registros, utilizando el comando \emph{insertMany} de Mongoose, realizando así una única query. Cuando el proceso termina, se muestra en pantalla, a través de un sistema de log, el número de registros importados y cuales de ellos han fallado, indicando el número de línea y el error producido. 
 
 Para facilitar la creación de los documentos excel y evitar errores a la hora de importarlos, se ha implemantado una opción de descarga de plantilla. Para descargar esta plantilla, basta con seleccionar el tipo de dato que se quiere importar y pulsar sobre el botón plantilla, descargando un documento excel con las cabeceras de los campos que se han de rellenar. Este sistema de descarga de plantilla es similar al sistema de descarga de los documentos excel que se encuentran en las distintas vistas de la parte de administración.  
 
-Para la creacción de los documentos excel, se utiliza la librería de NodeJS $excel4node$. El documento excel se va rellenando con los metadatos de la cabecera y los datos devueltos por la base de datos. En el caso de la plantilla, sólo se rellena la cabecera del documento excel. Este documento se envía en la respuesta al cliente y, éste lo descarga utilizando \emph{saveAs} de la librería de Angular $File-saver$. 
+Para la creacción de los documentos excel, se utiliza la librería de NodeJS $excel4node$. El documento excel se va rellenando con los metadatos de la cabecera y los datos devueltos por la base de datos. En el caso de la plantilla, sólo se rellena la cabecera del documento excel. Este documento se envía en la respuesta al cliente, y éste lo descarga utilizando \emph{saveAs} de la librería de Angular $File-saver$. 
 
 \subsection{Envío de correos} 
 \label{sec:nodemailer}
@@ -1242,7 +1242,7 @@ Para el envío de correos se ha utilizado la librería $Nodemailer$ de Node. Lo pr
 \section{Diseño e implementación del cliente} 
 \label{sec:implementacionCliente}
 
-El cliente se ha desarrollado utilizando Angular y está programado en Typescript. Está formado por diferentes vistas, que forman la interfaz de usuario. Estas vistas se cargan de manera dinámica e instántanea, ya que cuando se modifica la url no se recarga la página. Por lo tanto, el cliente se ha implementado como Single-Page. Además, con el uso de Angular, el cliente tiene una arquitectura modelo-vista-controlador. 
+El cliente se ha desarrollado utilizando Angular y está programado en Typescript. Está formado por diferentes vistas, que forman la interfaz de usuario. Estas vistas se cargan de manera dinámica e instantánea, ya que cuando se modifica la url no se recarga la página. Por lo tanto, el cliente se ha implementado como Single-Page. Además, con el uso de Angular, el cliente tiene una arquitectura modelo-vista-controlador. 
 
 El cliente es el encargado de recoger la información introducida por el usuario cuando interactúa en la aplicación. Para atender los eventos lanzados por el usuario, se ha alojado en el servidor proporcionado por Angular-Cli.  
 
@@ -1391,7 +1391,7 @@ Vistas que no necesitan autenticarse en la aplicación para poder visualizarse:
 
 	Las reseñas pueden ser filtradas por el número de estrellas de cada valoración. Para escribir una nueva valoración de un producto, se utiliza la vista \textit{Añadir reseña} y es necesario haber iniciado sesión. 
 
-	Cuando se pulsa el botón comprar, se añade el producto al carrito, guardando los datos necesarios en el \emph{LocalStorage} en formato JSON.
+	Cuando se pulsa el botón comprar se añade el producto al carrito, guardando los datos necesarios en el \emph{LocalStorage} en formato JSON.
 
 	\item \textbf{Carrito}: Muestra los productos que hay en el carrito, el total del carrito y la forma de entrega. Cuando la cantidad elegida de un producto es mayor que uno, la forma de entrega es la misma para todos. Si el carrito contiene diferentes productos, se permiten diferentes formas de entrega (envío a domicilio o recogida en tienda). Además, se permite la eliminación de los productos de forma individual o colectiva, al pulsar ``Vaciar cesta''. Para la implementación del carrito se ha utilizado \emph{LocalStorage}, donde se almacenan los productos seleccionados por el usuario en formato JSON.
 
@@ -1407,13 +1407,13 @@ Vistas que no necesitan autenticarse en la aplicación para poder visualizarse:
 Vistas donde el usuario necesita estar logueado para visualizarlas: 
 
 \begin{itemize}
-	\item \textbf{Añadir reseña}: Vista que permite publicar la valoración de un producto. Es un formulario con los campos valoración general, título, comentario, recomendación a otros usuarios y valoración del producto en cuanto a calidad precio. La valoración general en forma de número de estrellas se suma al computo total de estrellas de producto que, finalmente, se muestra en la vista \textit{Detalle del producto} junto con la reseña.
+	\item \textbf{Añadir reseña}: Vista que permite publicar la valoración de un producto. Es un formulario con los campos: valoración general, título, comentario, recomendación a otros usuarios y valoración del producto en cuanto a calidad precio. La valoración general, en forma de número de estrellas, se suma al computo total de estrellas de producto que, finalmente, se muestra en la vista \textit{Detalle del producto} junto con la reseña.
 
-	\item \textbf{Perfil de usuario}: Vista donde se visualiza la información personal del usuario, es decir, nombre, apellidos, email, teléfono, fecha de nacimiento, DNI, dirección de facturación, código postal, municipio,  provincia de la dirección de facturación y la dirección, el código postal, el municipio y la provincia de envío. Todos los campos son obligatorios para realizar compras, excepto los de la dirección envío que serán obligatorios si la dirección de facturación es distinta. Si algún campo no se rellena se mostrará un mensaje de error en la pantalla a través del sistema de aviso, explicado en la sección \ref{sec:sistemaAvisos}. Esta vista se muestra cuando el usuario accede a ella a través del enlace de la barra de navegación y cuando se tramita el pedido, ya que el usuario debe comprobar los datos antes de finalizar con el pedido. 
+	\item \textbf{Perfil de usuario}: Vista donde se visualiza la información personal del usuario, es decir, nombre, apellidos, email, teléfono, fecha de nacimiento, DNI, dirección de facturación, código postal, municipio,  provincia de la dirección de facturación y la dirección, el código postal, el municipio y la provincia de envío. Todos los campos son obligatorios para realizar compras, excepto los de la dirección de envío que serán obligatorios si la dirección de facturación es distinta. Si algún campo no se rellena se mostrará un mensaje de error en la pantalla a través del sistema de aviso, explicado en la sección \ref{sec:sistemaAvisos}. Esta vista se muestra cuando el usuario accede a ella a través del enlace de la barra de navegación y cuando se tramita el pedido, ya que el usuario debe comprobar los datos antes de finalizar con el pedido. 
 
 	\item \textbf{Pedidos del usuario}: Vista que permite conocer al usuario los pedidos realizados y el estado de cada uno de ellos. Es una tabla en la que se visualiza el identificador del pedido, la fecha del pedido, la fecha aproximada de entrega y el estado. La tabla está paginada y el usuario puede decidir la cantidad de pedidos que desea mostrar por página. Además, se le permite filtrar por identificador de pedido, estado ó fecha de pedido. 
 
-	\item \textbf{Métodos de Pago}: Vista donde el usuario decide el método de pago del pedido. Se puede elegir entre tarjeta de crédito, Paypal y contra-reembolso. Cuando se selecciona tarjeta de crédito aparece un formulario con el tipo de tarjeta, el nombre del titular, la fecha de expiración, el número de tarjeta de pago y el CCV. Además, se comprueba que el número de tarjeta sea válido para el tipo de tarjeta seleccionado, que el CCV sea de tres posiciones y que la fecha de expiración tenga un formato correcto. Cuando se selecciona el método de pago Paypal aparece el botón ``Paypal pagar'', que permite realizar el pago en el sitio web de Paypal. Cuando se selecciona contra-reembolso únicamente aparece el botón ``Finalizar pedido''. Al finalizar el pedido se genera la factura excepto en la opción contra-reembolso que se genera manualmente por el administrador una vez que se cobre el pedido. El pago con tarjeta de crédito finaliza tras la validación de la tarjeta. No se ha implementado la conexión con el banco porque requería datos y cuentas reales. 
+	\item \textbf{Métodos de Pago}: Vista donde el usuario decide el método de pago del pedido. Se puede elegir entre tarjeta de crédito, Paypal y contra-reembolso. Cuando se selecciona tarjeta de crédito aparece un formulario con el tipo de tarjeta, el nombre del titular, la fecha de expiración, el número de tarjeta de pago y el CCV. Además, se comprueba que el número de tarjeta sea válido para el tipo de tarjeta seleccionado, que el CCV sea de tres posiciones y que la fecha de expiración tenga un formato correcto. Cuando se selecciona el método de pago Paypal aparece el botón ``Paypal pagar'', que permite realizar el pago en el sitio web de Paypal. Cuando se selecciona contra-reembolso únicamente aparece el botón ``Finalizar pedido''. Al finalizar el pedido se genera la factura, excepto en la opción contra-reembolso que se genera manualmente por el administrador una vez que se cobre el pedido. El pago con tarjeta de crédito finaliza tras la validación de la tarjeta. No se ha implementado la conexión con el banco porque requería datos y cuentas reales. 
  
 \end{itemize}
 
@@ -1429,11 +1429,11 @@ La vista principal de la trastienda está compuesta por:
 
 Las secciones de la trastienda son: Clientes, pedidos (pedidos y facturas), catálogo (productos, marcas y categorías), servicios (métodos de pago y transporte), ofertas, importación y mensajería.
 
-Todas las secciones se organizan de la misma forma. Tienen tabla, creada con \emph{mat-table} de Angular Material, que muestra la información de cada sección de forma paginada. Cada tabla puede ordenar y filtrar la información. Para ello, se recogen los valores de filtrado mediante un formulario y se envían al servidor, que se encarga de introducirlos en la query para devolver exclusiviamente los datos que coinciden. Además, las tablas son exportables a Excel (sección \ref{sec:importacion}). También, hay tablas que permiten realizar acciones exclusivas. Por ejemplo, la tabla de facturas permite la exportación de cada factura en formato PDF (sección \ref{sec:pdfs}). La tabla de mensajería, además, de permitir ver los mensajes enviados por los usuarios, permite contestar enviando una respuesta por correo, utilizando la librería $Nodemailer$ (sección \ref{sec:nodemailer}). 
+Todas las secciones se organizan de la misma forma. Tienen tabla, creada con \emph{mat-table} de Angular Material, que muestra la información de cada sección de forma paginada. Cada tabla puede ordenar y filtrar la información. Para ello, se recogen los valores de filtrado mediante un formulario y se envían al servidor, que se encarga de introducirlos en la query para devolver exclusiviamente los datos que coinciden. Además, las tablas son exportables a Excel (sección \ref{sec:importacion}). También, hay tablas que permiten realizar acciones exclusivas. Por ejemplo, la tabla de facturas permite la exportación de cada factura en formato PDF (sección \ref{sec:pdfs}). La tabla de mensajería, además de permitir ver los mensajes enviados por los usuarios, permite contestar enviando una respuesta por correo, utilizando la librería $Nodemailer$ (sección \ref{sec:nodemailer}). 
 
 Cada uno de los registros de las tablas tiene opciones para mostrar datos, editar la información o borrar registros. Tanto en la visualización como en la edición o creación de registros, se crea una ventana de diálogo con \emph{mat-dialog} de Angular Material. Estas ventanas muestran y permiten la edición de los datos mediante formularios, creados con Angular Material. Todos los campos tienen control de errores. Además, son validados en el servidor y en caso de error se muestra un mensaje con el sistema de avisos  (sección \ref{sec:sistemaAvisos}).  En algunas de estas ventanas, por ejemplo, productos o marcas, se permite la subida de imágenes (sección \ref{sec:subidaArchivos}) para después mostrarlas en la parte pública de la tienda. En la ventana de productos se ha utilizado la librería \emph{HTML-editor}, que permite escribir texto formateado (listas, colores, tamaños y tipos de letras, etc.). Este texto formateado corresponde con las características de cada producto, que se mostrará en la parte pública de la tienda. 
 
-La sección de importante es completamente diferente a las descritas anteriormente. Esta sección permite la descarga de plantillas XLSX para ser importadas después, lo que permite cargar datos en la aplicación de manera masiva (sección \ref{sec:importacion}). El resultado final de la importación se muestra en la misma pantalla, permitiendo conocer registros erróneos o duplicados. 
+La sección de importación es completamente diferente a las descritas anteriormente. Esta sección permite la descarga de plantillas XLSX para ser importadas después, lo que permite cargar datos en la aplicación de manera masiva (sección \ref{sec:importacion}). El resultado final de la importación se muestra en la misma pantalla, permitiendo conocer registros erróneos o duplicados. 
 
 \subsection{Uso Angular Material} 
 \label{sec:usoAngularMaterial}
@@ -1453,7 +1453,7 @@ Angular Material es una librería de Angular creada por Google. Permite crear com
 
 	\item Los filtros del listado de productos. Usando \emph{mat-accordion}. 
 
-	\item Las tabs de las vistas del \textbf{Login} y del \textbf{Detalle del producto}. Utilizando \emph{mat-tab}.
+	\item Las tabs de las vistas del \textit{Login} y del \textit{Detalle del producto}. Utilizando \emph{mat-tab}.
 
 \end{itemize}
 
@@ -1461,12 +1461,12 @@ Angular Material es una librería de Angular creada por Google. Permite crear com
 \subsection{Descarga de archivos} 
 \label{sec:descargaArchivos}
 
-Para la descarga de los archivos Excel generados en todas las tablas de la trastienda (productos, clientes, etc.) se ha utilizado la librería $file-saver$. Para realizar la descarga, únicamente hay que llamar a la función \emph{saveAs} pasándole como parámetros los bytes del archivo a descargar y el nombre con el que se va a guardar el archivo descargado. 
+Para la descarga de los archivos Excel generados en todas las tablas de la trastienda (productos, clientes, etc.) se ha utilizado la librería $file-saver$. Para realizar la descarga hay que llamar a la función \emph{saveAs} pasándole como parámetros los bytes del archivo a descargar y el nombre con el que se va a guardar el archivo descargado. 
 
 \subsection{Integración con Paypal} 
 \label{sec:integracionPaypal}
 
-Para realizar el pago a través de Paypal, se ha integrado la aplicación con el API de Paypal. De esta forma, se usa su pasarela de pagos y se evitan errores de seguridad al no tener que trabajar con los datos bancarios ni guardarlos en la base de datos.
+Para realizar el pago a través de Paypal se ha integrado la aplicación con el API de Paypal. De esta forma, se usa su pasarela de pagos y se evitan errores de seguridad al no tener que trabajar con los datos bancarios ni guardarlos en la base de datos.
 
 Se han seguido los siguientes pasos: 
 \begin{enumerate}
@@ -1474,9 +1474,9 @@ Se han seguido los siguientes pasos:
 
 	\item En la cuenta creada anteriormente, se crea un sandbox que permite realizar y recibir pagos. Al crear el sandbox se obtiene un ID, que se utilizará para identificar la cuenta en cada pago.
 
-	\item Se modifica el HTML del componente \textbf{Métodos de pago} añadiendo un tag \emph{script} con la URL del script de Paypal. Además, se añade el botón ``Paypal Pagar''. Cuando se carga el componente, se descarga el script, con el código necesario, para que el botón ``Paypal Pagar'' funcione.
+	\item Se modifica el HTML del componente \textbf{Métodos de pago} añadiendo un tag \emph{script} con la URL del script de Paypal. Además, se añade el botón ``Paypal Pagar''. Cuando se carga el componente se descarga el script con el código necesario, para que el botón ``Paypal Pagar'' funcione.
 
-	\item Se añade un objeto ``paypalConfig'' en el componente \textbf{Métodos de pago}. Este objeto contiene la configuración para realizar los pagos. En el, se incluye el entorno (producción o sandbox), el ID del sandbox, la moneda, la cantidad a pagar y una función (\emph{onAuthorize}) que se ejecuta cuando el pago ha sido validado. 
+	\item Se añade un objeto ``paypalConfig'' en el componente \textbf{Métodos de pago}. Este objeto contiene la configuración para realizar los pagos. En él se incluye el entorno (producción o sandbox), el ID del sandbox, la moneda, la cantidad a pagar y una función (\emph{onAuthorize}) que se ejecuta cuando el pago ha sido validado. 
 
 	%\small\begin{verbatim} 
 	%	paypalConfig:  any = {
@@ -1525,7 +1525,7 @@ Se han seguido los siguientes pasos:
 
 \end{enumerate}
 
-Esta integración permite al usuario efectúar el pago en el sitio web de Paypal. Al pulsar sobre el botón ``Paypal pagar'' se abre la página de inicio de sesión de Paypal. Después de hacer login el usuario puede elegir la forma de pago que más le conviene, ya que Paypal permite realizar pagos a través de su propia cuenta Paypal, a través de tarjeta bancaria o a través de transferencia. Cuando el usuario finaliza el pago, se cierra el sitio web de Paypal y se redirecciona a la página principal de la tienda online, mostrando al usuario un mensaje indicando que su pedido ha finalizado correctamente. La figura ~\ref{fig:procesoPagoPaypal} muestra este proceso.
+Esta integración permite al usuario efectuar el pago en el sitio web de Paypal. Al pulsar sobre el botón ``Paypal pagar'' se abre la página de inicio de sesión. Después de hacer login el usuario puede elegir la forma de pago que más le conviene, ya que Paypal permite realizar pagos a través de su propia cuenta Paypal, a través de tarjeta bancaria o a través de transferencia. Cuando el usuario finaliza el pago, se cierra el sitio web de Paypal y se redirecciona a la página principal de la tienda online, mostrando al usuario un mensaje indicando que su pedido ha finalizado correctamente. La figura ~\ref{fig:procesoPagoPaypal} muestra este proceso.
 
 
 
@@ -1627,18 +1627,18 @@ Por último, se ha utilizado la librería Angular material para ciertas vistas, po
 \cleardoublepage
 \chapter{Resultados}
 
-El resultado del trabajo es satisfactorio, ya que se ha cumplido con el objetivo principal del mismo, crear una tienda online de electrodomésticos. Si se hace una comparativa con otras tiendas online, se puede decir que la aplicación desarrollada, está a la altura de las que vemos en el mercado online de electrodomésticos.
+El resultado del trabajo es satisfactorio, ya que se ha cumplido con el objetivo principal del mismo, crear una tienda online de electrodomésticos. Si se hace una comparativa con otras tiendas online, se puede decir que la aplicación desarrollada está a la altura de las que se ven en el mercado online de electrodomésticos.
 
 \section{Consecución de objetivos}
 \label{sec:consecucion-objetivos}
 
-Con la implementación de la aplicación, se ha conseguido cumplir con los objetivos específicos que se marcaban en el capítulo 2, pues: 
+Con la implementación de la aplicación se ha conseguido cumplir con los objetivos específicos que se marcaban en el capítulo 2, pues: 
 
 \begin{itemize}
-	\item La aplicación es responsive. Si se observan las imágenes X, se ve como la aplicación se adapta a diferentes tamaños de pantalla. Para cumplir con este objetivo se ha recurrido al uso de Bootstrap, CSS3 y Angular Material como se ha explicado en el capítulo 4. 
-	\item La interfaz de usuario, es una interfaz sencilla, en la que los componentes que se utilizan son muy intuitivos. La mayoría de estos componentes, se encuentran en casi todas las web de comercio electrónico, como por ejemplo, los botones denominados dropdown. Además, se ha usado gran número de iconos, que identifican las funcionalidades que realiza cada botón. 
-	\item La aplicación cumple con la normativa de protección de datos, para llevar a cabo este objetivo, se ha creado una política de privacidad, donde se informa al usuario como van a ser tratados sus datos. 
-	En cuanto a la seguridad de los datos susceptibles como son las contraseñas, se ha usado una librería robusta para su encriptación. En la base de datos, se guarda esta información encriptada mediante un hash. El hash esta formado por un salt que dificulta conseguir la información mediante ataques de fuerza bruta. 
+	\item La aplicación es responsive. Si se observan las imágenes \ref{fig:disenoResponsiveMovil} y \ref{fig:disenoResponsiveOrdenador}, se ve como la aplicación se adapta a diferentes tamaños de pantalla. Para cumplir con este objetivo se ha recurrido al uso de Bootstrap, CSS3 y Angular Material como se ha explicado en el capítulo 4. 
+	\item La interfaz de usuario es una interfaz sencilla, en la que los componentes que se utilizan son muy intuitivos. La mayoría de estos componentes se encuentran en casi todas las web de comercio electrónico como, por ejemplo, los botones denominados dropdown. Además, se ha usado gran número de iconos que identifican las funcionalidades que realiza cada botón. 
+	\item La aplicación cumple con la normativa de protección de dato. Para llevar a cabo este objetivo se ha creado una política de privacidad, donde se informa al usuario como van a ser tratados sus datos. 
+	En cuanto a la seguridad de los datos susceptibles, como son las contraseñas, se ha usado una librería robusta para su encriptación. En la base de datos se guarda esta información encriptada mediante un hash. El hash esta formado por un salt que dificulta conseguir la información mediante ataques de fuerza bruta. 
 	En cuanto a los pagos, se realizan a través de Apis externas a la aplicación, para no tener que almacenar los datos bancarios. 
 	\item La aplicación es atractiva y competitiva. Se ha implementado las funcionalidades básicas que deben tener las tiendas online y, además, se ha implementado un sistema de valoración y votación de productos, que no todas las aplicaciones de comercio electrónico tienen. Esto permite a los usuarios conocer las valoraciones de anteriores compradores. Se ha recurrido al uso de colores, iconos, letras y componentes llamativos para captar la atención de los clientes. De esta manera, se amplía el mercado y la aplicación puede situarse entre las más visitadas del mercado de los electrodomésticos. 
 	\item Se ha logrado crear una trastienda de administración sencilla. Permite al administrador de la tienda a gestionar pedidos, crear productos y visualizar clientes de manera rápida, evitando que los pedidos se demoren. Para agilizar la carga masiva de los productos, las marcas y las categorías, se ha implementado un servicio de importación y exportación de ficheros excel. Además se ha implementado un sistema de mensajería que permite interactuar entre los usuarios y el administrador de la tienda, pudiendo resolver cualquier duda de los usuarios.
@@ -1661,30 +1661,30 @@ Con la implementación de la aplicación, se ha conseguido cumplir con los objetiv
 
 Al realizar este trabajo he puesto en práctica muchos de los conocimientos adquiridos en el grado que estoy cursando, Grado en Tecnologías de la Telecomunicación, sobre todo, aquellos que están relacionados con el desarrollo de aplicaciones web y con la programación. 
 
-La asignatura que más me ha aportado y ayudado para hacer este trabajo, es la cursada en el tercer curso del grado, Desarrollo de aplicaciones telemáticas, ya que fue aquí donde aprendí todo lo relacionado con la implementación de aplicaciones web como CSS3, HTML5 y Bootstrap.
+La asignatura que más me ha aportado y ayudado para hacer este trabajo es la cursada en el tercer curso del grado, Desarrollo de aplicaciones telemáticas, ya que fue aquí donde aprendí todo lo relacionado con la implementación de aplicaciones web como CSS3, HTML5 y Bootstrap.
 
 En el mismo año, cursé la asignatura Ingeniería de sistemas de la información. Fue aquí donde tuve el primer contacto con Javascript, lenguaje de programación utilizado para desarrollar el servidor de la aplicación web de comercio electrónico Nevado. Además, aprendí a manejar Git, que me ha permitido llevar un control de las versiones que iba teniendo del proyecto, de tal forma que si alguna funcionalidad me fallaba podía seguir con otra.
 
 Asignaturas como Fundamentos de la programación o programación de Sistemas telemáticos han significado mucho, ya que aprendí los conocimientos más básicos de la programación. 
 
-Para implementar una aplicación como la desarrollada en este trabajo, hay que tener conocimientos sobre las peticiones HTTP y saber lo que es un API Rest. Estos conocimientos los adquirí en las asignaturas Sistemas telemáticos y Servicios y aplicaciones telemáticas.
+Para implementar una aplicación, como la desarrollada en este trabajo, hay que tener conocimientos sobre las peticiones HTTP y saber lo que es un API Rest. Estos conocimientos los adquirí en las asignaturas Sistemas telemáticos y Servicios y aplicaciones telemáticas.
 
-Por último, indicar que aunque muchas de las asignaturas que cursé en esta etapa universitaria no han sido necesarias para este trabajo, sí que me han servido para aprender que todo requiere un esfuerzo y un aprendizaje y, que, sin este esfuerzo y aprendizaje no se consiguen las metas que te propones.
+Por último, indicar que aunque muchas de las asignaturas que cursé en esta etapa universitaria no han sido necesarias para este trabajo, sí que me han servido para aprender que todo requiere un esfuerzo y un aprendizaje y que, sin este esfuerzo y aprendizaje, no se consiguen las metas que te propones.
 
 \section{Lecciones aprendidas}
 \label{sec:lecciones_aprendidas}
 
-El desarrollo de este trabajo ha supuesto un gran reto, pues es el primer proyecto que he realizado de esta complejidad. Durante el transcurso del grado, han sido muchas las prácticas que he realizado, pero en todas tenía las directrices a seguir. En este trabajo, a lo primero que me he enfrentado ha sido a la recapitulación de los requisitos que se necesitaban para implementar la aplicación. Este análisis me ha servido para conocer los puntos más importantes del comercio electrónico. 
+El desarrollo de este trabajo ha supuesto un gran reto, pues es el primer proyecto que he realizado de esta complejidad. Durante el transcurso del grado han sido muchas las prácticas que he realizado, pero en todas tenía las directrices a seguir. A lo primero que me he enfrentado en este trabajo ha sido a la recapitulación de los requisitos que se necesitaban para implementar la aplicación. Este análisis me ha servido para conocer los puntos más importantes del comercio electrónico. 
 
-Al analizar los requerimientos, he tenido que hacer un análasis de las distintas arquitecturas que podría tener la aplicación. Esto me ha servido para tener más conocimiento de los distintos tipos de arquitecturas que tienen las aplicaciones de este negocio. Como he mencionado en el Capítulo 4, me decanté por la arquitectura MEAN porque es la que más se ajustaba a mis necesidades. El haber implementado esta arquitectura me ha permitido conocer nuevas tecnologías: MongoDB, Express, Angular y NodeJs. La mayoría de estas tecnologías se basan en Javascript, pero tienen un concepto diferente a la hora de programar, sobre todo con NodeJS, puesto que, se programa de manera asíncrona. Con Angular, me he tenido que adentrar en el mundo de Typescript y, en el mundo de las aplicaciones modulares y escalables.
+Al analizar los requerimientos he tenido que hacer un análisis de las distintas arquitecturas que podría tener la aplicación. Esto me ha servido para conocer los distintos tipos de arquitecturas que se utilizan en las aplicaciones de este negocio. Como he mencionado en el Capítulo 4, me decanté por la arquitectura MEAN, ya que era la que más se ajustaba a mis necesidades. El haber implementado esta arquitectura me ha permitido conocer nuevas tecnologías: MongoDB, Express, Angular y NodeJs. He aprendido a programar de una manera diferente, ya que con NodeJS se programa de manera asíncrona. Con Angular, me he tenido que adentrar en el mundo de Typescript y en el mundo de las aplicaciones modulares y escalables.
 
-Durante el grado, han sido pocas las veces que he usado base de datos y, cuando las he usado ha sido de manera muy básica, con operaciones sencillas y usando siempre SQL. El utilizar MongoDB, me ha permitido aprender otra manera de guardar los datos a través de documentos, en vez de en tablas como hasta ahora. Además, esta aplicación me ha permitido realizar operaciones mucho más complejas, en las que en una misma operación tenía que tocar varias colecciones (tablas en base de datos relacionales). Para ello, he tenido que aprender a hacer agregaciones, que son funciones en las que se van transformando los datos a través de etapas hasta que se obtiene el resultado esperado.  
+Durante el grado, han sido pocas las veces que he usado base de datos y, cuando las he usado ha sido de manera muy básica, con operaciones sencillas y usando siempre SQL. El utilizar MongoDB me ha permitido aprender otra forma de guardar los datos a través de documentos, en vez de en tablas como hasta ahora. Además, esta aplicación me ha permitido realizar operaciones mucho más complejas, en las que en una misma operación tenía que tocar varias colecciones (tablas en base de datos relacionales). Para ello, he tenido que aprender a hacer agregaciones, que son funciones en las los datos se van transformando,  a través de etapas, hasta que se obtiene el resultado esperado.  
 
-Para realizar un diseño atractivo y que se adapte a los tamaños de pantalla más estandares, he aprendido a usar media queries de CSS3 y he profundizado en Bootstrap. Además, he conocido la librería Angular Material de Angular. 
+Para realizar un diseño atractivo y que se adapte a los tamaños de pantalla más estándares, he aprendido a usar media queries de CSS3 y he profundizado en Bootstrap. Además, he conocido la librería Angular Material de Angular. 
 
-La importación y exportación de ficheros, así como, la subida de archivos al servidor de node me ha proporcionado conocimientos en las librerías  adm-zip, para la decompresión de zip, excel4node para el manipulado de excels y, multer, para la subida de imágenes al servidor. 
+La importación y exportación de ficheros, así como, la subida de archivos al servidor de Node me ha proporcionado tener conocimientos en las librerías  adm-zip, para la decompresión de zip, excel4node para el manipulado de excels y multer, para la subida de imágenes al servidor. 
 
-Por último, este trabajo he aprendido que los grandes logros se consiguen con constancia, dedicación y sacrificio y, que a pesar de todos los problemas que pueden aparecer en el camino, hay que levantarse y luchar por conseguirlos. Que la desesperación y los nervios nos buenos aliados. Que hay que confiar en uno mismo y no ponerse límites. 
+Por último, con este trabajo he aprendido que los grandes logros se consiguen con constancia, dedicación y sacrificio y que, a pesar de todos los problemas que pueden aparecer en el camino, hay que levantarse y luchar por conseguirlos. Que la desesperación y los nervios no son buenos aliados. Que hay que confiar en uno mismo y no ponerse límites. 
 
 \section{Trabajos futuros}
 \label{sec:trabajos_futuros}
@@ -1692,7 +1692,7 @@ Por último, este trabajo he aprendido que los grandes logros se consiguen con co
 Todas las aplicaciones web necesitan mantenimiento y la implementada en este trabajo no iba a ser menos. Algunas de las líneas a seguir para mejorar la aplicación son: 
 
 \begin{itemize}
-	\item Adaptar la aplicación para que soporte como segundo lenguaje, el inglés. De esta forma, se abriría el mercado al mundo internacional. Para realizar esta mejora, se debería utilizar la librería de angular Ngx-translate. Ngx-translate utiliza ficheros JSON donde se encuentran los textos estáticos de la aplicación traducidos a los idiomas que se desee utilizar. Tiene que existir un fichero por cada idioma y, el formato de los ficheros debe ser igual, para que a la hora de usar el servicio TransalteService sepa el archivo y texto que se debe usar. Para los textos que varían en la aplicación como, por ejemplo, la descripción de los productos, se debería crear un campo nuevo dentro de la base de datos en el que se encuentre la traducción y a la hora de hacer la petición, mandar el idioma para saber que descripción obtener.  
+	\item Adaptar la aplicación para que soporte como segundo lenguaje el inglés. De esta forma, se abriría el mercado al mundo internacional. Para realizar esta mejora, se debería utilizar la librería de angular Ngx-translate. Ngx-translate utiliza ficheros JSON donde se encuentran los textos estáticos de la aplicación traducidos a los idiomas que se desee utilizar. Tiene que existir un fichero por cada idioma y el formato de los ficheros debe ser igual. Para los textos que varían en la aplicación, como, por ejemplo, la descripción de los productos, se debería crear un campo nuevo dentro de la base de datos en el que se encuentre la traducción y a la hora de hacer la petición, mandar el idioma para saber que descripción obtener.  
 	\item Ampliar el filtrado de productos. A pesar del número de filtros que tiene la aplicación para la búsqueda de productos, se pueden añadir filtros que se adapten a las distintas categorías. Por ejemplo, si se accede a la  categoría de televisores, que aparezca un filtro más para buscar por pulgadas. 
 	\item Añadir una lista de favoritos, donde el cliente pueda guardar los productos que le gustan. Así, si vuelve a entrar en la aplicación no tiene que volver a buscar los productos que desea.   
 	\item Inicio de sesión a través de Facebook y Google. De este modo, los clientes no tendrían que darse de alta en la aplicación bastaría que iniciasen sesión con sus credenciales de Facebook y Google. 
@@ -2130,7 +2130,7 @@ Al pulsar sobre el enlace, se muestran los pedidos del usuario.
 	  \label{fig:pedidos}
 \end{figure}
 
-El usuario puede filtrar los pedidos por identificador del pedido, estado y fecha en la que se realizo el pedido. Además, puede seleccionar los pedidos que quiere mostrar en la tabla. 
+El usuario puede filtrar los pedidos por identificador del pedido, estado y fecha en la que se realizó el pedido. Además, puede seleccionar los pedidos que quiere mostrar en la tabla. 
 
 \section{Añadir reseña}
 \label{sec:aniadirResenia}
@@ -2473,107 +2473,209 @@ El icono de la izquierda permite mostrar la ficha del producto.
 
 En la ficha del producto se muestran todos los datos del producto. El campo características permite añadir formato al texto. El administrador puede modificar todos los campos del producto. Para subir una foto, debe pulsar sobre la imagen y seleccionar la foto que desea subir. Para guardar los cambios debe pulsar el botón ``Guardar''. Esta ventana se utiliza para añadir nuevos productos y para editarlos.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{Marcas y categorías}
+\subsection{Marcas y Categorías}
 \label{sec:marcasCategorias}
 
-En esta página se muestra tanto la tabla de marcas como la tabla de categorías.
+En la sección \textit{Marcas y Categorías} se muestran las marcas y categorías de los productos almacenados en la tienda, cada una en una tabla diferente. Tanto las marcas como las categorías están ordenados, por defecto, por nombre. Para modificar el orden de los registros se pulsa sobre la cabecera de cada columna. El administrador puede filtrar los resultados rellenando los campos de los formularios situados encima de la tabla y pulsando el botón ``Buscar'' de cada tabla. En la parte inferior de la tablas se sitúan la barras de paginación, que permiten cambiar de página y seleccionar el número de registros a mostrar por página.
 
  \begin{figure}[H]
 	  \centering
-	  \includegraphics[width=15cm, keepaspectratio]{img/marcasCategorias.png}
-	  \caption{Página de marcas y categorías.}
-	  \label{fig:tablamarcar}
-\end{figure}
-
-Para acceder a esta página, el administrador debe pulsar sobre la sección ``Catálogo'' y sobre ``Marcas y Categorías'' del menú situado a la izquierda. 
-
-\begin{figure}[H]
-	  \centering
-	  \includegraphics[width=4cm, keepaspectratio]{img/seccionMarcas.png}
-	  \caption{Sección Marcas y categorías.}
+	  \includegraphics[width=16.5cm, keepaspectratio]{img/seccionMarcas.png}
+	  \caption{Sección Marcas y Categorias.}
 	  \label{fig:seccionMarcas}
-\end{figure}
+\end{figure} 
 
-En las cabeceras de las tablas hay una barra de herramientas que permiten la actualización de la tablas, la creacción de nuevas marcas y categorías, limpiar los filtros y exportar la tabla a Excel. 
+En la parte superior derecha de la tablas se encuentran la barras de herramientas, iguales para ambas tablas. 
 
  \begin{figure}[H]
 	  \centering
 	  \includegraphics[width=3.5cm, keepaspectratio]{img/barraProductos.png}
-	  \caption{Funcionalidades de las tablas marcas y categorías: Actulizar, añadir, limpiar filtros y exportar a Excel.}
-	  \label{fig:herramientasProductos}
+	  \caption{Barra de herramientas de marcas y categorías.}
+	  \label{fig:herramientasmarcas}
 \end{figure}
 
-Cada tabla tiene su propio filtro, aunque ambas tablas se filtran por nombre. Para realizar el filtrado, el administrador debe rellenar ambos formularios y pulsar sobre el botón ``Buscar'' de ambas tablas. Para volver a ver en las tablas todos los registros se deben pulsar el botón ``Limpiar filtros'' de cada tabla. 
+El primer icono, empezando por la izquierda, permite recargar los datos de la tablas. El segundo icono permite añadir un nueva marca o una nueva categoría. El tercer icono limpia los valores de los filtros, cargando de nuevo todos las marcas o todas las categorías. El último icono permite exportar la tablas a los documentos Excel correspondientes. 
 
-La exportación de ambas tablas se realiza de la misma forma que en las secciones anteriores (ver sección \ref{sec:pedidos}).
-
-Cada uno de los registros (en ambas tablas) tiene un icono que permite eliminar una marca o una categoría. Para eliminar, por ejemplo, una categoría se debe pulsar sobre este icono. Al pulsar el icono se abre una ventana de confirmación similar a la que se abre cuando se elimina un cliente (ver figura \ref{fig:eliminadoCliente}).
+Para crear una marca o categoría, el administrador debe rellenar los campos de los formularios y pulsar sobre el recuadro azul que permite seleccionar y subir una foto al servidor. Para finalizar debe pulsar el botón ``Guardar''. 
 
  \begin{figure}[H]
 	  \centering
-	  \includegraphics[width=3.5cm, keepaspectratio]{img/iconoMarca.png}
-	  \caption{Icono eliminar marca y categoría.}
-	  \label{fig:iconoMarca}
+	  \includegraphics[width=12cm, keepaspectratio]{img/crearMarca.png}
+	  \caption{Añadir una marca y una categoria.}
+	  \label{fig:crearMarca}
 \end{figure}
 
-Para crear una marca o una categoría se debe pulsar sobre el icono ``+'' de la barra de herramientas de la tabla correspondiente. Al pulsar sobre el icono se abre una ventana en la que se añade el nombre de la marca o categoría y el logo de la marca y la categoría. Para seleccionar el logo se debe pulsar sobre el recuadro que aparece en la ventana. Una vez rellenos los datos, se pulsa sobre el botón ``Guardar''. Al guardarse la marca o la categoría se cierra la ventana, se muestra un mensaje de aviso y se actualiza la tabla correspondiente. 
-
-\begin{figure} [H]
- \centering
- \subfloat{
-    \includegraphics[width=0.5\textwidth]{img/fichaProducto.png}}
-  \subfloat{
-    \includegraphics[width=0.5\textwidth]{img/detalleProducto2.png}}
- \caption{Ficha del producto.}
- \label{fig:fichaProducto}
-\end{figure}
-El administrador puede dar formato a las características del producto. De tal forma que este formato luego se ve reflejado en la página \textit{Detalle del producto} que ve el usuario. 
-
-Para añadir un nuevo producto al sistema, se debe pulsar sobre el botón ``Añadir producto'' de la barra de herramientas de la cabecera de la tabla. La ventana que se abre es la misma que para ver el detalle del producto, con la diferencia que los campos están vacíos. Cuando los campos se han rellenado, se pulsa el botón ``Guardar'' para añadir el producto a la base de datos. 
-
-Se puede eliminar un producto del sistema. Para ello, se debe pulsar el icono ``x'' del registro que se desea eliminar. Al pulsar sobre el icono se abre la ventana de confirmación mostrada en la figura \ref{fig:eliminadoCliente}. Cuando se elimina el producto, se cierra la ventana, se muestra un mensaje indicando que el producto se ha eliminado y se actualiza la tabla. 
+Cada registro tiene un único iconos:
 
  \begin{figure}[H]
 	  \centering
-	  \includegraphics[width=3.5cm, keepaspectratio]{img/crearMarca.png}
-	  \caption{Ventana para añadir.}
-	  \label{fig:iconoMarca}
+	  \includegraphics[width=2.5cm, keepaspectratio]{img/iconoMarca.png}
+	  \caption{Iconos de una marca y una categoría.}
+	  \label{fig:iconosMarcas}
 \end{figure}
 
+El icono permite eliminar la marca o la categoría seleccionada. Antes de borrar el registro seleccionado, el sistema muestra una ventana de confirmación. Ver figura \ref{fig:eliminadoCliente} 
 
+
+\subsection{Ofertas}
+\label{sec:ofertas}
+
+En la sección \textit{Ofertas} se muestran las ofertas disponibles en la tienda. Las ofertas están ordenadas, por defecto, por identificador de oferta. Para modificar el orden de los registros se pulsa sobre la cabecera de cada columna. El administrador puede filtrar los resultados rellenando los campos del formulario situado encima de la tabla y pulsando el botón ``Buscar''. En la parte inferior de la tabla se sitúa la barra de paginación, que permite cambiar de página y seleccionar el número de registros a mostrar por página.
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=16.5cm, keepaspectratio]{img/seccionOfertas.png}
+	  \caption{Sección Ofertas.}
+	  \label{fig:seccionOfertas}
+\end{figure} 
+
+En la parte superior derecha de la tabla se encuentra la barra de herramientas. 
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=3.5cm, keepaspectratio]{img/barraProductos.png}
+	  \caption{Barra de herramientas de ofertas.}
+	  \label{fig:herramientasOfertas}
+\end{figure}
+
+El primer icono, empezando por la izquierda, permite recargar los datos de la tabla. El segundo icono permite crear una nueva oferta. El tercer icono limpia los valores de los filtros, cargando de nuevo todas las ofertas. El último icono permite exportar la tabla a un documento Excel. 
+
+Cada registro tiene dos iconos:
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=2.5cm, keepaspectratio]{img/IconosClientes.png}
+	  \caption{Iconos de un Producto.}
+	  \label{fig:iconoscliente}
+\end{figure}
+
+El icono de la derecha permite eliminar una oferta. Antes de borrar la oferta, el sistema muestra una ventana de confirmación. Ver figura \ref{fig:eliminadoCliente} 
+
+  
+El icono de la izquierda permite mostrar la ficha de la oferta.  
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=12cm, keepaspectratio]{img/fichaOferta.png}
+	  \caption{Ficha de la oferta.}
+	  \label{fig:fichaOferta}
+\end{figure} 
+
+En la ficha de la oferta se muestra el identificador de la oferta, el porcentaje de descuento, la fecha de inicio de la oferta, la fecha de fin y una pequeña descripción, que explica en que consiste la oferta. El administrador puede modificar todos los campos. Para guardar los cambios debe pulsar el botón ``Guardar''. Esta ventana se utiliza para añadir nuevas ofertas y para editarlas.
+
+\subsection{Servicios}
+\label{sec:servicios}
+
+En la sección \textit{Servicios} se muestran los métodos de pagos disponibles en la tienda online y las empresas de transporte que realizan los envíos, cada una en una tabla diferente. Tanto los métodos de pago como las empresas están ordenados, por defecto, por nombre. Para modificar el orden de los registros se pulsa sobre la cabecera de cada columna. El administrador puede filtrar los resultados rellenando los campos de los formularios situados encima de la tabla y pulsando el botón ``Buscar'' de cada tabla. En la parte inferior de la tablas se sitúan la barras de paginación, que permiten cambiar de página y seleccionar el número de registros a mostrar por página.
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=16.5cm, keepaspectratio]{img/servicios.png}
+	  \caption{Sección Métodos de métodos de pago y empresas de transportes.}
+	  \label{fig:seccionMarcas}
+\end{figure} 
+
+En la parte superior derecha de la tablas se encuentran la barras de herramientas, iguales para ambas tablas. 
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=3.5cm, keepaspectratio]{img/barraProductos.png}
+	  \caption{Barra de herramientas de métodos de pago y Empresas de transportes.}
+	  \label{fig:herramientasmarcas}
+\end{figure}
+
+El primer icono, empezando por la izquierda, permite recargar los datos de la tablas. El segundo icono permite añadir un nuevo método de pago o una nueva empresa de transporte. El tercer icono limpia los valores de los filtros, cargando de nuevo todos los métodos de pago o todas las empresas de transportes. El último icono permite exportar la tablas a los documentos Excel correspondientes. 
+
+Para crear un método de pago el administrador debe rellenar el campo del los formulario y pulsar sobre el recuadro azul que permite seleccionar y subir una foto al servidor. Para finalizar debe pulsar el botón ``Guardar''. Para crear una nueva empresa de transporte debe rellenar el campo del formulario y pulsar el botón ``Guardar''.
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=12cm, keepaspectratio]{img/metodosEmpresas.png}
+	  \caption{Añadir un método de pago y una empresa de transporte.}
+	  \label{fig:crearMetodo}
+\end{figure}
+
+Cada registro tiene un único iconos:
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=2.5cm, keepaspectratio]{img/iconoMarca.png}
+	  \caption{Iconos de un método de pago y una empresa de transporte.}
+	  \label{fig:iconosMarcas}
+\end{figure}
+
+El icono permite eliminar la marca o la categoría seleccionada. Antes de borrar el registro seleccionado, el sistema muestra una ventana de confirmación. Ver figura \ref{fig:eliminadoCliente}
+
+
+\subsection{Mensajes}
+\label{sec:mensajes}
+
+En la sección \textit{Mensajes} se muestran los mensajes enviados por los usuarios al administrador. Los mensajes 
+están ordenados, por defecto, por nombre. Para modificar el orden de los registros se pulsa sobre la cabecera de cada columna. El administrador puede filtrar los resultados rellenando los campos del formulario situado encima de la tabla y pulsando el botón ``Buscar''. En la parte inferior de la tabla se sitúa la barra de paginación, que permite cambiar de página y seleccionar el número de registros a mostrar por página.
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=16.5cm, keepaspectratio]{img/seccionMensajes.png}
+	  \caption{Sección Mensajes.}
+	  \label{fig:seccionMensajes}
+\end{figure} 
+
+En la parte superior derecha de la tabla se encuentra la barra de herramientas. 
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=3.5cm, keepaspectratio]{img/herramientasPedidos.png}
+	  \caption{Barra de herramientas de mensajes.}
+	  \label{fig:herramientasMensajes}
+\end{figure}
+
+El primer icono, empezando por la izquierda, permite recargar los datos de la tabla. El icono central limpia los valores de los filtros, cargando de nuevo todos los mensajes. El último icono permite exportar la tabla a un documento Excel. 
+
+Cada registro tiene dos iconos:
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=2.5cm, keepaspectratio]{img/IconosClientes.png}
+	  \caption{Iconos de un mensaje.}
+	  \label{fig:iconoscliente}
+\end{figure}
+
+El icono de la derecha permite eliminar un mensaje. Antes de borrar el mensaje, el sistema muestra una ventana de confirmación. Ver figura \ref{fig:eliminadoCliente} 
+
+  
+El icono de la izquierda permite mostrar el mensaje.  
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=12cm, keepaspectratio]{img/fichaMensaje.png}
+	  \caption{Detalle del mensaje.}
+	  \label{fig:fichaOferta}
+\end{figure} 
+
+En el detalle del mensaje se muestra el nombre y correo del usuario que envío el mensaje, la fecha en que se escribió el mensaje, si está leído o no, el mensaje y un campo de respuesta. El administrador puede responder al usuario rellenando el campo respuesta y pulsando sobre el botón ``Enviar''. La respuesta se enviará al correo electrónico del usuario. Además, puede marcar el mensaje como leído. 
+
+\subsection{Importación}
+\label{sec:importacion}
+
+En la sección \textit{Importación} el administrador puede cargar datos en el sistema de manera masiva. En la parte superior de la página se sitúa un formulario con dos campos y  tres botones. 
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=12cm, keepaspectratio]{img/seccionImportacion.png}
+	  \caption{Sección Importación.}
+	  \label{fig:importacion}
+\end{figure} 
+
+El campo de la izquierda permite elegir el tipo de dato que se desea subir (categorías, marcas o productos). En el segundo campo se adjunta el fichero .zip a importar. Para subir el archivo al servidor, el administrador debe pulsar el botón ``Buscar'' y seleccionar el archivo que desea importar. Para finalizar la importación debe pulsar el botón ``Importar''. Cuando se realiza la importación se muestra por pantalla los registros totales que se han importado y los que han dado error. Además, se indica el error de cada registro. 
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=14.5cm, keepaspectratio]{img/logger.png}
+	  \caption{Log de importación.}
+	  \label{fig:logImportacion}
+\end{figure} 
+
+El botón ``Plantilla'' descarga la plantilla del documento Excel a rellenar del tipo seleccionado. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % BIBLIOGRAFIA %
@@ -2584,7 +2686,10 @@ Se puede eliminar un producto del sistema. Para ello, se debe pulsar el icono ``
 % Las siguientes dos instrucciones es todo lo que necesitas
 % para incluir las citas en la memoria
 \bibliographystyle{abbrv}
-\bibliography{memoria}  % memoria.bib es el nombre del fichero que contiene
+\bibliography{memoria}  
+
+
+ % memoria.bib
 % las referencias bibliográficas. Abre ese fichero y mira el formato que tiene,
 % que se conoce como BibTeX. Hay muchos sitios que exportan referencias en
 % formato BibTeX. Prueba a buscar en http://scholar.google.com por referencias

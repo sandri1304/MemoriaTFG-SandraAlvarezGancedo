@@ -2255,227 +2255,379 @@ Al pulsar sobre el enlace se muestra la página de política de privacidad.
 \section{Trastienda}
 \label{sec:trastienda}
 
-El administrador debe iniciar sesión en la aplicación (ver sección \ref{sec:inicioSesion}) para acceder a la trastienda. Cuando se inicia sesión, el administrador ve la página de pedidos, ya que es la página principal de la trastienda. 
+Para entrar en la trastienda, el administrador inicia sesión tal como se indica en la sección \ref{sec:inicioSesion}. Cuando se inicia sesión, la cabecera de la trastienda muestra un enlace para cerrar sesión y un icono con el número de pedidos pendientes de procesar.
+
 \begin{figure}[H]
 	  \centering
-	  \includegraphics[width=15cm, keepaspectratio]{img/paginaPrincipalAdmin.png}
-	  \caption{Pedidos. Página de inicio de la trastienda}
-	  \label{fig:paginaInicioTrastienda}
+	  \includegraphics[width=14cm, keepaspectratio]{img/barraNavegacionAdmin.png}
+	  \caption{Barra de navegación del administrador.}
+	  \label{fig:barraAdmin}
 \end{figure}
+
+
+
+
+El menú que se muestra en la figura \ref{fig:menuAdmin} permite acceder a cada una de las secciones a administrar.
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=3.5cm, keepaspectratio]{img/menuAdmin.png}
+	  \caption{Menú.}
+	  \label{fig:menuAdmin}
+\end{figure}
+
 
 \subsection{Pedidos}
 \label{sec:pedidos}
 
-Página donde se muestran todos los pedidos realizados por los usuarios ordenados por fecha en la que se hizo el pedido. 
-
-Si el administrador desea cambiar la ordenación debe pulsar sobre el campo de la cabecera por el que quiere ordenar. 
+Al iniciar sesión se muestra la sección \textit{Pedidos}. Esta página es la principal de la trastienda y en ella se muestran todos los pedidos que han realizado los usuarios. Los pedidos están ordenados, por defecto, por la fecha en la que se realizó. Para modificar el orden de los registros se pulsa sobre la cabecera de cada columna. El administrador puede filtrar los resultados rellenando los campos del formulario situado encima de la tabla y pulsando el botón ``Buscar''. En la parte inferior de la tabla se sitúa la barra de paginación, que permite cambiar de página y seleccionar el número de registros a mostrar por página.
 
 \begin{figure}[H]
 	  \centering
-	  \includegraphics[width=15cm, keepaspectratio]{img/ordenarPedidos.png}
-	  \caption{Ordenación por identificador de pedido.}
-	  \label{fig:ordenacionPedidos}
+	  \includegraphics[width=16.5cm, keepaspectratio]{img/tablaPedidos.png}
+	  \caption{Sección Pedidos.}
+	  \label{fig:tablaPedidos}
 \end{figure}
 
-El administrador puede filtrar los pedidos por: Identificador de pedido, fecha de entrada del pedido, fecha de entrega e identificador del cliente. Para ello, debe rellenar el formulario situado en la parte superior de la vista y pulsar sobre el botón ``Buscar''. Si existen pedidos que coinciden con los datos del formulario se mostrarán en la tabla. Si no la tabla quedará vacía. 
+En la parte superior derecha de la tabla se encuentra la barra de herramientas. 
 
 \begin{figure}[H]
-	  \centering
-	  \includegraphics[width=15cm, keepaspectratio]{img/filtrado_pedidos.png}
-	  \caption{Filtrado de los pedidos por identificador de pedido.}
-	  \label{fig:filtradoPedidos}
-\end{figure}
-
- En la cabecera de la tabla en la parte derecha hay una barra de herramientas, que permite actualizar la tabla, limpiar los filtros y exportar a Excel. 
-
- \begin{figure}[H]
 	  \centering
 	  \includegraphics[width=3.5cm, keepaspectratio]{img/herramientasPedidos.png}
-	  \caption{Funcionalidades de la tabla: Actulizar, limpiar filtros y exportar a Excel.}
-	  \label{fig:filtradoPedidos}
+	  \caption{Barra de herramientas.}
+	  \label{fig:barraPedidos}
 \end{figure}
 
-Si el administrador desea exportar la tabla a un documento Excel debe ir a la barra de herramientas de la tabla y pulsar sobre el botón de ``Exportar Excel''. Al pulsar sobre este botón se descarga el documento generado. 
 
-\begin{figure}[H]
-	  \centering
-	  \includegraphics[width=12.5cm, keepaspectratio]{img/exportacionTabla.png}
-	  \caption{Exportación tabla pedidos.}
-	  \label{fig:filtradoPedidos}
-\end{figure}
 
-Cada registro de la tabla contiene dos botones, uno para ver el pedido y otro para generar la factura. 
+El primer icono de la izquierda permite recargar los datos de la tabla. El icono central limpia los valores de los filtros cargando de nuevo todos los pedidos. El icono de la derecha permite exportar la tabla a un documento Excel. 
+
+Cada registro tiene dos iconos:
 
  \begin{figure}[H]
 	  \centering
 	  \includegraphics[width=3.5cm, keepaspectratio]{img/registroPedidos.png}
-	  \caption{Iconos información del pedido y generación de factura.}
+	  \caption{Iconos del registro.}
 	  \label{fig:iconosPedidos}
 \end{figure}
 
-Para visualizar la información del pedido, el administrador debe pulsar sobre el icono ``Info''. Al pulsar sobre el icono, se abre una ventana diálogo donde se muestra la ficha del pedido. 
- \begin{figure}[H]
+ El icono de la derecha permite generar la factura para aquellos pedidos pagados a contrareembolso. El resto de facturas se generan automáticamente cuando el usuario finaliza el pago. 
+
+ El icono de la izquierda permite mostrar la ficha del pedido. 
+
+\begin{figure}[H]
 	  \centering
 	  \includegraphics[width=9cm, keepaspectratio]{img/InformacionPedido.png}
 	  \caption{Ficha del pedido.}
 	  \label{fig:iconosPedidos}
 \end{figure}
 
-Desde la ficha del pedido el administrador puede actualizar el estado del pedido (pendiente envío, pendiente recoger, preparando, entregado y finalizado) y el campo cobrado, ya que los pedidos en los que se ha utilizado contrareembolso, como método de pago, no se cobran hasta que no se entrega o recoge el producto. Para ello, debe cambiar los campos y pulsar sobre el botón ``Actualizar''. Al actualizar se cierra la ventana y se actualiza el registro con el cambio realizado. 
 
- \begin{figure}[H]
-	  \centering
-	  \includegraphics[width=15cm, keepaspectratio]{img/actualizacionPedido.png}
-	  \caption{Pedido Actualizado.}
-	  \label{fig:iconosPedidos}
-\end{figure}
-
-Para generar una factura, el administrados debe pulsar sobre el icono ``Generar factura''. Solo puede generar facturas en los pedidos que se ha utilizado contrareembolso como método de pago, ya que con tarjeta bancaria y con Paypal se genera automáticamente. 
-
-\subsection{Clientes}
-\label{sec:clientes}
-
-Para acceder a la tabla de clientes, el administrador debe pulsar sobre la sección ``Clientes'' del menú de la izquierda. 
-
- \begin{figure}[H]
-	  \centering
-	  \includegraphics[width=4cm, keepaspectratio]{img/menuClientes.png}
-	  \caption{Sección Clientes.}
-	  \label{fig:menuClientes}
-\end{figure}
-
-Seleccionando clientes, se accede a la tabla donde se muestran todos los usuarios registrados en la tienda online. 
-
- \begin{figure}[H]
-	  \centering
-	  \includegraphics[width=15cm, keepaspectratio]{img/clientes.png}
-	  \caption{Sección Clientes.}
-	  \label{fig:menuClientes}
-\end{figure}
-
-El administrador puede filtrar por: Nombre, apellidos, email, DNI y telefóno. Para filtrar debe rellenar el campo o los campos, del formulario de la parte superior, por los que desea filtrar y pulsar sobre el botón ``Buscar''. 
-
- \begin{figure}[H]
-	  \centering
-	  \includegraphics[width=15cm, keepaspectratio]{img/filtrosClientes.png}
-	  \caption{Filtrado clientes.}
-	  \label{fig:filtradoClientes}
-\end{figure}
-
- En la cabecera de la tabla, en la parte derecha, hay una barra de herramientas, que permite actualizar la tabla, limpiar los filtros y exportar a Excel. 
-
- \begin{figure}[H]
-	  \centering
-	  \includegraphics[width=3.5cm, keepaspectratio]{img/herramientasPedidos.png}
-	  \caption{Funcionalidades de la tabla clientes: Actulizar, limpiar filtros y exportar a Excel.}
-	  \label{fig:herramientas}
-\end{figure}
-
-Para exportar la tabla a excel se realiza como en la tabla pedidos (ver sección \ref{sec:pedidos}).
-
-Cada registro de la tabla contiene dos botones, uno para visualizar la ficha del cliente y otro para eliminar al usuario del sistema.
-
-\begin{figure}[H]
-	  \centering
-	  \includegraphics[width=3.5cm, keepaspectratio]{img/iconosClientes.png}
-	  \caption{Iconos ficha y borrado de cliente.}
-	  \label{fig:iconosClientes}
-\end{figure}
-
-Para ver la ficha del cliente, el administrador debe pulsar sobre el icono ``Info''. Al pulsar sobre dicho icono se abre una ventana diálogo con la información del usuario. El administrador no puede actualizar ningún dato del cliente.
-
- \begin{figure}[H]
-	  \centering
-	  \includegraphics[width=9cm, keepaspectratio]{img/fichaCliente.png}
-	  \caption{Ficha cliente.}
-	  \label{fig:fichaCliente}
-\end{figure}
-
-Para eliminar un cliente, el administrador debe pulsar sobre el icono ``x'' que aparece en cada registro. Al pulsar sobre este icono se abre una ventana de confirmación. Si desea borrar el cliente debe pulsar ``Sí'' y si no pulsar ``No''. 
-
- \begin{figure}[H]
-	  \centering
-	  \includegraphics[width=12cm, keepaspectratio]{img/ventanaEliminacion.png}
-	  \caption{Ventana de confirmación para eliminar un cliente.}
-	  \label{fig:eliminadoCliente}
-\end{figure}
-
-Al pulsar sobre ``Sí'', se elimina el cliente, se cierra la ventana, se muestra un mensaje en pantalla y se actualiza la tabla de clientes. 
-
- \begin{figure}[H]
-	  \centering
-	  \includegraphics[width=12cm, keepaspectratio]{img/eliminacionCliente.png}
-	  \caption{Mensaje de aviso al eliminar un cliente.}
-	  \label{fig:eliminarCliente}
-\end{figure}
+ En la ficha del pedido se muestra el listado de productos que el usuario ha comprado, la fecha de entrega, el correo del usuario, si está cobrado y el estado del pedido. El administrador puede marcar el pedido como cobrado o no cobrado y actualizar el estado (preparando, entregado o finalizado). Para guardar los datos se pulsa el botón ``Actualizar pedido''.    
 
 \subsection{Facturas}
-\label{sec:facturas}
+\label{sec:Facturas}
 
-Para acceder a la tabla de facturas, el administrador debe pulsar sobre la sección ``Pedidos'' y sobre ``Facturas'' del menú de la izquierda.
+En la sección \textit{Facturas} se muestra las facturas generadas en el sistema. Las facturas están ordenadas, por defecto, por número de factura. Para modificar el orden de los registros se pulsa sobre la cabecera de cada columna. El administrador puede filtrar los resultados rellenando los campos del formulario situado encima de la tabla y pulsando el botón ``Buscar''. En la parte inferior de la tabla se sitúa la barra de paginación, que permite cambiar de página y seleccionar el número de registros a mostrar por página.
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=16.5cm, keepaspectratio]{img/facturas.png}
+	  \caption{Sección Facturas.}
+	  \label{fig:seccionFacturas}
+\end{figure} 
+
+En la parte superior derecha de la tabla se encuentra la barra de herramientas. 
 
 \begin{figure}[H]
 	  \centering
-	  \includegraphics[width=4cm, keepaspectratio]{img/seccionFacturas.png}
-	  \caption{Sección Facturas.}
-	  \label{fig:seccionFacturas}
-\end{figure}
-
-Al pulsar sobre facturas, se muestran las facturas generadas ordenadas por el número de factura
-
- \begin{figure}[H]
-	  \centering
-	  \includegraphics[width=15cm, keepaspectratio]{img/facturas.png}
-	  \caption{Tabla de Facturas.}
-	  \label{fig:tablaFacturas}
-\end{figure}
-
-Se puede filtrar por número de factura, fecha de facturación y por cliente. Para ello, debe rellenar los campos del formulario de la parte superior y pulsar sobre el botón filtrar. 
-
- \begin{figure}[H]
-	  \centering
-	  \includegraphics[width=15cm, keepaspectratio]{img/filtradoFactura.png}
-	  \caption{Filtrado de facturas.}
-	  \label{fig:FiltradoFacturas}
-\end{figure}
-
-En la cabecera de la tabla, en la parte derecha hay una barra de herramientas que permite actulizar la tabla, eliminar los filtros y exportar la tabla a un documento Excel. 
-
- \begin{figure}[H]
-	  \centering
 	  \includegraphics[width=3.5cm, keepaspectratio]{img/herramientasPedidos.png}
-	  \caption{Funcionalidades de la tabla facturas: Actulizar, limpiar filtros y exportar a Excel.}
-	  \label{fig:herramientasFacturas}
+	  \caption{Barra de herramientas de Facturas.}
+	  \label{fig:barraFacturas}
 \end{figure}
 
-Para exportar la tabla a excel se realiza como en la tabla pedidos (ver sección \ref{sec:pedidos}).
+El primer icono de la izquierda permite recargar los datos de la tabla. El icono central limpia los valores de los filtros, cargando de nuevo todos los facturas. El icono de la derecha permite exportar la tabla a un documento Excel. 
 
-Cada registro de la tabla de facturas tiene dos iconos, uno para visualizar la factura y otro para generar el PDF de la factura. 
+Cada registro tiene dos iconos:
+
 
  \begin{figure}[H]
 	  \centering
-	  \includegraphics[width=3.5cm, keepaspectratio]{img/iconosFactura.png}
-	  \caption{Iconos detalle factura y generación PDF.}
-	  \label{fig:iconoFactura}
-\end{figure} 
+	  \includegraphics[width=3.5cm, keepaspectratio]{img/IconosFactura.png}
+	  \caption{Iconos de una factura.}
+	  \label{fig:iconosFacturas}
+\end{figure}
 
-Para ver el detalle de la factura, debe pulsar sobre el icono ``info''. Al pulsar se abre una ventana diálogo donde se muestran los detalles de la factura. 
+ El icono de la derecha permite descargar el PDF de la factura. Ver figura \ref{fig:factura}.  
+
+ El icono de la izquierda permite mostrar la ficha de la factura.  
 
  \begin{figure}[H]
 	  \centering
 	  \includegraphics[width=9cm, keepaspectratio]{img/detalleFactura.png}
-	  \caption{Detalle de la factura.}
+	  \caption{Ficha de la factura.}
 	  \label{fig:detalleFactura}
 \end{figure} 
 
-Para generar el PDF de la factura, se debe pulsar sobre el icono ``Generar PDF''. Al pulsar sobre el icono, se abre una nueva ventana del navegador donde se muestra el PDF. El administrador puede descargar y guardar el PDF en su equipo. 
+En la ficha de la factura se muestra el listado de productos que el usuario ha comprado, la fecha de facturación, el correo del usuario y el número de la factura. El administrador no puede realizar ninguna modificación sobre la factura.
+
+
+
+\subsection{Clientes}
+\label{sec:Clientes}
+
+En la sección \textit{Clientes} se muestra los clientes registrados en la tienda. Los clientes están ordenados, por defecto, por nombre. Para modificar el orden de los registros se pulsa sobre la cabecera de cada columna. El administrador puede filtrar los resultados rellenando los campos del formulario situado encima de la tabla y pulsando el botón ``Buscar''. En la parte inferior de la tabla se sitúa la barra de paginación, que permite cambiar de página y seleccionar el número de registros a mostrar por página.
 
  \begin{figure}[H]
 	  \centering
-	  \includegraphics[width=9cm, keepaspectratio]{img/pdf.png}
-	  \caption{Factura en PDF.}
-	  \label{fig:generacionPdfFactura}
+	  \includegraphics[width=16.5cm, keepaspectratio]{img/seccionclientes.png}
+	  \caption{Sección Clientes.}
+	  \label{fig:seccionClientes}
 \end{figure} 
+
+En la parte superior derecha de la tabla se encuentra la barra de herramientas. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=3.5cm, keepaspectratio]{img/herramientasPedidos.png}
+	  \caption{Barra de herramientas de Clientes.}
+	  \label{fig:barraclientes}
+\end{figure}
+
+El primer icono de la izquierda permite recargar los datos de la tabla. El icono central limpia los valores de los filtros, cargando de nuevo todos los Clientes. El icono de la derecha permite exportar la tabla a un documento Excel. 
+
+Cada registro tiene dos iconos:
+
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=2.5cm, keepaspectratio]{img/IconosClientes.png}
+	  \caption{Iconos de un cliente.}
+	  \label{fig:iconoscliente}
+\end{figure}
+
+ El icono de la derecha permite eliminar un cliente. El cliente puede pedir que su información personal sea borrada del sistema debido a la Ley de Protección de Datos. Antes de borrar el cliente, el sistema muestra una ventana de confirmación. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=7.5cm, keepaspectratio]{img/ventanaEliminacion.png}
+	  \caption{Ventana de confirmación para eliminar un cliente.}
+	  \label{fig:eliminadoCliente}
+\end{figure}
+
+  
+El icono de la izquierda permite mostrar la ficha del cliente.  
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=9cm, keepaspectratio]{img/fichaCliente.png}
+	  \caption{Ficha del cliente.}
+	  \label{fig:fichaCliente}
+\end{figure} 
+
+En la ficha del cliente se muestra los datos personales, incluyendo dirección de facturación, dirección de envío y el número de pedidos que ha realizado en la tienda. El administrador no puede realizar ninguna modificación sobre los datos del cliente.
+
+\subsection{Productos}
+\label{sec:productos}
+
+En la sección \textit{Productos} se muestra los productos almacenados en la tienda. Los productos están ordenados, por defecto, por código de producto. Para modificar el orden de los registros se pulsa sobre la cabecera de cada columna. El administrador puede filtrar los resultados rellenando los campos del formulario situado encima de la tabla y pulsando el botón ``Buscar''. En la parte inferior de la tabla se sitúa la barra de paginación, que permite cambiar de página y seleccionar el número de registros a mostrar por página.
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=16.5cm, keepaspectratio]{img/seccionProductos.png}
+	  \caption{Sección Productos.}
+	  \label{fig:seccionProductos}
+\end{figure} 
+
+En la parte superior derecha de la tabla se encuentra la barra de herramientas. 
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=3.5cm, keepaspectratio]{img/barraProductos.png}
+	  \caption{Barra de herramientas de productos.}
+	  \label{fig:herramientasProductos}
+\end{figure}
+
+El primer icono, empezando por la izquierda, permite recargar los datos de la tabla. El segundo icono permite añadir un nuevo producto. El tercer icono limpia los valores de los filtros, cargando de nuevo todos los productos. El último icono permite exportar la tabla a un documento Excel. 
+
+Cada registro tiene dos iconos:
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=2.5cm, keepaspectratio]{img/IconosClientes.png}
+	  \caption{Iconos de un Producto.}
+	  \label{fig:iconoscliente}
+\end{figure}
+
+El icono de la derecha permite eliminar un producto. Antes de borrar el producto, el sistema muestra una ventana de confirmación. Ver figura \ref{fig:eliminadoCliente} 
+
+  
+El icono de la izquierda permite mostrar la ficha del producto.  
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=12cm, keepaspectratio]{img/detalleProductoAdmin.png}
+	  \caption{Ficha del producto.}
+	  \label{fig:fichaProducto}
+\end{figure} 
+
+En la ficha del producto se muestran todos los datos del producto. El campo características permite añadir formato al texto. El administrador puede modificar todos los campos del producto. Para subir una foto, debe pulsar sobre la imagen y seleccionar la foto que desea subir. Para guardar los cambios debe pulsar el botón ``Guardar''. Esta ventana se utiliza para añadir nuevos productos y para editarlos.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Para acceder a la tabla de productos, el administrador debe pulsar sobre la sección ``Catálogo'' y sobre ``Productos'' del menú de la izquierda.
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=4cm, keepaspectratio]{img/seccionProductos.png}
+	  \caption{Sección Productos.}
+	  \label{fig:seccionProductos}
+\end{figure}
+
+Al pulsar sobre productos, se muestran los productos almacenados en el sistema.
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/productos.png}
+	  \caption{Tabla de productos.}
+	  \label{fig:tablaproductos}
+\end{figure}
+
+En la cabecera de la tabla, en la parte derecha hay una barra de herramientas que permite actulizar la tabla, añadir un nuevo producto, limpiar filtros y exportar a excel. 
+
+
+
+
+Se puede filtrar por código de producto, categoría, marca y precio. Para ello, debe rellenar los campos del formulario de la parte superior y pulsar sobre el botón ``Buscar''. Para volver a ver la tabla con todos sus registros, se debe pulsar sobre ``Limpiar filtros''.
+
+La exportación de la tabla al documento excel se realiza como en la tabla pedidos (ver sección \ref{sec:pedidos}).
+
+Cada registro de la tabla de producto tiene dos iconos, uno para visualizar el detalle del producto y otro para eliminar el producto.  
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=3.5cm, keepaspectratio]{img/iconosClientes.png}
+	  \caption{Iconos info y eliminar producto.}
+	  \label{fig:iconoProductos}
+\end{figure}
+
+Para visualizar el detalle del producto, el administrador debe pulsar sobre el botón ``Info''. Al pulsar sobre este botón, se abre una ventana diálago que permite ver el detalle del producto. Todos los campos del producto se pueden modificar. Para ello, se cambia el campo que se desea modificar y se pulsa sobre el botón ``Actualizar''. Al actualizar, la ventana se cierra y se actuliza la tabla con los cambios. Además, se muestra un mensaje indicando que el producto se ha actualizado. 
+
+\begin{figure} [H]
+ \centering
+ \subfloat{
+    \includegraphics[width=0.5\textwidth]{img/fichaProducto.png}}
+  \subfloat{
+    \includegraphics[width=0.5\textwidth]{img/detalleProducto2.png}}
+ \caption{Ficha del producto.}
+ \label{fig:fichaProducto}
+\end{figure}
+El administrador puede dar formato a las características del producto. De tal forma que este formato luego se ve reflejado en la página \textit{Detalle del producto} que ve el usuario. 
+
+Para añadir un nuevo producto al sistema, se debe pulsar sobre el botón ``Añadir producto'' de la barra de herramientas de la cabecera de la tabla. La ventana que se abre es la misma que para ver el detalle del producto, con la diferencia que los campos están vacíos. Cuando los campos se han rellenado, se pulsa el botón ``Guardar'' para añadir el producto a la base de datos. 
+
+Se puede eliminar un producto del sistema. Para ello, se debe pulsar el icono ``x'' del registro que se desea eliminar. Al pulsar sobre el icono se abre la ventana de confirmación mostrada en la figura \ref{fig:eliminadoCliente}. Cuando se elimina el producto, se cierra la ventana, se muestra un mensaje indicando que el producto se ha eliminado y se actualiza la tabla. 
+
+
+\subsection{Marcas y categorías}
+\label{sec:marcasCategorias}
+
+En esta página se muestra tanto la tabla de marcas como la tabla de categorías.
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=15cm, keepaspectratio]{img/marcasCategorias.png}
+	  \caption{Página de marcas y categorías.}
+	  \label{fig:tablamarcar}
+\end{figure}
+
+Para acceder a esta página, el administrador debe pulsar sobre la sección ``Catálogo'' y sobre ``Marcas y Categorías'' del menú situado a la izquierda. 
+
+\begin{figure}[H]
+	  \centering
+	  \includegraphics[width=4cm, keepaspectratio]{img/seccionMarcas.png}
+	  \caption{Sección Marcas y categorías.}
+	  \label{fig:seccionMarcas}
+\end{figure}
+
+En las cabeceras de las tablas hay una barra de herramientas que permiten la actualización de la tablas, la creacción de nuevas marcas y categorías, limpiar los filtros y exportar la tabla a Excel. 
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=3.5cm, keepaspectratio]{img/barraProductos.png}
+	  \caption{Funcionalidades de las tablas marcas y categorías: Actulizar, añadir, limpiar filtros y exportar a Excel.}
+	  \label{fig:herramientasProductos}
+\end{figure}
+
+Cada tabla tiene su propio filtro, aunque ambas tablas se filtran por nombre. Para realizar el filtrado, el administrador debe rellenar ambos formularios y pulsar sobre el botón ``Buscar'' de ambas tablas. Para volver a ver en las tablas todos los registros se deben pulsar el botón ``Limpiar filtros'' de cada tabla. 
+
+La exportación de ambas tablas se realiza de la misma forma que en las secciones anteriores (ver sección \ref{sec:pedidos}).
+
+Cada uno de los registros (en ambas tablas) tiene un icono que permite eliminar una marca o una categoría. Para eliminar, por ejemplo, una categoría se debe pulsar sobre este icono. Al pulsar el icono se abre una ventana de confirmación similar a la que se abre cuando se elimina un cliente (ver figura \ref{fig:eliminadoCliente}).
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=3.5cm, keepaspectratio]{img/iconoMarca.png}
+	  \caption{Icono eliminar marca y categoría.}
+	  \label{fig:iconoMarca}
+\end{figure}
+
+Para crear una marca o una categoría se debe pulsar sobre el icono ``+'' de la barra de herramientas de la tabla correspondiente. Al pulsar sobre el icono se abre una ventana en la que se añade el nombre de la marca o categoría y el logo de la marca y la categoría. Para seleccionar el logo se debe pulsar sobre el recuadro que aparece en la ventana. Una vez rellenos los datos, se pulsa sobre el botón ``Guardar''. Al guardarse la marca o la categoría se cierra la ventana, se muestra un mensaje de aviso y se actualiza la tabla correspondiente. 
+
+\begin{figure} [H]
+ \centering
+ \subfloat{
+    \includegraphics[width=0.5\textwidth]{img/fichaProducto.png}}
+  \subfloat{
+    \includegraphics[width=0.5\textwidth]{img/detalleProducto2.png}}
+ \caption{Ficha del producto.}
+ \label{fig:fichaProducto}
+\end{figure}
+El administrador puede dar formato a las características del producto. De tal forma que este formato luego se ve reflejado en la página \textit{Detalle del producto} que ve el usuario. 
+
+Para añadir un nuevo producto al sistema, se debe pulsar sobre el botón ``Añadir producto'' de la barra de herramientas de la cabecera de la tabla. La ventana que se abre es la misma que para ver el detalle del producto, con la diferencia que los campos están vacíos. Cuando los campos se han rellenado, se pulsa el botón ``Guardar'' para añadir el producto a la base de datos. 
+
+Se puede eliminar un producto del sistema. Para ello, se debe pulsar el icono ``x'' del registro que se desea eliminar. Al pulsar sobre el icono se abre la ventana de confirmación mostrada en la figura \ref{fig:eliminadoCliente}. Cuando se elimina el producto, se cierra la ventana, se muestra un mensaje indicando que el producto se ha eliminado y se actualiza la tabla. 
+
+ \begin{figure}[H]
+	  \centering
+	  \includegraphics[width=3.5cm, keepaspectratio]{img/crearMarca.png}
+	  \caption{Ventana para añadir.}
+	  \label{fig:iconoMarca}
+\end{figure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

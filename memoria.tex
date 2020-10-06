@@ -191,7 +191,7 @@ Agradecer a la vida, porque a pesar de todo he tenido suerte. Suerte por tener a
 
 El Trabajo Fin de Grado tiene como objetivo principal desarrollar una aplicación web de comercio electrónico para la venta de electrodomésticos.
 
-Gracias a aplicaciones como la que se desarrollada en este trabajo, pequeños comercios pueden ampliar su mercado y llegar a más gente, pues simplemente accediendo a la web se puede ver la variedad de productos que hay en el catálogo, conocer su precio y realizar la compra sin tener la necesidad de ir a la tienda física. 
+Gracias a aplicaciones como la que se desarrolla en este trabajo, pequeños comercios pueden ampliar su mercado y llegar a más gente, pues simplemente accediendo a la web se puede ver la variedad de productos que hay en el catálogo, conocer su precio y realizar la compra sin tener la necesidad de ir a la tienda física. 
 
 Destacar que además de la venta de electrodomésticos, la aplicación permite al administrador, dueño del comercio, gestionar los clientes, los productos, las ofertas, los pedidos y las facturas. Pensando en esta gestión, se implementa un sistema de importación y exportación de ficheros Excel que permite al administrador cargar productos de manera masiva sin tener que ir uno a uno, agilizando el trabajo del  administrador. 
 
@@ -613,7 +613,7 @@ Git permite el trabajo en equipo mediante su sistema de ramas, que permite el de
 
 Los cambios en los proyectos se realizan de manera inmediata, ya que cada desarrollador tiene una copia en local (en su equipo) del proyecto. Esto permite navegar por el historial de cambios sin necesidad de conectarse a un servidor. Es decir, se puede trabajar en local hasta finalizar una tarea y, posteriormente, subirlo al repositorio. Así, todo el equipo obtiene el cambio en su proyecto local. 
 
-Cuando se usa Git en un equipo de trabajo se definen flujos que determinan como se va a realizar el desarrollo del proyecto. Es habitual que exista una rama \emph{master}, que será la que se despliegue en producción. De esta rama \emph{master} se obtiene una nueva rama, por ejemplo \emph{develop}. En esta rama se añaden los cambios y las funcionales nuevas. Se mezcla con la rama \emph{master} una vez testeados los cambios. Para funcionalidades específicas, se crean ramas que se obtienen de la \emph{develop}, denominándose por ejemplo \emph{features}. De esta forma, se permite el desarrollo en paralelo de los distintos integrantes del grupo. Una vez que la funcionalidad esté finalizada y probada se junta con la rama \emph{develop}. Cuando el resto del equipo actualiza su rama \emph{develop}, obtienes los cambios de las nuevas funcionalidades sin que su trabajo se vea afectado. Cuando hay un error en producción que deber ser solucionado inmediatamente, se crea una rama a partir de la \emph{master}, llamada \emph{hotfix}, donde se desarrollan las soluciones al error. Una vez implementada la solución al error, se mezcla con la rama \emph{master}. 
+Cuando se usa Git en un equipo de trabajo se definen flujos que determinan como se va a realizar el desarrollo del proyecto. Es habitual que exista una rama \emph{master}, que será la que se despliegue en producción. De esta rama \emph{master} se obtiene una nueva rama, por ejemplo \emph{develop}. En esta rama se añaden los cambios y las funcionales nuevas. Se mezcla con la rama \emph{master} una vez testeados los cambios. Para funcionalidades específicas, se crean ramas que se obtienen de la \emph{develop}, denominándose por ejemplo \emph{features}. De esta forma, se permite el desarrollo en paralelo de los distintos integrantes del grupo. Una vez que la funcionalidad esté finalizada y probada se junta con la rama \emph{develop}. Cuando el resto del equipo actualiza su rama \emph{develop}, obtienen los cambios de las nuevas funcionalidades sin que su trabajo se vea afectado. Cuando hay un error en producción que deber ser solucionado inmediatamente, se crea una rama a partir de la \emph{master}, llamada \emph{hotfix}, donde se desarrollan las soluciones al error. Una vez implementada la solución al error, se mezcla con la rama \emph{master}. 
 
 \section{Visual Studio Code} 
 \label{sec:Visual Studio Code}
@@ -672,7 +672,7 @@ Existen distintos tipos de arquitectura $Three-Tier$. La escogida para esta apli
 Para la implementación del cliente se ha usado Angular, ya que permitía crear una aplicación Single-Page, haciendo uso del modelo-vista-controlador (MVC). Este tipo de aplicaciones se caracterizan por la rapidez y la fluidez de navegación, ya que no es necesario recargar la página cada vez que se cambia de vista. Angular utiliza TypeScript como lenguaje de programación, por lo que el cliente está programado con esta tecnología, además, de usar HTML5, CSS3 y Bootstrap. El cliente utiliza el servidor que proporciona Angular CLI para servir los recursos.
 
 
-El servidor se ha implementado usando Node.js y Express, consiguiendo así, crear una aplicación rápida y escalable. Se ha programando utilizando JavaScript. Por su parte, el servidor se encuentra alojado en el servidor proporcionado por Node.js.
+El servidor se ha implementado usando Node.js y Express, consiguiendo así, crear una aplicación rápida y escalable. Se ha programado utilizando JavaScript. Por su parte, el servidor se encuentra alojado en el servidor proporcionado por Node.js.
 
 Para establecer la comunicación entre el cliente (servido por Angular CLI) y el servidor (servido por Node.js) se ha recurrido a la utilización de un  \emph{proxy}. En JavaScript, cuando se hacen peticiones a un dominio distinto al del origen del \emph{script}, como es el caso, surge el problema de Cross Domain, el cual impide que se establezca la conexión entre el cliente y el servidor. En el caso de la aplicación, el  \emph{proxy} actúa de intermediario reenviando todo el tráfico que recibe Angular CLI en el contexto $\slash nevado$ al servidor e intercepta las respuestas que el servidor envía al cliente. Con Angular CLI se configura de manera sencilla, ya que para configurarlo solo se necesita un fichero de configuración y ejecutar su servidor a través de la instrucción: \emph{ng-serve --proxy-config proxy.conf.json}. 
 
@@ -764,7 +764,7 @@ El gestor de base de datos utilizado es MongoDB, que es una base de datos no rel
 
 				\item \textbf{fechaModificacion}: Fecha en la que algún campo del documento es actualizado. (Date)
 
-				\item \textbf{autor}: Nombre de quien agrego el artículo al sistema. (String)
+				\item \textbf{autor}: Nombre de quien añade el artículo al sistema. (String)
 
 				\item \textbf{ventas}: Número de veces que el producto ha sido comprado. (Number)
 
@@ -885,7 +885,7 @@ El gestor de base de datos utilizado es MongoDB, que es una base de datos no rel
 
 				\item \textbf{total}: Precio total de la factura. (Number)
 
-				\item \textbf{formasPago}: Método de pago con el que se pago el pedido. (String)
+				\item \textbf{formasPago}: Método de pago con el que se paga el pedido. (String)
 
 				\item \textbf{idPedido}: Identificador del pedido asociado a la factura. (String)
 
@@ -1008,7 +1008,7 @@ Los \emph{endpoints} de la aplicación implementada en este trabajo son:
 
 	\item \textbf{POST \slash nevado\slash admin\slash orders\slash idPedido}: Actualiza el estado del pedido. Cuando un cliente finaliza un pedido siempre se crea con estado ``pendiente". El administrador modifica el estado cuando se empieza a preparar para permitir al usuario conocer el estado de su pedido.
 
-	\item \textbf{POST \slash nevado\slash admin\slash orders\slash cobrado\slash idPedido}: Actualiza el campo cobrado de un pedido. Esta opción se implemento pensando en los pagos contra-reembolso, ya que estos pagos se realizan en el momento que el cliente ha recibido su producto en casa. 
+	\item \textbf{POST \slash nevado\slash admin\slash orders\slash cobrado\slash idPedido}: Actualiza el campo cobrado de un pedido. Esta opción se ha implementado pensando en los pagos contra-reembolso, ya que estos pagos se realizan en el momento que el cliente ha recibido su producto en casa. 
 
 	\item \textbf{GET \slash nevado\slash admin\slash orders\slash pending}: Devuelve el número de pedidos que están con estado ``pendiente". Este número se muestra en el \emph{header} de la parte de administración, agilizando la preparación de los envíos.
 
@@ -1189,7 +1189,7 @@ Una vez cifrada la contraseña, se crea el nuevo registro en la colección usuario
 
 Un usuario debe autenticarse para poder realizar determinadas operaciones dentro de la tienda \emph{online}, por ejemplo, realizar sus compras, acceder a sus datos personales o acceder a la información de sus pedidos. Para realizar esta autenticación se ha utilizado la biblioteca $Passportjs$. Esta biblioteca permite realizar este proceso de manera sencilla y rápida. Passport almacena los datos necesarios para la autenticación en una cookie de sesión. Para configurar dicha cookie de sesión se ha usado $express-session$, que es un módulo de Express. La configuración se realiza cuando se arranca el servidor de Node.js, por lo que se encuentra situada en el fichero app.js. Los parámetros que se han configurado son el tiempo de expiración de la cookie, dónde se guardan las sesiones y el valor de la clave \emph{secret}. Este \emph{secret} es una cadena de texto que se utiliza como identificador y que permite validar la sesión. Passport tiene muchas estrategias para autenticar a un usuario, en la aplicación se ha optado por utilizar $Passport\-local$, la cual utiliza el \emph{email} y la contraseña para realizar la autenticación. 
 
-Para acceder a una cuenta de usuario, se deber navegar a \slash nevado\slash login, acceder a la pestaña entrar, rellenar el \emph{email} y la contraseña y pulsar sobre el botón entrar. Al pulsar sobre el botón, se realiza una petición al servidor, en la que viajan la contraseña y el \emph{email} introducido por el usuario. El servidor ejecuta la estrategia de Passport que se ha implementado. Esta estrategia consiste en buscar el \emph{email} en el sistema. Si no lo encuentra envía un error, indicando que el usuario no está registrado. Si lo encuentra, procede a comparar la contraseña enviada con la almacenada. Para realizar esta comparación se ha utilizado la función de bcrypt \emph{compare}, que cifra la contraseña introducida y la compara con la almacenada. Si las contraseñas no coinciden se envía un error. Si coinciden, Passport crea una sesión de usuario que serializa y guarda en la base de datos. Además, estos datos de la sesión se añaden a la cookie, la cual se envía en cada una de las peticiones realizadas al servidor. De esta forma, no hay que enviar el \emph{email} y la contraseña en cada llamada. El servidor únicamente se encargará de validar la cookie enviada.
+Para acceder a una cuenta de usuario, se deber navegar a $\slash nevado\slash login$, acceder a la pestaña entrar, rellenar el \emph{email} y la contraseña y pulsar sobre el botón entrar. Al pulsar sobre el botón, se realiza una petición al servidor, en la que viajan la contraseña y el \emph{email} introducido por el usuario. El servidor ejecuta la estrategia de Passport que se ha implementado. Esta estrategia consiste en buscar el \emph{email} en el sistema. Si no lo encuentra envía un error, indicando que el usuario no está registrado. Si lo encuentra, procede a comparar la contraseña enviada con la almacenada. Para realizar esta comparación se ha utilizado la función de bcrypt \emph{compare}, que cifra la contraseña introducida y la compara con la almacenada. Si las contraseñas no coinciden se envía un error. Si coinciden, Passport crea una sesión de usuario que serializa y guarda en la base de datos. Además, estos datos de la sesión se añaden a la cookie, la cual se envía en cada una de las peticiones realizadas al servidor. De esta forma, no hay que enviar el \emph{email} y la contraseña en cada llamada. El servidor únicamente se encargará de validar la cookie enviada.
 
 Para acceder a determinadas vistas de la aplicación como, por ejemplo, las vistas de administración, el usuario, además de estar logueado, deberá tener el perfil de administrador. Para hacer esta comprobación, en cada llamada realizada bajo el contexto $\slash admin$ se ejecutará una función que valida que el usuario tenga este perfil. Si el perfil no coincide, no se permitirá el acceso a esta parte y se redireccionará a la página principal. 
 
@@ -1321,7 +1321,7 @@ En la figura~\ref{fig:estructuraArchivoscliente} se puede observar como está org
 \subsection{Vistas} 
 \label{sec:vistas}
 
-Las vistas de la aplicación forman la interfaz de usuario. Cada vista está formada por uno o más componentes. Cada uno de estos componentes tiene asociado un controlador, una hoja CSS y un documento HTML. Trabajar con Angular hace que el código este ordenado, por lo que las aplicaciones son más escalables.
+Las vistas de la aplicación forman la interfaz de usuario. Cada vista está formada por uno o más componentes. Cada uno de estos componentes tiene asociado un controlador, una hoja CSS y un documento HTML. Trabajar con Angular hace que el código esté ordenado, por lo que las aplicaciones son más escalables.
 Para aumentar la escalabilidad de la aplicación se han creado componentes reutilizables, es decir, componentes que se usan en varias vistas de la aplicación. Crear estos componentes reutilizables significa aumentar la mantenibilidad de las aplicaciones, ya que a la hora de producirse un error o una actualización en uno de los componentes reutilizables supone modificar únicamente el componente reutilizable, evitando modificar cada uno los componentes afectados por el error o la actualización.
 
 Los componentes que se reutilizan en la aplicación son: 
@@ -1378,7 +1378,7 @@ Vistas que no necesitan autenticarse en la aplicación para poder visualizarse:
 
 \begin{itemize} 
 
-	\item \textbf{Login}: Página donde el usuario puede registrarse o acceder a su cuenta. Está formado por dos pestañas, uno para el registro y otro para el \emph{login}. Cada pestaña es un formulario donde el usuario debe rellenar los datos de acceso (en el caso del \emph{login}) y los datos para darse de alta (en el caso del registro). En ambos formulario se comprueba que los campos estén rellenos y que los datos sean válidos. Cuando se crea una cuenta, la contraseña y la contraseña de confirmación deben coincidir. Además, se informa al usuario de la fortaleza de la contraseña. Si se produce un error en el registro o en el acceso a la cuenta, se muestra un mensaje en pantalla a través del sistema de avisos, explicado en la sección~\ref{sec:sistemaAvisos}. 
+	\item \textbf{Login}: Página donde el usuario puede registrarse o acceder a su cuenta. Está formado por dos pestañas, uno para el registro y otro para el \emph{login}. Cada pestaña es un formulario donde el usuario debe rellenar los datos de acceso (en el caso del \emph{login}) y los datos para darse de alta (en el caso del registro). En ambos formularios se comprueba que los campos estén rellenos y que los datos sean válidos. Cuando se crea una cuenta, la contraseña y la contraseña de confirmación deben coincidir. Además, se informa al usuario de la fortaleza de la contraseña. Si se produce un error en el registro o en el acceso a la cuenta, se muestra un mensaje en pantalla a través del sistema de avisos, explicado en la sección~\ref{sec:sistemaAvisos}. 
 
 	\item \textbf{Recuperar contraseña}: Vista que permite restablecer la contraseña, enviando un enlace al correo introducido en el formulario. Previamente, se comprueba que el correo es válido para un usuario de la aplicación. El enlace redirecciona a una nueva vista con dos campos a rellenar, la nueva contraseña y su confirmación. Cuando se pulsa el botón ``Cambiar contraseña'' se actualiza la contraseña.
 
@@ -1434,7 +1434,7 @@ La vista principal de la trastienda está compuesta por:
 
 Las secciones de la trastienda son: Clientes, pedidos (pedidos y facturas), catálogo (productos, marcas y categorías), servicios (métodos de pago y transporte), ofertas, importación y mensajería.
 
-Todas las secciones se organizan de la misma forma. Tienen tabla, creada con \emph{mat-table} de Angular Material, que muestra la información de cada sección de forma paginada. Cada tabla puede ordenar y filtrar la información. Para ello, se recogen los valores de filtrado mediante un formulario y se envían al servidor, que se encarga de introducirlos en la \emph{query} para devolver exclusivamente los datos que coinciden. Además, las tablas son exportables a Excel (sección~\ref{sec:importacion}). También, hay tablas que permiten realizar acciones exclusivas. Por ejemplo, la tabla de facturas permite la exportación de cada factura en formato PDF (sección~\ref{sec:pdfs}). La tabla de mensajería, además de permitir ver los mensajes enviados por los usuarios, permite contestar enviando una respuesta por correo, utilizando la biblioteca $Nodemailer$ (sección~\ref{sec:nodemailer}). 
+Todas las secciones se organizan de la misma forma. Tienen una tabla, creada con \emph{mat-table} de Angular Material, que muestra la información de cada sección de forma paginada. Cada tabla puede ordenar y filtrar la información. Para ello, se recogen los valores de filtrado mediante un formulario y se envían al servidor, que se encarga de introducirlos en la \emph{query} para devolver exclusivamente los datos que coinciden. Además, las tablas son exportables a Excel (sección~\ref{sec:importacion}). También, hay tablas que permiten realizar acciones exclusivas. Por ejemplo, la tabla de facturas permite la exportación de cada factura en formato PDF (sección~\ref{sec:pdfs}). La tabla de mensajería, además de permitir ver los mensajes enviados por los usuarios, permite contestar enviando una respuesta por correo, utilizando la biblioteca $Nodemailer$ (sección~\ref{sec:nodemailer}). 
 
 Cada uno de los registros de las tablas tiene opciones para mostrar datos, editar la información o borrar registros. Tanto en la visualización como en la edición o creación de registros, se crea una ventana de diálogo con \emph{mat-dialog} de Angular Material. Estas ventanas muestran y permiten la edición de los datos mediante formularios, creados con Angular Material. Todos los campos tienen control de errores. Además, son validados en el servidor y en caso de error se muestra un mensaje con el sistema de avisos (sección~\ref{sec:sistemaAvisos}).  En algunas de estas ventanas, por ejemplo, productos o marcas, se permite la subida de imágenes (sección~\ref{sec:subidaArchivos}) para después mostrarlas en la parte pública de la tienda. En la ventana de productos se ha utilizado la biblioteca \emph{HTML-editor}, que permite escribir texto formateado (listas, colores, tamaños y tipos de letras, entre otras). Este texto formateado corresponde con las características de cada producto, que se mostrará en la parte pública de la tienda. 
 
@@ -1501,7 +1501,7 @@ Se han seguido los siguientes pasos:
   	%	};
 	%\end{verbatim}
 	
-	\item Se añade el \emph{script} que permite llamar a la API de Paypal. Este \emph{script} se ejecuta al pulsar sobre el botón Paypal, que aparece al seleccionar Paypal como método de pago del pedido. 
+	% \item Se añade el \emph{script} que permite llamar a la API de Paypal. Este \emph{script} se ejecuta al pulsar sobre el botón Paypal, que aparece al seleccionar Paypal como método de pago del pedido. 
 	%\small\begin{verbatim} 
 	%	addPaypalScript(){
     %	this.addScript =  true;
@@ -1514,7 +1514,7 @@ Se han seguido los siguientes pasos:
   	%	};
 	%\end{verbatim}
 
-	\item Se añade el botón de Paypal en el HTML del componente ``métodos de pago''. 
+	% \item Se añade el botón de Paypal en el HTML del componente ``métodos de pago''. 
 
 	%\small\begin{verbatim} 
 	%	addpaypal(){
@@ -1718,6 +1718,9 @@ En cuanto a la parte de administración se podrían introducir las siguientes mejo
 
 \cleardoublepage
 \appendix
+
+  
+
 \chapter{Manual de Instalación}
 \label{app:manualInstalacion}
 
@@ -1755,7 +1758,9 @@ Para instalar la aplicación y poder utilizarla, en un equipo Windows y en el ent
 	Con la instalación de \textit{MongoDB} se instala \textit{Mongo Compass} (herramienta gráfica que permite interactuar con la base de datos MongoDB).
 
 
-	//Falta la instrucción de importación de la base de datos. 
+	\item Importar la base de datos.
+
+	\emph{mongorestore -d Nevado ./Escritorio/Nevado}
 \end{enumerate}
 
 	Para iniciar la aplicación se incluyen dos \emph{scripts} .bat dentro del directorio raíz del proyecto, que permiten arrancar la aplicación. Los \emph{scripts} son: 
@@ -1764,7 +1769,9 @@ Para instalar la aplicación y poder utilizarla, en un equipo Windows y en el ent
 		\item \emph{server.bat}, ejecuta el servidor de \textit{Node.js}. Utilizado para arrancar el servidor de la aplicación. 
 		\item \emph{client.bat}, ejecuta el servidor de \textit{Angular CLI} con la configuración del  \emph{proxy}. Utilizado para arrancar el cliente de la aplicación.
 	\end{itemize}
-\appendix
+
+
+
 \chapter{Manual de usuario}
 \label{app:manualUsuario}
 
@@ -2351,7 +2358,7 @@ En la parte superior derecha de la tabla se encuentra la barra de herramientas.
 	  \label{fig:barraFacturas}
 \end{figure}
 
-El primer icono de la izquierda permite recargar los datos de la tabla. El icono central limpia los valores de los filtros, cargando de nuevo todos los facturas. El icono de la derecha permite exportar la tabla a un documento Excel. 
+El primer icono de la izquierda permite recargar los datos de la tabla. El icono central limpia los valores de los filtros, cargando de nuevo todas los facturas. El icono de la derecha permite exportar la tabla a un documento Excel. 
 
 Cada registro tiene dos iconos:
 
@@ -2481,7 +2488,7 @@ En la ficha del producto se muestran todos los datos del producto. El campo cara
 \subsection{Marcas y Categorías}
 \label{sec:marcasCategorias}
 
-En la sección \textit{Marcas y Categorías} se muestran las marcas y categorías de los productos almacenados en la tienda, cada una en una tabla diferente. Tanto las marcas como las categorías están ordenados, por defecto, por nombre. Para modificar el orden de los registros se pulsa sobre la cabecera de cada columna. El administrador puede filtrar los resultados rellenando los campos de los formularios situados encima de la tabla y pulsando el botón ``Buscar'' de cada tabla. En la parte inferior de la tablas se sitúan la barras de paginación, que permiten cambiar de página y seleccionar el número de registros a mostrar por página.
+En la sección \textit{Marcas y Categorías} se muestran las marcas y categorías de los productos almacenados en la tienda, cada una en una tabla diferente. Tanto las marcas como las categorías están ordenados, por defecto, por nombre. Para modificar el orden de los registros se pulsa sobre la cabecera de cada columna. El administrador puede filtrar los resultados rellenando los campos de los formularios situados encima de las tablas y pulsando el botón ``Buscar'' de cada tabla. En la parte inferior de las tablas se sitúan la barras de paginación, que permiten cambiar de página y seleccionar el número de registros a mostrar por página.
 
  \begin{figure}[H]
 	  \centering
@@ -2499,7 +2506,7 @@ En la parte superior derecha de la tablas se encuentran la barras de herramienta
 	  \label{fig:herramientasmarcas2}
 \end{figure}
 
-El primer icono, empezando por la izquierda, permite recargar los datos de la tablas. El segundo icono permite añadir un nueva marca o una nueva categoría. El tercer icono limpia los valores de los filtros, cargando de nuevo todos las marcas o todas las categorías. El último icono permite exportar la tablas a los documentos Excel correspondientes. 
+El primer icono, empezando por la izquierda, permite recargar los datos de las tablas. El segundo icono permite añadir un nueva marca o una nueva categoría. El tercer icono limpia los valores de los filtros, cargando de nuevo todas las marcas o todas las categorías. El último icono permite exportar la tablas a los documentos Excel correspondientes. 
 
 Para crear una marca o categoría, el administrador debe rellenar los campos de los formularios y pulsar sobre el recuadro azul que permite seleccionar y subir una foto al servidor. Para finalizar debe pulsar el botón ``Guardar''. 
 
@@ -2510,12 +2517,12 @@ Para crear una marca o categoría, el administrador debe rellenar los campos de l
 	  \label{fig:crearMarca}
 \end{figure}
 
-Cada registro tiene un único iconos:
+Cada registro tiene un único icono:
 
  \begin{figure}[H]
 	  \centering
 	  \includegraphics[width=2.5cm, keepaspectratio]{img/iconoMarca.png}
-	  \caption{Iconos de una marca y una categoría.}
+	  \caption{Icono de una marca y una categoría.}
 	  \label{fig:iconosMarcas}
 \end{figure}
 
@@ -2571,16 +2578,16 @@ En la ficha de la oferta se muestra el identificador de la oferta, el porcentaje
 \subsection{Servicios}
 \label{sec:servicios}
 
-En la sección \textit{Servicios} se muestran los métodos de pagos disponibles en la tienda \emph{online} y las empresas de transporte que realizan los envíos, cada una en una tabla diferente. Tanto los métodos de pago como las empresas están ordenados, por defecto, por nombre. Para modificar el orden de los registros se pulsa sobre la cabecera de cada columna. El administrador puede filtrar los resultados rellenando los campos de los formularios situados encima de la tabla y pulsando el botón ``Buscar'' de cada tabla. En la parte inferior de la tablas se sitúan la barras de paginación, que permiten cambiar de página y seleccionar el número de registros a mostrar por página.
+En la sección \textit{Servicios} se muestran los métodos de pagos disponibles en la tienda \emph{online} y las empresas de transporte que realizan los envíos, cada una en una tabla diferente. Tanto los métodos de pago como las empresas están ordenados, por defecto, por nombre. Para modificar el orden de los registros se pulsa sobre la cabecera de cada columna. El administrador puede filtrar los resultados rellenando los campos de los formularios situados encima de las tablas y pulsando el botón ``Buscar'' de cada tabla. En la parte inferior de las tablas se sitúan la barras de paginación, que permiten cambiar de página y seleccionar el número de registros a mostrar por página.
 
  \begin{figure}[H]
 	  \centering
 	  \includegraphics[width=16.5cm, keepaspectratio]{img/servicios.png}
-	  \caption{Sección Métodos de métodos de pago y empresas de transportes.}
+	  \caption{Sección Métodos de pago y empresas de transportes.}
 	  \label{fig:seccionMarcas2}
 \end{figure} 
 
-En la parte superior derecha de la tablas se encuentran la barras de herramientas, iguales para ambas tablas. 
+En la parte superior derecha de las tablas se encuentran las barras de herramientas, iguales para ambas tablas. 
 
  \begin{figure}[H]
 	  \centering
@@ -2589,7 +2596,7 @@ En la parte superior derecha de la tablas se encuentran la barras de herramienta
 	  \label{fig:herramientasmarcas}
 \end{figure}
 
-El primer icono, empezando por la izquierda, permite recargar los datos de la tablas. El segundo icono permite añadir un nuevo método de pago o una nueva empresa de transporte. El tercer icono limpia los valores de los filtros, cargando de nuevo todos los métodos de pago o todas las empresas de transportes. El último icono permite exportar la tablas a los documentos Excel correspondientes. 
+El primer icono, empezando por la izquierda, permite recargar los datos de las tablas. El segundo icono permite añadir un nuevo método de pago o una nueva empresa de transporte. El tercer icono limpia los valores de los filtros, cargando de nuevo todos los métodos de pago o todas las empresas de transportes. El último icono permite exportar las tablas a los documentos Excel correspondientes. 
 
 Para crear un método de pago el administrador debe rellenar el campo del los formulario y pulsar sobre el recuadro azul que permite seleccionar y subir una foto al servidor. Para finalizar debe pulsar el botón ``Guardar''. Para crear una nueva empresa de transporte debe rellenar el campo del formulario y pulsar el botón ``Guardar''.
 
@@ -2600,12 +2607,12 @@ Para crear un método de pago el administrador debe rellenar el campo del los for
 	  \label{fig:crearMetodo}
 \end{figure}
 
-Cada registro tiene un único iconos:
+Cada registro tiene un único icono:
 
  \begin{figure}[H]
 	  \centering
 	  \includegraphics[width=2.5cm, keepaspectratio]{img/iconoMarca.png}
-	  \caption{Iconos de un método de pago y una empresa de transporte.}
+	  \caption{Icono de un método de pago y una empresa de transporte.}
 	  \label{fig:iconosMarcas2}
 \end{figure}
 
@@ -2681,6 +2688,7 @@ El campo de la izquierda permite elegir el tipo de dato que se desea subir (cate
 \end{figure} 
 
 El botón ``Plantilla'' descarga la plantilla del documento Excel a rellenar del tipo seleccionado. 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % BIBLIOGRAFIA %
